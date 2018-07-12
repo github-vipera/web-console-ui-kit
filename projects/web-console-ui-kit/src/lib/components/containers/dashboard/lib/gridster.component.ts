@@ -26,7 +26,7 @@ import {GridsterItem} from './gridsterItem.interface';
 @Component({
   selector: 'gridster',
   templateUrl: './gridster.html',
-  styleUrls: ['./gridster.css'],
+  styleUrls: [ './gridster.css', './gridster.vipera.css' ],
   encapsulation: ViewEncapsulation.None,
   host: {'class': 'dashboard'}
 })
