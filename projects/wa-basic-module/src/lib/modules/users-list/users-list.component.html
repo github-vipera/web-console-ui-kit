@@ -1,0 +1,110 @@
+<wc-dashboard-header [title]="'User Management'"></wc-dashboard-header>
+
+<div class="row spread">
+    <div>
+        <label>Domain</label>
+        <kendo-combobox [data]="domainList" [allowCustom]="false" [valueField]="'name'" [textField]="'name'" [(ngModel)]="selectedDomain"></kendo-combobox>
+    </div>
+
+    <div class="flex-cmd">
+        <a data-slidedown="#user-add" class="btn">
+            <svg data-id="add"><use xlink:href="img/icons.svg#ico-add"></use></svg> 
+            Add
+        </a>
+    </div>
+
+</div>
+
+<div class="row">
+    <!--
+        <div id="user-add" class="editor slidedown AVAST_PAM_signupform">
+                <input placeholder="UserID">
+            
+                <select>
+                    <option>Storeman</option>
+                </select>
+            
+                <input type="password" placeholder="Password" class="error">
+                <input type="password" placeholder="Confirm password" class="error">
+                
+                <div class="cmd">
+                    <a>
+                        <svg class="ok" data-id="ok"><use xlink:href="img/icons.svg#ico-ok"></use></svg> 
+                    </a>
+                    <a data-slideup="#user-add">
+                        <svg class="ko" data-id="ko"><use xlink:href="img/icons.svg#ico-ko"></use></svg>
+                    </a>
+                </div>
+            </div>
+        -->
+
+    <div>
+            <kendo-grid [data]="gridView" 
+            [columnMenu]="true"
+            [resizable]="true" 
+            [reorderable]="true" 
+            [groupable]="true" [group]="groups" (groupChange)="groupChange($event)"
+            [sort]="sort" (sortChange)="sortChange($event)" [sortable]="{ allowUnsort: true, mode: 'multiple' }" style="height: 100%">
+                <kendo-grid-column field="created" title="Created">
+                </kendo-grid-column>
+                <kendo-grid-column field="userId" title="User ID">
+                </kendo-grid-column>
+                <kendo-grid-column field="userIdInt" title="User ID Int.">
+                </kendo-grid-column>
+                <kendo-grid-column field="domain" title="Domain">
+                </kendo-grid-column>
+                <kendo-grid-column field="email" title="Email">
+                </kendo-grid-column>
+                <kendo-grid-column field="lastLogin" title="Last Login">
+                </kendo-grid-column>
+                <kendo-grid-column field="locale" title="Locale">
+                </kendo-grid-column>
+                <kendo-grid-column field="msisdn" title="MSISDN">
+                </kendo-grid-column>
+                <kendo-grid-column field="prevState" title="Prev. State">
+                </kendo-grid-column>
+                <kendo-grid-column field="serial" title="Serial">
+                </kendo-grid-column>
+                
+                <kendo-grid-column field="state" title="State">
+                    <!--(okPressed)="onOKPressed()" (cancelPressed)="onCancelPressed()-->
+                    <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
+                        <wc-grid-editor [rowIndex]="rowIndex" [columnIndex]="columnIndex" [column]="column" [value]="dataItem[column.field]" [dataItem]="dataItem" (onConfirmation)="onOKPressed()" (onCancel)="onCancelPressed()"></wc-grid-editor>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column title="Test Render">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                                <div class="edit">
+                                        <input type="checkbox" id="id_1_1">
+                                        <label for="id_1_1">
+                                            <svg data-id="no"><use xlink:href="assets/img/icons.svg#ico-no"></use></svg>
+                                        </label>
+                                        <div class="actions">
+                                            <span>Delete ?</span>
+                                            <a>
+                                                <svg class="ok" data-id="ok">
+                                                    <use xlink:href="assets/img/icons.svg#ico-ok"></use>
+                                                </svg> 
+                                            </a>
+                                            <label for="id_1_1">
+                                                <svg class="ko" data-id="ko">
+                                                        <use xlink:href="assets/img/icons.svg#ico-ko"></use>
+                                                </svg>
+                                            </label>
+                                        </div>
+                                    </div>
+                        </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+
+    </div>
+
+</div>
+
+<!--
+    <wc-grid [data]="usersList" [configuration]="gridConfiguration">
+    </wc-grid>
+-->
+
+ 

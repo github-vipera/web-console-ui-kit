@@ -1,0 +1,20 @@
+<div class="edit">
+    <input type="checkbox" [attr.id]="id">
+    <label [attr.for]="id">
+        <svg data-id="no"><use xlink:href="assets/img/icons.svg#ico-no"></use></svg>
+    </label>
+    <div class="actions">
+        <span>{{caption}}</span>
+        <a>
+            <svg class="ok" data-id="ok">
+                <use xlink:href="assets/img/icons.svg#ico-ok"></use>
+            </svg> 
+        </a>
+        <label [attr.for]="id">
+            <svg class="ko" data-id="ko">
+                    <use xlink:href="assets/img/icons.svg#ico-ko"></use>
+            </svg>
+        </label>
+    </div>
+</div>
+

@@ -1,0 +1,10 @@
+<table>
+    <tbody>
+        <tr class="tablesorter-headerRow">
+            <th *ngFor="let column of configuration.columns" class="tablesorter-header tablesorter-headerUnSorted">
+                    {{ column.name }}
+            </th>
+        </tr>
+        <tr *ngFor="let row of data; let i = index" wc-grid-row [data]="row" [configuration]="configuration" [row]="i"></tr>
+    </tbody>
+</table>
