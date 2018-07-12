@@ -1,0 +1,11 @@
+  <wc-dashboard-header [title]="'Dashboard'"></wc-dashboard-header>
+  <gridster [options]="options" class="row">
+      <gridster-item [item]="item" *ngFor="let item of dashboard">
+        <wc-panel [title]="'Realtime Data'">
+            <wc-data-counter [title]="'Sessions'" [value]="numOfSessions"></wc-data-counter>
+        </wc-panel>
+      </gridster-item>
+  </gridster>
+
+
+

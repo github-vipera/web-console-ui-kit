@@ -34,6 +34,12 @@
       ],
       "web-console-ui-kit/*": [
         "dist/web-console-ui-kit/*"
+      ],
+      "uikit-kitchensink-module": [
+        "dist/uikit-kitchensink-module"
+      ],
+      "uikit-kitchensink-module/*": [
+        "dist/uikit-kitchensink-module/*"
       ]
     }
   }

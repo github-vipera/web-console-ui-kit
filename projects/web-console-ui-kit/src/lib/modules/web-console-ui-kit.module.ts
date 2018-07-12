@@ -5,13 +5,14 @@ import { WCGridButtonEditorComponent } from '../components/grid-editor/WCGridBut
 import { WCPanelComponent } from '../components/containers/panel/WCPanelComponent'
 import { WCDashboardHeaderComponent } from '../components/commons/DashboardHeader/WCDashboardHeaderComponent'
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { WCDataCounterComponent } from '../components/data/Counter/WCDataCounterComponent'
 
 @NgModule({
   imports: [
     CommonModule, KendoUIModulesProvider, ToastrModule.forRoot()
   ],
-  declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent ],
-  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent ],
+  declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCDataCounterComponent],
+  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCDataCounterComponent ],
   providers : [
     ToastrService
   ]

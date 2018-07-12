@@ -29,7 +29,7 @@
               "src/styles.css",
               "src/assets/wc-uikit-kendo.css",
               "src/assets/wc-uikit-toast.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -204,6 +204,46 @@
             "tsConfig": [
               "projects/web-console-ui-kit/tsconfig.lib.json",
               "projects/web-console-ui-kit/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "uikit-kitchensink-module": {
+      "root": "projects/uikit-kitchensink-module",
+      "sourceRoot": "projects/uikit-kitchensink-module/src",
+      "projectType": "library",
+      "prefix": "vp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/uikit-kitchensink-module/tsconfig.lib.json",
+            "project": "projects/uikit-kitchensink-module/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/uikit-kitchensink-module/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uikit-kitchensink-module/src/test.ts",
+            "tsConfig": "projects/uikit-kitchensink-module/tsconfig.spec.json",
+            "karmaConfig": "projects/uikit-kitchensink-module/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/uikit-kitchensink-module/tsconfig.lib.json",
+              "projects/uikit-kitchensink-module/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
