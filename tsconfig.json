@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "web-admin-users-list-module": [
+        "dist/web-admin-users-list-module"
+      ],
+      "web-admin-users-list-module/*": [
+        "dist/web-admin-users-list-module/*"
+      ],
+      "wa-basic-module": [
+        "dist/wa-basic-module"
+      ],
+      "wa-basic-module/*": [
+        "dist/wa-basic-module/*"
+      ],
+      "web-console-ui-kit": [
+        "dist/web-console-ui-kit"
+      ],
+      "web-console-ui-kit/*": [
+        "dist/web-console-ui-kit/*"
+      ]
+    }
+  }
+}

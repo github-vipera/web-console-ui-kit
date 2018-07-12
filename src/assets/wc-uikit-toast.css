@@ -1,0 +1,13 @@
+.toast-container.toast-top-center .toast, .toast-container.toast-bottom-center .toast {
+    box-shadow: 0 0 0; 
+} 
+
+.toast {
+    font-family: montserrat;
+}
+
+.toast-message {
+    font-family: sans-serif;
+    font-size: .890rem;
+    margin-top: 4pt;
+}

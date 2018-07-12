@@ -1,0 +1,85 @@
+.k-grid {
+    background: transparent
+}
+
+div.k-grid-header, div.k-grid-footer {
+    background: transparent;
+}
+
+.k-grid th, .k-grid tr, .k-grid td {
+    background: transparent;
+}
+
+.k-grouping-header {
+    background: transparent;
+}
+
+.k-grid .k-grouping-row {
+    background-color: #363535;
+}
+
+.k-grid td {
+    border-width: 0 0 0 0;
+    border-bottom: 1px solid #666;
+    color: #aaa;
+    vertical-align: top;
+}
+
+.k-grid tr, .k-grid td {
+    padding: .6rem;
+    font-size: .75rem;
+    position: relative;
+    min-width: 1rem;
+    line-height: normal;
+}
+
+
+
+.k-grid-content {
+    background-color: transparent;
+}
+
+.k-grid-header {
+    border-bottom: 2px solid #aaa;
+    text-align: left;
+    color: #ddd;
+    text-transform: uppercase;
+    font-size: .625rem;
+    position: relative;
+    font-weight: bold;
+    font-family: 'Open Sans',sans-serif;
+}
+
+
+table .edit>label.btn {
+    width: auto;
+    height: 1.2rem;
+    font-family: montserrat;
+    text-transform: uppercase;
+    background: #22272b;
+    font-size: .7rem;
+    border-radius: .2rem;
+    border: 0;
+    padding: 0 1rem;
+    min-width: 5rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+
+table .edit {
+    min-height: 19px;
+}
+
+kendo-popup {
+    background-color:#2a2e32;
+}
+
+.k-popup {
+    background-color:#2a2e32;
+}
+
+.k-combobox-clearable .k-input {
+    background: #353A3E;
+}

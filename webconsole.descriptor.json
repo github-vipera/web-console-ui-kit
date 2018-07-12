@@ -1,0 +1,8 @@
+{
+  "name": "my-web-admin",
+  "description": "",
+  "version": "1.0.0",
+  "main-pages": [
+    "index.html"
+  ]
+}
