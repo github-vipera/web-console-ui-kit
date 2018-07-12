@@ -3,7 +3,6 @@ import { PluginView } from 'web-console-core'
 import { WCToasetrService } from 'web-console-ui-kit'
 import { GridsterItem, GridsterConfig, GridType, CompactType } from 'web-console-ui-kit'
 import { timer } from 'rxjs';
-import { take } from 'rxjs/operators'
 
 @Component({
   selector: 'wc-uikit-ks-dashboard-test',
@@ -19,9 +18,18 @@ export class DashboardTestComponent implements OnInit {
   counter: number = 1;
   options: GridsterConfig;
   //dashboard: Array<GridsterItem>;
+  
   operationCountsItem:GridsterItem;
   dateTimeItem:GridsterItem;
+  gaugeItem:GridsterItem;
+
   public numOfSessions:number=4;
+
+
+  gaugeType = "semi";
+  gaugeValue = 33;
+  gaugeLabel = "";
+  gaugeAppendText = "%";
 
   constructor(private toaster: WCToasetrService) {
   }
@@ -63,7 +71,7 @@ export class DashboardTestComponent implements OnInit {
 
     this.operationCountsItem = {cols: 2, rows: 1, y: 0, x: 0};
     this.dateTimeItem = {cols: 3, rows: 3, y: 0, x: 3};
-
+    this.gaugeItem =  {cols: 2, rows: 2, y: 2, x: 2};
     /*
     this.dashboard = [
       {cols: 1, rows: 1, y: 0, x: 0},

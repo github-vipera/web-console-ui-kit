@@ -9,10 +9,20 @@
         
     <gridster-item [item]="dateTimeItem" >
         <wc-panel [title]="'Today'">
-            <wc-data-counter [title]="dateTime | date " [value]="dateTime | date:'h:mm.ss a z' "></wc-data-counter>
+            <wc-data-counter [title]="dateTime | date " [value]="dateTime | date:'h:mm.ss a' "></wc-data-counter>
         </wc-panel>
     </gridster-item>
         
+    <gridster-item [item]="gaugeItem" >
+            <wc-panel [title]="'CPU Usage'">
+                <ngx-gauge [type]="gaugeType" 
+                    [value]="gaugeValue" 
+                    [label]="gaugeLabel"  
+                    [append]="gaugeAppendText">
+                </ngx-gauge>
+            </wc-panel>
+    </gridster-item>
+
         <!--
       <gridster-item [item]="item" *ngFor="let item of dashboard">
         <wc-panel [title]="'Realtime Data'">
