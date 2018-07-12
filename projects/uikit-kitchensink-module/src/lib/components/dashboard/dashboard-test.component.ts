@@ -38,7 +38,7 @@ export class DashboardTestComponent implements OnInit {
       resizable: {
         enabled: true,
       },
-      displayGrid: 'always',
+      displayGrid: 'onDrag&Resize',
       minCols: 1,
       maxCols: 100,
       minRows: 1,
@@ -57,7 +57,7 @@ export class DashboardTestComponent implements OnInit {
 
     this.dashboard = [
       {cols: 1, rows: 1, y: 0, x: 0},
-      {cols: 1, rows: 1, y: 0, x: 1}
+      {cols: 3, rows: 3, y: 0, x: 1}
     ];
   }
 

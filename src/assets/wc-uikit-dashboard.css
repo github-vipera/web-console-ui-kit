@@ -1,0 +1,22 @@
+wc-uikit-ks-dashboard-test {
+    height: 96%;
+}
+
+
+gridster {
+    background: transparent !important;
+}
+
+gridster-item {
+    background: #353A3E !important;
+}
+
+gridster .gridster-column {
+    border-left: 1px dotted #fff3 !important;
+    border-right: 1px dotted #fff3 !important;
+}
+
+gridster .gridster-row {
+    border-top: 1px dotted #fff3 !important;
+    border-bottom: 1px dotted #fff3 !important;
+}
