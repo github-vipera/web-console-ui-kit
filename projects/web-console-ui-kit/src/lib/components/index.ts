@@ -8,7 +8,8 @@ export * from './commons';
 
 //data
 export * from './data/Counter/WCDataCounterComponent';
-export * from './data/Gauge/index';
+export * from './data/NxGauge/index';
+export * from './data/Gauge/wc-gauge.component';
 
 //grid
 export * from './grid';
