@@ -16,3 +16,8 @@
     font-size: .7rem;
     border-radius: .25rem;
 }
+
+.wc-panel-spread {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

@@ -17,7 +17,6 @@ export class DashboardTestComponent implements OnInit {
   dateTime:Date = new Date;
   counter: number = 1;
   options: GridsterConfig;
-  //dashboard: Array<GridsterItem>;
   
   operationCountsItem:GridsterItem;
   dateTimeItem:GridsterItem;
@@ -65,19 +64,13 @@ export class DashboardTestComponent implements OnInit {
       minItemArea: 1,
       defaultItemCols: 1,
       defaultItemRows: 1,
-      fixedColWidth: 105,
-      fixedRowHeight: 105
+      fixedColWidth: 70,
+      fixedRowHeight: 70
     };
 
-    this.operationCountsItem = {cols: 2, rows: 1, y: 0, x: 0};
-    this.dateTimeItem = {cols: 3, rows: 3, y: 0, x: 3};
-    this.gaugeItem =  {cols: 2, rows: 2, y: 2, x: 2};
-    /*
-    this.dashboard = [
-      {cols: 1, rows: 1, y: 0, x: 0},
-      {cols: 3, rows: 3, y: 0, x: 1}
-    ];
-    */
+    this.operationCountsItem = {cols: 3, rows: 2, y: 0, x: 0};
+    this.dateTimeItem = {cols: 5, rows: 2, y: 0, x: 3};
+    this.gaugeItem =  {cols: 3, rows: 3, y: 0, x: 8};
 
     timer(0, 1560).subscribe(x=>{
         this.counter++;
@@ -88,12 +81,6 @@ export class DashboardTestComponent implements OnInit {
   });
 
   }
-
-  /*
-  removeItem(item) {
-    this.dashboard.splice(this.dashboard.indexOf(item), 1);
-  }
-  */
 
 
 }
