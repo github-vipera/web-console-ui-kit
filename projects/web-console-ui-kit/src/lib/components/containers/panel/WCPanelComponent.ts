@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'wc-panel',
   templateUrl: './wc-panel.component.html',
-  styles: []
+  styleUrls: [ './wc-panel.component.css' ]
 })
 export class WCPanelComponent implements OnInit {
   

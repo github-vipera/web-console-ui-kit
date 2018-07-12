@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
 import { WCToasetrService } from 'web-console-ui-kit'
 import { GridsterItem, GridsterConfig, GridType, CompactType } from 'web-console-ui-kit'
+import { timer } from 'rxjs';
+import { take } from 'rxjs/operators'
 
 @Component({
   selector: 'wc-uikit-ks-dashboard-test',
@@ -13,8 +15,12 @@ import { GridsterItem, GridsterConfig, GridType, CompactType } from 'web-console
 })
 export class DashboardTestComponent implements OnInit {
 
+  dateTime:Date = new Date;
+  counter: number = 1;
   options: GridsterConfig;
-  dashboard: Array<GridsterItem>;
+  //dashboard: Array<GridsterItem>;
+  operationCountsItem:GridsterItem;
+  dateTimeItem:GridsterItem;
   public numOfSessions:number=4;
 
   constructor(private toaster: WCToasetrService) {
@@ -30,7 +36,7 @@ export class DashboardTestComponent implements OnInit {
 
   ngOnInit() {
     this.options = {
-      gridType: GridType.Fit,
+      gridType: GridType.Fixed,
       compactType: CompactType.None,
       draggable: {
         enabled: true
@@ -39,9 +45,9 @@ export class DashboardTestComponent implements OnInit {
         enabled: true,
       },
       displayGrid: 'onDrag&Resize',
-      minCols: 1,
+      minCols: 3,
       maxCols: 100,
-      minRows: 1,
+      minRows: 3,
       maxRows: 100,
       maxItemCols: 100,
       minItemCols: 1,
@@ -55,15 +61,31 @@ export class DashboardTestComponent implements OnInit {
       fixedRowHeight: 105
     };
 
+    this.operationCountsItem = {cols: 2, rows: 1, y: 0, x: 0};
+    this.dateTimeItem = {cols: 3, rows: 3, y: 0, x: 3};
+
+    /*
     this.dashboard = [
       {cols: 1, rows: 1, y: 0, x: 0},
       {cols: 3, rows: 3, y: 0, x: 1}
     ];
+    */
+
+    timer(0, 1560).subscribe(x=>{
+        this.counter++;
+    });
+
+    timer(0, 1000).subscribe(x=>{
+      this.dateTime = new Date();
+  });
+
   }
 
+  /*
   removeItem(item) {
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
+  */
 
 
 }

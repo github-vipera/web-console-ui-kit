@@ -1,10 +1,26 @@
   <wc-dashboard-header [title]="'Dashboard'"></wc-dashboard-header>
   <gridster [options]="options" class="row">
+
+    <gridster-item [item]="operationCountsItem" >
+        <wc-panel [title]="'Operations Count'">
+            <wc-data-counter [title]="'Sessions'" [value]="counter"></wc-data-counter>
+        </wc-panel>
+    </gridster-item>
+        
+    <gridster-item [item]="dateTimeItem" >
+        <wc-panel [title]="'Today'">
+            <wc-data-counter [title]="dateTime | date " [value]="dateTime | date:'h:mm.ss a z' "></wc-data-counter>
+        </wc-panel>
+    </gridster-item>
+        
+        <!--
       <gridster-item [item]="item" *ngFor="let item of dashboard">
         <wc-panel [title]="'Realtime Data'">
-            <wc-data-counter [title]="'Sessions'" [value]="numOfSessions"></wc-data-counter>
+            <wc-data-counter [title]="'Sessions'" [value]="counter"></wc-data-counter>
         </wc-panel>
       </gridster-item>
+    -->
+
   </gridster>
 
 

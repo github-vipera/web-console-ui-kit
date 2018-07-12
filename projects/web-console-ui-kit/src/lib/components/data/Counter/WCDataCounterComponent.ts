@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WCDataCounterComponent implements OnInit {
   
-  private _value:number;
+  private _value:any;
   private _title:string;
   private _class:string = "";
   private _counterClass:string = "warn";
@@ -33,11 +33,11 @@ export class WCDataCounterComponent implements OnInit {
     this._class = value;
   }
 
-  get value():number {
+  get value():any {
     return this._value;
   }
 
-  @Input() set value(value:number) {
+  @Input() set value(value:any) {
     this._value = value;
   }
 
