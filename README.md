@@ -2,7 +2,7 @@
 
 ## How to run
 
-`console
+```console
 git clone https://github.com/github-vipera/web-console-ui-kit.git
 
 cd web-console-ui-kit
@@ -10,7 +10,7 @@ cd web-console-ui-kit
 npm install
 
 ng serve
-`
+```
 
 
 
