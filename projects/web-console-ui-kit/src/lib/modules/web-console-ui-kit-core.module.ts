@@ -16,4 +16,4 @@ import { WCSwitchButton } from '../components/commons/SwitchButton/wc-switch-but
     ToastrService
   ]
 })
-export class WebConsoleUIKitModule { } 
+export class WebConsoleUIKitCoreModule { } 
