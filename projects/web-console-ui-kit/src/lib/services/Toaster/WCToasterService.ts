@@ -6,11 +6,11 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
-export class WCToasetrService {
+export class WCToasterService {
 
 
   constructor(private toastr: ToastrService) {
-    console.log("WCToasetrService");
+    console.log("WCToasterService");
   }
 
   /**

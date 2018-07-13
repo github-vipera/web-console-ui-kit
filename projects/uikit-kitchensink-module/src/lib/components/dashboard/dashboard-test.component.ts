@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
-import { WCToasetrService } from 'web-console-ui-kit'
+import { WCToasterService } from 'web-console-ui-kit'
 import { GridsterItem, GridsterConfig, GridType, CompactType } from 'web-console-ui-kit'
 import { timer } from 'rxjs';
 
@@ -30,7 +30,7 @@ export class DashboardTestComponent implements OnInit {
   gaugeLabel = "";
   gaugeAppendText = "%";
 
-  constructor(private toaster: WCToasetrService) {
+  constructor(private toaster: WCToasterService) {
   }
 
   static itemChange(item, itemComponent) {

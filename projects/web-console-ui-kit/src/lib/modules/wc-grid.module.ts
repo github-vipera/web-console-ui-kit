@@ -10,6 +10,6 @@ import { WCGridCellCommandComponent } from '../components/grid/cell-renderers/co
     CommonModule
   ],
   declarations: [WCGridComponent, WCGridRowComponent, WCGridCellComponent, WCGridCellCommandComponent ],
-  exports: [WCGridComponent, WCGridRowComponent, WCGridCellComponent, WCGridCellCommandComponent]
+  exports: [WCGridComponent, WCGridRowComponent, WCGridCellComponent, WCGridCellCommandComponent ]
 })
 export class WCGridModule { } 

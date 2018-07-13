@@ -7,13 +7,14 @@ import { WCDashboardHeaderComponent } from '../components/commons/DashboardHeade
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { WCDataCounterComponent } from '../components/data/Counter/WCDataCounterComponent'
 import { WCGaugeComponent } from '../components/data/Gauge/wc-gauge.component'
+import { WCSwitchButton } from '../components/commons/SwitchButton/wc-switch-button.component'
 
 @NgModule({
   imports: [
     CommonModule, KendoUIModulesProvider, ToastrModule.forRoot()
   ],
-  declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCDataCounterComponent, WCGaugeComponent],
-  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCDataCounterComponent, WCGaugeComponent ],
+  declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCDataCounterComponent, WCGaugeComponent, WCSwitchButton],
+  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCDataCounterComponent, WCGaugeComponent, WCSwitchButton ],
   providers : [
     ToastrService
   ]

@@ -3,7 +3,7 @@ import { PluginView } from 'web-console-core'
 import { UsersService, User } from '../../services/Platform/UsersService';
 import { DomainsService, Domain } from '../../services/Platform/DomainsService';
 
-import { WCGridConfiguration, WCGridColumnType, WCToasetrService } from 'web-console-ui-kit'
+import { WCGridConfiguration, WCGridColumnType, WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 
 @Component({
@@ -30,7 +30,7 @@ export class UsersListComponent implements OnInit {
 
   constructor(private usersService: UsersService,  
     private domainsService:DomainsService,
-    private toaster: WCToasetrService) {
+    private toaster: WCToasterService) {
     console.log("usersService=", usersService);
 
     this.gridConfiguration = {
