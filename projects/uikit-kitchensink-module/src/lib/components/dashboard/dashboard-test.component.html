@@ -16,23 +16,26 @@
         </wc-panel>
     </gridster-item>
         
+    <!--
     <gridster-item [item]="gaugeItem" >
             <wc-panel [title]="'CPU Usage'">
                 <wc-gauge [value]="30" [title]="'CPU Load'"></wc-gauge>
             </wc-panel>
     </gridster-item>
+    -->
 
-    <!--
     <gridster-item [item]="gaugeItem" >
             <wc-panel [title]="'CPU Usage'">
                 <ngx-gauge [type]="gaugeType" 
                     [value]="gaugeValue" 
                     [label]="gaugeLabel"  
-                    [append]="gaugeAppendText">
+                    [append]="gaugeAppendText"
+                    [thick]="10"
+                    [foregroundColor]="'#fc0'"
+                    [cap]="'flat'">
                 </ngx-gauge>
             </wc-panel>
     </gridster-item>
-    -->
 
   </gridster>
 

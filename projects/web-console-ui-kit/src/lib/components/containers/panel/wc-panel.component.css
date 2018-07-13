@@ -18,6 +18,18 @@
 }
 
 .wc-panel-spread {
+    display: flex;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+/*
+.wc-panel-spread /deep/ * { 
+    flex: 1; 
+}
+*/
+
+.wc-panel-spread >>> :first-child { 
+    flex: 1;
+}
+
