@@ -7,6 +7,7 @@
   },
   "whitelistedNonPeerDependencies": [
     "progress",
-    "ngx-toastr"
+    "ngx-toastr",
+    "swimlane/ngx-charts"
   ]
 }

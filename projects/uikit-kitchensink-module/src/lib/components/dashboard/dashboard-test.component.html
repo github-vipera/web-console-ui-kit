@@ -1,6 +1,8 @@
   <wc-dashboard-header [title]="'Dashboard'"></wc-dashboard-header>
 
+  <!--
   <wc-switch-button [id]="'myTest'" [title]="'Simple Switch'"></wc-switch-button>
+    -->
 
   <gridster [options]="options" class="row">
 
@@ -37,7 +39,66 @@
             </wc-panel>
     </gridster-item>
 
-  </gridster>
+    <gridster-item [item]="{cols: 8, rows: 3, y: 2, x: 0}">
+        <wc-panel [title]="'Chart Demo'">
+                <ngx-charts-area-chart
+                [view]="view"
+                [scheme]="colorScheme"
+                [results]="multi"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                [autoScale]="autoScale"
+                (select)="onSelect($event)">
+            </ngx-charts-area-chart>
+        </wc-panel>
+    </gridster-item>
+  
+    <gridster-item [item]="{cols: 8, rows: 3, y: 2, x: 8}">
+            <wc-panel [title]="'Chart Demo'">
+                    <ngx-charts-heat-map
+                    [view]="view"
+                    [scheme]="colorScheme"
+                    [results]="multi"
+                    [legend]="showLegend"
+                    [gradient]="gradient"
+                    [xAxis]="showXAxis"
+                    [yAxis]="showYAxis"
+                    [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel"
+                    [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel"
+                    (select)="onSelect($event)">
+                  </ngx-charts-heat-map>
+            </wc-panel>
+        </gridster-item>
+
+
+        <gridster-item [item]="{cols: 8, rows: 3, y: 2, x: 8}">
+                <wc-panel [title]="'Chart Demo'">
+            <ngx-charts-gauge
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="single"
+        [min]="0"
+        [max]="100"
+        [angleSpan]="240"
+        [startAngle]="-120"
+        [units]="'alerts'"
+        [bigSegments]="10"
+        [smallSegments]="5"
+        (select)="onSelect($event)">
+      </ngx-charts-gauge>
+    </wc-panel>
+</gridster-item>
+
+
+</gridster>
 
 
 
