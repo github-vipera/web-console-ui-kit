@@ -12,4 +12,4 @@ import { WCGridCellCommandComponent } from '../components/grid/cell-renderers/co
   declarations: [WCGridComponent, WCGridRowComponent, WCGridCellComponent, WCGridCellCommandComponent ],
   exports: [WCGridComponent, WCGridRowComponent, WCGridCellComponent, WCGridCellCommandComponent ]
 })
-export class WCGridModule { } 
+export class WebConsoleUIKitGridModule { } 

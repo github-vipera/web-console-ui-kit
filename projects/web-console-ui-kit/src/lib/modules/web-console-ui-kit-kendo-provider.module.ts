@@ -8,6 +8,6 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     imports:[ BrowserAnimationsModule, ToolBarModule, GridModule, DropDownsModule ],
     exports:[ BrowserAnimationsModule, ToolBarModule, GridModule, DropDownsModule ]
 })
-export class KendoUIModulesProvider {
+export class WebConsoleUIKitModuleKendoProvider {
     
 }

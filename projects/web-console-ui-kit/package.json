@@ -23,5 +23,8 @@
     "@progress/kendo-drawing": "^1.0.0",
     "@progress/kendo-theme-default": "latest",
     "ngx-toastr": "^8.8.0"
+  },
+  "devDependencies": {
+    "@compodoc/compodoc" : "latest"
   }
 }
