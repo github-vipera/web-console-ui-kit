@@ -120,16 +120,18 @@ export class DashboardTestComponent implements OnInit {
     ];
   }
 
-  static itemChange(item, itemComponent) {
+  private itemChange(item, itemComponent) {
     console.info('itemChanged', item, itemComponent);
   }
 
-  static itemResize(item, itemComponent) {
+  private itemResize(item, itemComponent) {
     console.info('itemResized', item, itemComponent);
   }
 
   ngOnInit() {
     this.options = {
+      itemChangeCallback: this.itemChange,
+      itemResizeCallback: this.itemResize,
       gridType: GridType.Fixed,
       compactType: CompactType.None,
       draggable: {
