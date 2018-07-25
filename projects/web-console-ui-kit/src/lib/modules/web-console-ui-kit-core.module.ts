@@ -5,13 +5,14 @@ import { WCPanelComponent } from '../components/containers/panel/WCPanelComponen
 import { WCDashboardHeaderComponent } from '../components/commons/DashboardHeader/WCDashboardHeaderComponent'
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { WCSwitchButton } from '../components/commons/SwitchButton/wc-switch-button.component'
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 @NgModule({
   imports: [
-    CommonModule, ToastrModule.forRoot()
+    CommonModule, ToastrModule.forRoot(), SlimLoadingBarModule.forRoot()
   ],
   declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton],
-  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton ],
+  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton, SlimLoadingBarModule ],
   providers : [
     ToastrService
   ]

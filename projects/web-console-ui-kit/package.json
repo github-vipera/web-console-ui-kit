@@ -23,7 +23,8 @@
     "@progress/kendo-drawing": "^1.0.0",
     "@progress/kendo-theme-default": "latest",
     "ngx-toastr": "^8.8.0",
-    "@swimlane/ngx-charts": "^8.1.0"
+    "@swimlane/ngx-charts": "^8.1.0",
+    "ng2-slim-loading-bar": "^4.0.0"
   },
   "devDependencies": {
     "@compodoc/compodoc" : "latest"

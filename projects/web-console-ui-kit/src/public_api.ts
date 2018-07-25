@@ -18,3 +18,4 @@ export * from '@swimlane/ngx-charts';
 
 // Services
 export * from './lib/services/Toaster/WCToasterService';
+export * from './lib/services/WCProgressBarService';

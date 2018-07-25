@@ -8,6 +8,7 @@
   "whitelistedNonPeerDependencies": [
     "progress",
     "ngx-toastr",
-    "swimlane/ngx-charts"
+    "swimlane/ngx-charts",
+    "ng2-slim-loading-bar"
   ]
 }

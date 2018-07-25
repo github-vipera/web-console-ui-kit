@@ -6,6 +6,7 @@
   },
   "whitelistedNonPeerDependencies": [
     "progress",
-    "ngx-toastr"
+    "ngx-toastr",
+    "ng2-slim-loading-bar"
   ]
 }
