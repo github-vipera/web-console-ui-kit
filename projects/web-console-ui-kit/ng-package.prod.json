@@ -1,11 +1,12 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/demo-module",
+  "dest": "../../dist/web-console-ui-kit",
   "lib": {
     "entryFile": "src/public_api.ts"
   },
   "whitelistedNonPeerDependencies": [
     "progress",
-    "ngx-toastr"
+    "ngx-toastr",
+    "swimlane/ngx-charts"
   ]
 }

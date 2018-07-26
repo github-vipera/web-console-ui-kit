@@ -39,8 +39,8 @@
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.0.0",
     "typescript-string-operations": "^1.3.1",
-    "web-console-core": "file:local_modules/web-console-core-0.0.5.tgz",
-    "web-console-login": "file:local_modules/web-console-login-0.0.2.tgz",
+    "web-console-core": "0.0.6",
+    "web-console-login": "0.0.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
