@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/demo-module",
+  "dest": "../../dist/uikit-kitchensink-module",
   "lib": {
     "entryFile": "src/public_api.ts"
   }
