@@ -74,16 +74,16 @@ export class WCGridButtonEditorComponent implements OnInit {
 
   @Input() set value(value:string) {
     this._value = value;
-    console.log(">>>> Value: ", value);
+    //console.log(">>>> Value: ", value);
   }
 
   onOKPressed():void {
-     console.log(">>>> onOKPressed (on component)")
+     //console.log(">>>> onOKPressed (on component)")
      this.onConfirmation.emit();
     }
 
   onKOPressed():void {
-    console.log(">>>> onKOPressed (on component)")
+    //console.log(">>>> onKOPressed (on component)")
     this.onCancel.emit();
   }
 

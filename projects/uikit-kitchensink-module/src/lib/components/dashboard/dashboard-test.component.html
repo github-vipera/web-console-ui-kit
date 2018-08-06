@@ -2,23 +2,29 @@
 
   <!--
   <wc-switch-button [id]="'myTest'" [title]="'Simple Switch'"></wc-switch-button>
-    -->
+  -->
 
   <gridster [options]="options" class="row">
 
-    <gridster-item [item]="operationCountsItem" >
-        <wc-panel [title]="'Operations Count'">
-            <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
-        </wc-panel>
-    </gridster-item>
+    <ng-template [aclPermission]="['test23']" >
+        <gridster-item [item]="operationCountsItem">
+            <wc-panel [title]="'Operations Count'">
+                <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
+            </wc-panel>
+        </gridster-item>
+    </ng-template>
         
-    <gridster-item [item]="dateTimeItem" >
-        <wc-panel [title]="'Today'">
-            <wc-data-counter [title]="dateTime | date " [value]="dateTime | date:'h:mm.ss a' "></wc-data-counter>
-        </wc-panel>
-    </gridster-item>
-        
-    <gridster-item [item]="gaugeItem" >
+    
+    <ng-template [aclPermissionOneOf]="['test20', 'test1']" >
+        <gridster-item [item]="dateTimeItem">
+            <wc-panel [title]="'Today'"> 
+                <wc-data-counter [title]="dateTime | date " [value]="dateTime | date:'h:mm.ss a' "></wc-data-counter>
+            </wc-panel>
+        </gridster-item>
+    </ng-template>
+    
+
+    <gridster-item [item]="gaugeItem">
             <wc-panel [title]="'CPU Usage'">
                 <ngx-gauge [type]="gaugeType" 
                     [value]="gaugeValue" 

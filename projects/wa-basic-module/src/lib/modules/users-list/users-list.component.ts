@@ -5,6 +5,7 @@ import { DomainsService, Domain } from '../../services/Platform/DomainsService';
 
 import { WCGridConfiguration, WCGridColumnType, WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
+import { PageChangeEvent } from '@progress/kendo-angular-grid';
 
 @Component({
   selector: 'wa-users-list',
@@ -26,7 +27,15 @@ export class UsersListComponent implements OnInit {
   public sort: SortDescriptor[] = [];
   public groups: GroupDescriptor[] = [];
   public gridView: DataResult;
-
+  public buttonCount = 5;
+  public info = true;
+  public type: 'numeric' | 'input' = 'numeric';
+  public pageSizes = true;
+  public previousNext = true;
+  public pageSize = 5;
+  public skip = 0;
+  public currentPage = 1;
+  public isFieldSortable=false;
 
   constructor(private usersService: UsersService,  
     private domainsService:DomainsService,
@@ -35,7 +44,7 @@ export class UsersListComponent implements OnInit {
 
     this.gridConfiguration = {
       columns: [
-        { label: "Domain", name:"domain", sortable:true },
+        { label: "Domain", name:"domain", sortable:false },
         { label: "User ID", name:"userId", sortable:true },
         { label: "State", name:"state", sortable:true },
         { label: "", name:"", sortable:true, type: WCGridColumnType.Command },
@@ -67,13 +76,18 @@ export class UsersListComponent implements OnInit {
       console.error(">>>>>>>>>>>>>>> createDomain ERROR: ", error);
     });
     
-
     this.domainsService.getDomainList().then((data)=>{
       console.log("Data received: ", data);
       this.domainList = data;
     }, (error)=>{
       console.error("Error: ", error);
     });
+  }
+
+  public pageChange({ skip, take }: PageChangeEvent): void {
+    this.skip = skip;
+    this.pageSize = take;
+    console.log("Cambiata pagina! skip=" + skip +" pageSize="+this.pageSize);
   }
 
   /**

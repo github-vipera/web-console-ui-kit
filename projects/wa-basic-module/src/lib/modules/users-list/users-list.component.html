@@ -44,8 +44,22 @@
             [resizable]="true" 
             [reorderable]="true" 
             [groupable]="true" [group]="groups" (groupChange)="groupChange($event)"
-            [sort]="sort" (sortChange)="sortChange($event)" [sortable]="{ allowUnsort: true, mode: 'multiple' }" style="height: 100%">
-                <kendo-grid-column field="created" title="Created">
+            [sort]="sort" (sortChange)="sortChange($event)" 
+            [sortable]="{ allowUnsort: true, mode: 'single' }" 
+            style="height: 100%"
+            [pageSize]="30"
+            [skip]="skip"
+            [pageable]="{
+                buttonCount: buttonCount,
+                info: info,
+                type: type,
+                pageSizes: pageSizes,
+                previousNext: previousNext
+                }"
+            [scrollable]="'none'"
+            (pageChange)="pageChange($event)"
+            >
+                <kendo-grid-column field="created" title="Created" sortable="isFieldSortable">
                 </kendo-grid-column>
                 <kendo-grid-column field="userId" title="User ID">
                 </kendo-grid-column>
