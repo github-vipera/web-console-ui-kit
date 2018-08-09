@@ -188,7 +188,11 @@ export class UsersListComponent implements OnInit {
   @Input()
   public set selectedDomain(domain:Domain){
     this._selectedDomain = domain;
-    this.loadData(this._selectedDomain.name, 1, this.pageSize);
+    if (this._selectedDomain){
+      this.loadData(this._selectedDomain.name, 1, this.pageSize);
+    } else {
+      this.gridView = undefined;
+    }
   }
 
   public sortChange(sort: SortDescriptor[]): void {
