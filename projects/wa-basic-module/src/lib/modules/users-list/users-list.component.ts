@@ -178,6 +178,7 @@ export class UsersListComponent implements OnInit {
   }
 
   private buildQuerySort():MotifQuerySort {
+    console.log("*****SORT ", this.sort);
     let querySort = new MotifQuerySort();
     if (this.sort){
       for (let i=0;i<this.sort.length;i++){
@@ -185,8 +186,6 @@ export class UsersListComponent implements OnInit {
         if (sortInfo.dir && sortInfo.dir === "asc"){
           querySort.orderAscendingBy(sortInfo.field);
         } else if (sortInfo.dir && sortInfo.dir === "desc"){
-          querySort.orderDescendingBy(sortInfo.field);
-        } else {
           querySort.orderDescendingBy(sortInfo.field);
         }
       }
