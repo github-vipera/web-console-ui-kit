@@ -43,18 +43,17 @@
             [columnMenu]="true"
             [resizable]="true" 
             [reorderable]="true" 
-            [groupable]="true" [group]="groups" (groupChange)="groupChange($event)"
-            [sort]="sort" (sortChange)="sortChange($event)" 
-            [sortable]="{ allowUnsort: true, mode: 'single' }" 
+            [groupable]="false" [group]="groups" (groupChange)="groupChange($event)"
+            [sort]="sort" (sortChange)="sortChange($event)" [sortable]="{ allowUnsort: true, mode: 'single' }" 
             style="height: 100%"
-            [pageSize]="30"
+            [pageSize]="pageSize"
             [skip]="skip"
             [pageable]="{
-                buttonCount: buttonCount,
-                info: info,
+                buttonCount: 5,
+                info: true,
                 type: type,
-                pageSizes: pageSizes,
-                previousNext: previousNext
+                pageSizes: true,
+                previousNext: true
                 }"
             [scrollable]="'none'"
             (pageChange)="pageChange($event)"

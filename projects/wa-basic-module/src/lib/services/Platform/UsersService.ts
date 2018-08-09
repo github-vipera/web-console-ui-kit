@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { MotifConnectorService } from 'web-console-core'
+import { MotifConnectorService, ServiceRequest } from 'web-console-core'
 import { WAGlobals } from '../../WAGlobals'
 import { String, StringBuilder } from 'typescript-string-operations'
-import { MotifQueryService, MotifQueryFilter, MotifQuerySort } from 'web-console-core';
+import { MotifQueryService, MotifQueryFilter, MotifQuerySort, MotifQueryResults } from 'web-console-core';
 import { StatusBarService } from 'web-console-core'
 
 const USERS_LIST_ENDPOINT =  WAGlobals.API_ENDPOINT_PRFIX + "/platform/domains/{0}/users"
+const CREATE_USER_ENDPOINT =  WAGlobals.API_ENDPOINT_PRFIX + "/platform/domains/{0}/users"
+
 
 export class User {
   public created:number;
@@ -45,6 +47,18 @@ export class UsersService {
   }
   */
 
+  getUserListEx(domain:string, pageIndex:number, pageSize:number, sort:MotifQuerySort, filter:MotifQueryFilter):Promise<MotifQueryResults>{
+    return new Promise<MotifQueryResults>((resolve,reject) => {
+      this.sbService.setBusyIndicatorVisibile(true);
+      let endpoint = String.Format(USERS_LIST_ENDPOINT, domain);
+      this.motifQueryService.query(endpoint, pageIndex, pageSize, sort, filter).subscribe((queryResponse) => {
+          console.log("Get Users List done: ",queryResponse);
+          resolve(queryResponse);
+          this.sbService.setBusyIndicatorVisibile(false);
+        },reject);
+    });
+  }
+
   getUsersList(domain:string): Promise<Array<User>>{
     return new Promise<Array<User>>((resolve,reject) => {
       
@@ -55,16 +69,34 @@ export class UsersService {
       let pageSize = 4;
 
       let sort = new MotifQuerySort();
-      sort.orderDescendingBy("userId");
+      sort.orderAscendingBy("userId");
 
       let filter =  new MotifQueryFilter();
-      //filter.like("userId", "*");
+      //filter.like("userId", "*AN*");
       
       this.motifQueryService.query(endpoint, pageIndex, pageSize, sort, filter).subscribe((queryResponse) => {
           console.log("Get Users List done: ",queryResponse);
           resolve(queryResponse.data);
           this.sbService.setBusyIndicatorVisibile(false);
         },reject);
+    });
+  }
+
+  public createNewUser(domain:string, userId:string, userIdInt:number, msisdn:number, serial:number, state:string):Promise<void> {
+    return new Promise<void>((resolve,reject) => {
+      let request:ServiceRequest = {
+        "userIdInt": userIdInt,
+        "msisdn": msisdn,
+        "serial": serial,
+        "userId": userId,
+        "state": state
+      };
+      let endpoint = String.Format(CREATE_USER_ENDPOINT, domain);
+      this.motifConnector.post(endpoint, request).subscribe((data) => {
+          console.log("createNewUser done: ",data);
+          resolve();
+      },reject);
+
     });
   }
 

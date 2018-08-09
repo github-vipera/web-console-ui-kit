@@ -97,8 +97,15 @@ kendo-popup {
     background-color: #353a3e;
 }
 
+/*
 .k-state-selected {
     background-color: #4f5154;
     border-color: rgba(0, 0, 0, 0.1);
     border-radius: 100px;
 }
+*/
+
+.k-pager-numbers a {
+    border-radius: 100px;
+}
+
