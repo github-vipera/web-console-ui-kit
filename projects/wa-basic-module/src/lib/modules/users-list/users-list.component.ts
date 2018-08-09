@@ -146,7 +146,6 @@ export class UsersListComponent implements OnInit {
   public pageChange({ skip, take }: PageChangeEvent): void {
     this.skip = skip;
     this.pageSize = take;
-    console.log("Cambiata pagina! skip=" + skip +" take="+take);
     let newPageIndex = this.calculatePageIndex(skip, take);
     this.loadData(this._selectedDomain.name,newPageIndex, this.pageSize);
   }
@@ -180,6 +179,7 @@ export class UsersListComponent implements OnInit {
    * Reload the list of users for the selected domain
    */
   public refreshUserList():void{
+    this.loadData(this.selectedDomain.name, this.currentPage, this.pageSize);
   }
 
   /**
