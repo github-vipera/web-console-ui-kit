@@ -10,6 +10,14 @@ div.k-grid-header, div.k-grid-footer {
     background: transparent;
 }
 
+.k-grid-header, .k-grid-footer {
+    background: transparent;
+}
+
+.k-column-resizer {
+    background: transparent;
+}
+
 .k-grouping-header {
     background: transparent;
 }
@@ -82,4 +90,9 @@ kendo-popup {
 
 .k-combobox-clearable .k-input {
     background: #353A3E;
+}
+
+.k-pager-wrap {
+    color: #656565;
+    background-color: #353a3e;
 }

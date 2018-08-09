@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { PluginView } from 'web-console-core'
+import { Component, OnInit, Input, OnDestroy, AfterViewInit } from '@angular/core';
+import { PluginView, StatusBarService, StatusBarItem } from 'web-console-core'
 import { WCToasterService } from 'web-console-ui-kit'
 import { GridsterItem, GridsterConfig, GridType, CompactType } from 'web-console-ui-kit'
 import { timer } from 'rxjs';
+import { DashboardStatusBarItemComponent } from './dashboard-status-bar-item.component'
 
 @Component({
   selector: 'wc-uikit-ks-dashboard-test',
@@ -12,7 +13,7 @@ import { timer } from 'rxjs';
 @PluginView("Dashboard",{
   iconName: "ico-json" 
 })
-export class DashboardTestComponent implements OnInit {
+export class DashboardTestComponent implements OnInit, OnDestroy, AfterViewInit {
 
   dateTime:Date = new Date;
   counter: number = 1;
@@ -57,8 +58,7 @@ export class DashboardTestComponent implements OnInit {
   
   //chart <<=======
 
-  constructor(private toaster: WCToasterService) {
-
+  constructor(private toaster: WCToasterService, private statusBarService: StatusBarService ) {
 
     this.single = [
       {
@@ -129,6 +129,9 @@ export class DashboardTestComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.addStatusBarItem();
+
     this.options = {
       itemChangeCallback: this.itemChange,
       itemResizeCallback: this.itemResize,
@@ -167,8 +170,22 @@ export class DashboardTestComponent implements OnInit {
 
     timer(0, 1000).subscribe(x=>{
       this.dateTime = new Date();
-  });
+    });
 
+    this.statusBarService.setStatus("Welcome to the dashboard!");
+    
+  }
+
+  ngOnDestroy(){
+    this.statusBarService.removeItem("wa-dashboard-sbitem");
+  }
+
+  addStatusBarItem(){
+    console.info('addStatusBarItem');
+    this.statusBarService.addItem(new StatusBarItem("wa-dashboard-sbitem", DashboardStatusBarItemComponent, {}));
+  }
+
+  ngAfterViewInit(){
   }
 
   onSelect(event) {

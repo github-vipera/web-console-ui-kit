@@ -6,15 +6,14 @@ import { WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule } from 'web-consol
 import { GridsterModule } from 'web-console-ui-kit';
 import { WebConsoleUIKitChartsModule } from 'web-console-ui-kit';
 import { DashboardTestComponent } from '../components/dashboard/dashboard-test.component'
-import { RedblackDirective } from '../redblack.directive'
-//import { ACLPermissionDirective } from '../services/acl-service/acl-directive'
+import { DashboardStatusBarItemComponent } from '../components/dashboard/dashboard-status-bar-item.component' 
 
 @NgModule({
   imports: [
     WebConsoleCoreModule, WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule, GridsterModule, CommonModule, WebConsoleUIKitChartsModule
   ],
-  entryComponents:[DashboardTestComponent],
-  declarations: [DashboardTestComponent, RedblackDirective ],
+  entryComponents:[DashboardTestComponent, DashboardStatusBarItemComponent],
+  declarations: [DashboardTestComponent, DashboardStatusBarItemComponent ],
   exports: [DashboardTestComponent ]
 })
 export class UIKITKitchenSinkModule { }
