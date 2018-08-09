@@ -153,7 +153,10 @@ export class UsersListComponent implements OnInit {
   private loadData(domain:string, pageIndex:number, pageSize:number){
     if (this._selectedDomain){
       console.log("loadData pageIndex=" + pageIndex +" pageSize="+pageSize);
-      this.usersService.getUserListEx(domain, pageIndex, pageSize, null, null).then((results)=>{
+
+      let sort:MotifQuerySort = this.buildQuerySort(); 
+
+      this.usersService.getUserListEx(domain, pageIndex, pageSize, sort, null).then((results)=>{
         console.log("Data received: ", results.data);
         this.usersList = results.data;
         this.totalPages = results.totalPages;
@@ -174,12 +177,28 @@ export class UsersListComponent implements OnInit {
     return (skip/take)+1;
   }
 
+  private buildQuerySort():MotifQuerySort {
+    let querySort = new MotifQuerySort();
+    if (this.sort){
+      for (let i=0;i<this.sort.length;i++){
+        let sortInfo = this.sort[i];
+        if (sortInfo.dir && sortInfo.dir === "asc"){
+          querySort.orderAscendingBy(sortInfo.field);
+        } else if (sortInfo.dir && sortInfo.dir === "desc"){
+          querySort.orderDescendingBy(sortInfo.field);
+        } else {
+          querySort.orderDescendingBy(sortInfo.field);
+        }
+      }
+    }
+    return querySort;
+  }
 
   /**
    * Reload the list of users for the selected domain
    */
-  public refreshUserList():void{
-    this.loadData(this.selectedDomain.name, this.currentPage, this.pageSize);
+  public refreshData():void{
+    this.loadData(this._selectedDomain.name, this.currentPage, this.pageSize);
   }
 
   /**
@@ -197,7 +216,7 @@ export class UsersListComponent implements OnInit {
 
   public sortChange(sort: SortDescriptor[]): void {
     this.sort = sort;
-    //TODO!!
+    this.refreshData()
   }
 
   public groupChange(groups: GroupDescriptor[]): void {
