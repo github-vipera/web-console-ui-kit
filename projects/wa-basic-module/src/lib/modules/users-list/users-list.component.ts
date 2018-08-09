@@ -6,7 +6,7 @@ import { WCGridConfiguration, WCGridColumnType, WCToasterService } from 'web-con
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { MotifQueryFilter, MotifQuerySort, MotifQueryResults } from 'web-console-core';
-
+import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
 
 @Component({
   selector: 'wa-users-list',
@@ -19,6 +19,7 @@ import { MotifQueryFilter, MotifQuerySort, MotifQueryResults } from 'web-console
 export class UsersListComponent implements OnInit {
 
   @ViewChild(GridComponent) _grid : GridComponent;
+  @ViewChild(WCSlideDownPanelComponent) _slideDownEditor : WCSlideDownPanelComponent;
 
   //Data
   public usersList: User[] = [];
@@ -235,4 +236,9 @@ export class UsersListComponent implements OnInit {
 
   onCancelPressed():void{
   }
+
+  onAddButtonPressed():void {
+    this._slideDownEditor.toggle();
+  }
+
 }

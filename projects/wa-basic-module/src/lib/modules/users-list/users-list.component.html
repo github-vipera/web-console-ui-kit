@@ -7,15 +7,24 @@
     </div>
 
     <div class="flex-cmd">
-        <a data-slidedown="#user-add" class="btn">
+        <a data-slidedown="#user-add" class="btn" (click)="onAddButtonPressed()">
             <svg data-id="add"><use xlink:href="img/icons.svg#ico-add"></use></svg> 
-            Add
+            Add User
         </a>
     </div>
 
 </div>
 
 <div class="row">
+    <div>
+        <wc-slide-down-panel>
+            qui di va l'editor
+        </wc-slide-down-panel>
+    </div>
+</div>
+
+<div class="row">
+
     <!--
         <div id="user-add" class="editor slidedown AVAST_PAM_signupform">
                 <input placeholder="UserID">
