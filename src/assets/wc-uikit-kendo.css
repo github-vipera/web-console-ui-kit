@@ -96,3 +96,9 @@ kendo-popup {
     color: #656565;
     background-color: #353a3e;
 }
+
+.k-state-selected {
+    background-color: #4f5154;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+}
