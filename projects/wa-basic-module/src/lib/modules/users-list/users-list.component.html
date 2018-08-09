@@ -19,18 +19,17 @@
     <div>
         <wc-slide-down-panel>
                 <div id="user-add" class="editor slidedown">
-						<input placeholder="UserID">
-					
-						<select>
-							<option>Storeman</option>
-						</select>
-					
+						<input placeholder="UserID" id="new-user-userid" [(ngModel)]="newUserModel.userId">
+						<input placeholder="UserIDInt" id="new-user-useridint" [(ngModel)]="newUserModel.userIdInt">
+						<input placeholder="msisdn" id="new-user-msisdn" [(ngModel)]="newUserModel.msisdn">
+						<input placeholder="serial" id="new-user-serial" [(ngModel)]="newUserModel.serial">
+                        <!--
 						<input type="password" placeholder="Password" class="error">
 						<input type="password" placeholder="Confirm password" class="error">
-						
+						-->
 						<div class="cmd">
 							<a>
-								<svg class="ok" data-id="ok"><use xlink:href="assets/img/icons.svg#ico-ok"></use></svg> 
+								<svg class="ok" data-id="ok" (click)="onEditorConfirmButtonPressed()"><use xlink:href="assets/img/icons.svg#ico-ok"></use></svg> 
 							</a>
 							<a data-slideup="#user-add" (click)="onEditorDismissButtonPressed()">
 								<svg class="ko" data-id="ko"><use xlink:href="assets/img/icons.svg#ico-ko"></use></svg>

@@ -8,6 +8,13 @@ import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { MotifQueryFilter, MotifQuerySort, MotifQueryResults } from 'web-console-core';
 import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
 
+export interface NewUserModel {
+  userId?:string,
+  userIdInt?:number, 
+  msisdn?:number, 
+  serial?:number
+}
+
 @Component({
   selector: 'wa-users-list',
   templateUrl: './users-list.component.html',
@@ -38,6 +45,11 @@ export class UsersListComponent implements OnInit {
   public totalPages = 0;
   public totalRecords = 0;
   public isFieldSortable=false;
+
+
+  //new user form
+  @Input('newUserId') newUserId:string = "";
+  @Input('newUserModel') newUserModel:NewUserModel={};
 
   constructor(private usersService: UsersService,  
 
@@ -244,4 +256,10 @@ export class UsersListComponent implements OnInit {
   onEditorDismissButtonPressed():void{
     this._slideDownEditor.close();
   }
+
+  onEditorConfirmButtonPressed():void{
+    alert(this.newUserModel.userId);
+    this._slideDownEditor.close();
+  }
+
 }
