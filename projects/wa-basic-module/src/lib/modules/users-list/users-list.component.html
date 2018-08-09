@@ -8,7 +8,7 @@
 
     <div class="flex-cmd">
         <a data-slidedown="#user-add" class="btn" (click)="onAddButtonPressed()">
-            <svg data-id="add"><use xlink:href="img/icons.svg#ico-add"></use></svg> 
+            <svg data-id="add"><use xlink:href="assets/img/icons.svg#ico-add"></use></svg> 
             Add User
         </a>
     </div>
@@ -30,10 +30,10 @@
 						
 						<div class="cmd">
 							<a>
-								<svg class="ok" data-id="ok"><use xlink:href="img/icons.svg#ico-ok"></use></svg> 
+								<svg class="ok" data-id="ok"><use xlink:href="assets/img/icons.svg#ico-ok"></use></svg> 
 							</a>
-							<a data-slideup="#user-add">
-								<svg class="ko" data-id="ko"><use xlink:href="img/icons.svg#ico-ko"></use></svg>
+							<a data-slideup="#user-add" (click)="onEditorDismissButtonPressed()">
+								<svg class="ko" data-id="ko"><use xlink:href="assets/img/icons.svg#ico-ko"></use></svg>
 							</a>
 						</div>
 					</div>

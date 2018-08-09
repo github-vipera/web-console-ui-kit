@@ -241,4 +241,7 @@ export class UsersListComponent implements OnInit {
     this._slideDownEditor.toggle();
   }
 
+  onEditorDismissButtonPressed():void{
+    this._slideDownEditor.close();
+  }
 }
