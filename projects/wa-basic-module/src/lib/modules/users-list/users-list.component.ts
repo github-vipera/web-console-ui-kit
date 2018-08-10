@@ -7,6 +7,7 @@ import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { MotifQueryFilter, MotifQuerySort, MotifQueryResults } from 'web-console-core';
 import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
+import { WCOverlayPaneService } from 'web-console-ui-kit'
 
 export interface NewUserModel {
   userId?:string,
@@ -54,7 +55,7 @@ export class UsersListComponent implements OnInit {
   constructor(private usersService: UsersService,  
 
     private domainsService:DomainsService,
-    private toaster: WCToasterService) {
+    private toaster: WCToasterService, private overlayPaneService: WCOverlayPaneService) {
     console.log("usersService=", usersService);
 
     this.gridConfiguration = {
@@ -258,9 +259,22 @@ export class UsersListComponent implements OnInit {
   }
 
   onEditorConfirmButtonPressed():void{
-    alert("TODO!!! SAVE it: " + this.newUserModel.userId);
-    //TODO!! save
+    this.overlayPaneService.setVisible(true);
+    let domainName = this._selectedDomain.name;
+    let userId = this.newUserModel.userId;
+    let userIdInt = this.newUserModel.userIdInt;
+    let msisdn = this.newUserModel.msisdn;
+    let serial = this.newUserModel.serial;
     this.dismissNewUserEditor();
+    this.usersService.createNewUser(domainName, userId, userIdInt, msisdn, serial, "PREACTIVE").then(()=>{
+      this.overlayPaneService.setVisible(false);
+      this.toaster.success("User '"+userId+"' created successfully.", "New User");
+      this.refreshData();
+    }, (error)=>{
+      console.log("New user error: ", error);
+      this.overlayPaneService.setVisible(false);
+      this.toaster.error("User '"+userId+"' creation error: " + error, "New User");
+    })
   }
 
   dismissNewUserEditor(){
