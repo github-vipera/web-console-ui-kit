@@ -259,7 +259,7 @@ export class UsersListComponent implements OnInit {
   }
 
   onEditorConfirmButtonPressed():void{
-    this.overlayPaneService.setVisible(true);
+    //this.overlayPaneService.setVisible(true);
     let domainName = this._selectedDomain.name;
     let userId = this.newUserModel.userId;
     let userIdInt = this.newUserModel.userIdInt;
@@ -267,12 +267,12 @@ export class UsersListComponent implements OnInit {
     let serial = this.newUserModel.serial;
     this.dismissNewUserEditor();
     this.usersService.createNewUser(domainName, userId, userIdInt, msisdn, serial, "PREACTIVE").then(()=>{
-      this.overlayPaneService.setVisible(false);
+      //this.overlayPaneService.setVisible(false);
       this.toaster.success("User '"+userId+"' created successfully.", "New User");
       this.refreshData();
     }, (error)=>{
       console.log("New user error: ", error);
-      this.overlayPaneService.setVisible(false);
+      //this.overlayPaneService.setVisible(false);
       this.toaster.error("User '"+userId+"' creation error: " + error, "New User");
     })
   }
