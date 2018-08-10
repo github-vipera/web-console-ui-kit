@@ -76,14 +76,18 @@ export class UsersService {
       
       this.motifQueryService.query(endpoint, pageIndex, pageSize, sort, filter).subscribe((queryResponse) => {
           console.log("Get Users List done: ",queryResponse);
-          resolve(queryResponse.data);
           this.sbService.setBusyIndicatorVisibile(false);
-        },reject);
+          resolve(queryResponse.data);
+        },(error)=>{
+          this.sbService.setBusyIndicatorVisibile(false);
+          reject(error)
+        });
     });
   }
 
   public createNewUser(domain:string, userId:string, userIdInt:number, msisdn:number, serial:number, state:string):Promise<void> {
     return new Promise<void>((resolve,reject) => {
+      this.sbService.setBusyIndicatorVisibile(true);
       let request:ServiceRequest = {
         "userIdInt": userIdInt,
         "msisdn": msisdn,
@@ -94,8 +98,12 @@ export class UsersService {
       let endpoint = String.Format(CREATE_USER_ENDPOINT, domain);
       this.motifConnector.post(endpoint, request).subscribe((data) => {
           console.log("createNewUser done: ",data);
+          this.sbService.setBusyIndicatorVisibile(true);
           resolve();
-      },reject);
+        },(error)=>{
+          this.sbService.setBusyIndicatorVisibile(false);
+          reject(error)
+        });
 
     });
   }
