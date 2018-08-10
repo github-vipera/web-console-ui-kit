@@ -250,15 +250,21 @@ export class UsersListComponent implements OnInit {
   }
 
   onAddButtonPressed():void {
-    this._slideDownEditor.toggle();
+    this._slideDownEditor.open();
   }
 
   onEditorDismissButtonPressed():void{
-    this._slideDownEditor.close();
+    this.dismissNewUserEditor();
   }
 
   onEditorConfirmButtonPressed():void{
-    alert(this.newUserModel.userId);
+    alert("TODO!!! SAVE it: " + this.newUserModel.userId);
+    //TODO!! save
+    this.dismissNewUserEditor();
+  }
+
+  dismissNewUserEditor(){
+    this.newUserModel = {};
     this._slideDownEditor.close();
   }
 
