@@ -40,7 +40,7 @@ export class UsersListComponent implements OnInit {
   public groups: GroupDescriptor[] = [];
   public gridView: DataResult;
   public type: 'numeric' | 'input' = 'numeric';
-  public pageSize = 5;
+  public pageSize = 15;
   public skip = 0;
   public currentPage = 1;
   public totalPages = 0;
@@ -247,7 +247,13 @@ export class UsersListComponent implements OnInit {
     });
   }
 
-  onCancelPressed():void{
+  onCancelPressed():void {
+  }
+  
+  onDeleteOKPressed():void {
+  }
+
+  onDeleteCancelPressed():void {
   }
 
   onAddButtonPressed():void {

@@ -106,14 +106,15 @@
                 </kendo-grid-column>
                 
                 <kendo-grid-column field="state" title="State">
-                    <!--(okPressed)="onOKPressed()" (cancelPressed)="onCancelPressed()-->
                     <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
                         <wc-grid-editor [rowIndex]="rowIndex" [columnIndex]="columnIndex" [column]="column" [value]="dataItem[column.field]" [dataItem]="dataItem" (onConfirmation)="onOKPressed()" (onCancel)="onCancelPressed()"></wc-grid-editor>
                     </ng-template>
                 </kendo-grid-column>
 
-                <kendo-grid-column title="Test Render">
-                        <ng-template kendoGridCellTemplate let-dataItem>
+                <kendo-grid-column title="" width="150" minResizableWidth="140">
+                        <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
+                                <wc-grid-editor [rowIndex]="rowIndex" [columnIndex]="columnIndex" [column]="column" [value]="dataItem[column.field]" [dataItem]="dataItem" (onConfirmation)="onDeleteOKPressed()" (onCancel)="onDeleteCancelPressed()"></wc-grid-editor>
+                                <!--
                                 <div class="edit">
                                         <input type="checkbox" id="id_1_1">
                                         <label for="id_1_1">
@@ -133,6 +134,7 @@
                                             </label>
                                         </div>
                                     </div>
+                                    -->
                         </ng-template>
                 </kendo-grid-column>
             </kendo-grid>
