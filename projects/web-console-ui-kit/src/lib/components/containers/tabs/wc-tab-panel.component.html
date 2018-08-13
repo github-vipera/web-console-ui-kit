@@ -8,8 +8,12 @@
         </label>
     </div>
 
+    <!--
     <div *ngFor="let tab of tabs; let i = index" class="tab" id="tab-{{i+1}}">
-        Hello Tab Item {{i}}
+        {{tab.getNativeElement()}} 
     </div>
- 
+    -->
+
+    <ng-content></ng-content>
+
 </div>

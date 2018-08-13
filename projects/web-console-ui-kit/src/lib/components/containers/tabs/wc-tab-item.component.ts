@@ -1,15 +1,30 @@
  
- import { Component, OnInit, Input } from '@angular/core';
+ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
  @Component({
    selector: 'wc-tab-item',
-   templateUrl: './wc-tab-item.component.html'
+   templateUrl: './wc-tab-item.component.html',
+   styles: [
+   ],
+   host: {
+    'class': "tab",
+    '[attr.id]': 'tabId'
+  }
+
  })
  export class WCTabItemComponent implements OnInit {
 
-  constructor(){}
+  public tabId:string = "tab-1"
 
-  ngOnInit(){
+  constructor(private element: ElementRef){
+
   }
 
+  ngOnInit(){
+  
+  }
+
+  public getNativeElement(){
+    return this.element.nativeElement;
+  }
 } 
