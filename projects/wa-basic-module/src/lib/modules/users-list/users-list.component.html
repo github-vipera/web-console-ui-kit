@@ -108,15 +108,15 @@
                 <kendo-grid-column field="state" title="State">
                     <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
                         <wc-grid-editor 
-                            [question]="'Suspend ?'" 
+                            [question]="getStatusButtonQuestion(dataItem[column.field])" 
                             [rowIndex]="rowIndex" 
                             [columnIndex]="columnIndex" 
                             [column]="column" 
                             [value]="dataItem[column.field]" 
                             [dataItem]="dataItem" 
                             [buttonClass]="getStatusButtonClass(dataItem[column.field])" 
-                            (onConfirmation)="onOKPressed()"
-                            (onCancel)="onCancelPressed()">
+                            (onConfirmation)="onStatusChangeOKPressed(dataItem)"
+                            (onCancel)="onStatusChangeCancelPressed(dataItem)">
                             {{dataItem[column.field]}}
                         </wc-grid-editor>
                     </ng-template>

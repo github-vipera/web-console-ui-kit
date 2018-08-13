@@ -241,13 +241,14 @@ export class UsersListComponent implements OnInit {
     //this.gridView = process(orderBy(this.usersList, this.sort), { group: this.groups });
   }
 
-  onOKPressed():void{
+  onStatusChangeOKPressed(dataItem:any):void{
+    debugger
     this.toaster.info("Not yet implemented", "Attention Please", {
       positionClass: 'toast-top-center'
     });
   }
 
-  onCancelPressed():void {
+  onStatusChangeCancelPressed(dataItem:any):void {
   }
   
   onDeleteOKPressed():void {
@@ -297,6 +298,16 @@ export class UsersListComponent implements OnInit {
       return "btn user-status-active";
     } else if (statusStr && statusStr.toUpperCase()==="PREACTIVE"){
       return "btn user-status-preactive";
+    } else {
+      return "";
+    }
+  }
+
+  public getStatusButtonQuestion(statusStr:string):string{
+    if (statusStr && statusStr.toUpperCase()==="ACTIVE"){
+      return "Suspend?";
+    } else if (statusStr && statusStr.toUpperCase()==="PREACTIVE"){
+      return "Activate?";
     } else {
       return "";
     }
