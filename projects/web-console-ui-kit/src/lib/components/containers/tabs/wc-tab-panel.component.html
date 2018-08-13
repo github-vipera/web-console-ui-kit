@@ -1,0 +1,15 @@
+<div class="wc-tab-panel">
+
+    <input type="radio" name="tabs" *ngFor="let tab of tabs; let i = index" id="tab-{{i+1}}-cmd" [attr.checked]="i === 0 ? '' : null">
+     
+    <div class="tabs">
+        <label *ngFor="let tab of tabs; let i = index" for="tab-{{i+1}}-cmd">
+           Tab Item {{i}}
+        </label>
+    </div>
+
+    <div *ngFor="let tab of tabs; let i = index" class="tab" id="tab-{{i+1}}">
+        Hello Tab Item {{i}}
+    </div>
+ 
+</div>

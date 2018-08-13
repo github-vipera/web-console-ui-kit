@@ -8,13 +8,15 @@ import { WCSwitchButton } from '../components/commons/SwitchButton/wc-switch-but
 import { WCSlideDownPanelComponent } from '../components/containers/slide-down-panel/wc-slide-down-panel.component'
 import { WCOverlayPane } from '../components/commons/OverlayPane/wc-overlay-pane.component'
 import { WCOverlayPaneService } from '../services/OverlayPaneService/overlay-pane.service'
+import { WCTabItemComponent } from '../components/containers/tabs/wc-tab-item.component'
+import { WCTabPanelComponent } from '../components/containers/tabs/wc-tab-panel.component'
 
 @NgModule({
   imports: [
     CommonModule, ToastrModule.forRoot()
   ],
-  declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton, WCSlideDownPanelComponent, WCOverlayPane],
-  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton, WCSlideDownPanelComponent, WCOverlayPane ],
+  declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton, WCSlideDownPanelComponent, WCOverlayPane, WCTabItemComponent, WCTabPanelComponent ],
+  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton, WCSlideDownPanelComponent, WCOverlayPane, WCTabItemComponent, WCTabPanelComponent  ],
   entryComponents: [ WCOverlayPane ],
   providers : [
     ToastrService, WCOverlayPaneService
