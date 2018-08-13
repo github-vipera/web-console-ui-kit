@@ -242,7 +242,6 @@ export class UsersListComponent implements OnInit {
   }
 
   onStatusChangeOKPressed(dataItem:any):void{
-    debugger
     this.toaster.info("Not yet implemented", "Attention Please", {
       positionClass: 'toast-top-center'
     });
@@ -251,10 +250,13 @@ export class UsersListComponent implements OnInit {
   onStatusChangeCancelPressed(dataItem:any):void {
   }
   
-  onDeleteOKPressed():void {
+  onDeleteOKPressed(dataItem:any):void {
+    this.toaster.info("Not yet implemented", "Attention Please", {
+      positionClass: 'toast-top-center'
+    });
   }
 
-  onDeleteCancelPressed():void {
+  onDeleteCancelPressed(dataItem:any):void {
   }
 
   onAddButtonPressed():void {
