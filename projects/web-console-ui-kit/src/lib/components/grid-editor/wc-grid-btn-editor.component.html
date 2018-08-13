@@ -1,19 +1,26 @@
-<div _ngcontent-c14="" class="edit {{mainClass}}">
-        <input _ngcontent-c14="" type="checkbox" id="edit-{{rowId}}">
-          <label _ngcontent-c14="" class="btn status-activated" for="edit-{{rowId}}">
-                {{value}}
-          </label>
-        <div _ngcontent-c14="" class="actions">
-          <span _ngcontent-c14="">Suspend?</span>
-          <a _ngcontent-c14="">
-            <svg _ngcontent-c14="" class="ok" (click)="onOKPressed()">
-              <use _ngcontent-c14="" xlink:href="assets/img/icons.svg#ico-ok"></use>
-            </svg>
-          </a>
-          <label _ngcontent-c14="" for="edit-{{rowId}}">
-            <svg _ngcontent-c14="" class="ko" (click)="onKOPressed()">
-              <use _ngcontent-c14="" xlink:href="assets/img/icons.svg#ico-ko"></use>
-            </svg>
-          </label>
-        </div>
-      </div>
+<div class="grid-btn-editor edit {{mainClass}}">
+
+  <input type="checkbox" id="edit-{{rowId}}">
+  <label class="{{buttonClass}}" for="edit-{{rowId}}">
+      <ng-content></ng-content>
+  </label>
+
+  <!--
+      <label class="btn status-activated {{buttonClass}}" for="edit-{{rowId}}">
+  </label>
+
+  -->
+  <div class="actions">
+    <span >{{question}}</span>
+    <a >
+      <svg  class="ok" (click)="onOKPressed()">
+        <use  xlink:href="assets/img/icons.svg#ico-ok"></use>
+      </svg>
+    </a>
+    <label  for="edit-{{rowId}}">
+      <svg  class="ko" (click)="onKOPressed()">
+        <use  xlink:href="assets/img/icons.svg#ico-ko"></use>
+      </svg>
+    </label>
+  </div>
+</div>

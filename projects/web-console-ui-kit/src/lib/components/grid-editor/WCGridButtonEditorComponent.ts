@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ContentChild, Renderer, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'wc-grid-editor',
-  templateUrl: './wc-grid-btn-editor.component.html',
-  styles: []
+  templateUrl: './wc-grid-btn-editor.component.html'
 })
 export class WCGridButtonEditorComponent implements OnInit {
   
@@ -12,16 +11,21 @@ export class WCGridButtonEditorComponent implements OnInit {
   private _columnIndex:number;
   private _column:number;
   private _mainClass:string = "";
+  private _buttonClass:string = "btn";
   private _value:string;
-  
+  private _question:string ="n.d.";
+
   @Output() 
   onConfirmation:EventEmitter<void> = new EventEmitter<void>();
   @Output() 
   onCancel:EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private elt:ElementRef, private renderer:Renderer) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
   }
 
   get dataItem():any {
@@ -68,13 +72,28 @@ export class WCGridButtonEditorComponent implements OnInit {
     this._mainClass = value;
   }
 
+  get buttonClass():string {
+    return this._buttonClass;
+  }
+
+  @Input() set buttonClass(value:string) {
+    this._buttonClass = value;
+  }
+
+  get question():string{
+    return this._question;
+  }
+
+  @Input() set question(question:string){
+    this._question = question;
+  }
+
   get value():string {
     return this._value;
   }
 
   @Input() set value(value:string) {
     this._value = value;
-    //console.log(">>>> Value: ", value);
   }
 
   onOKPressed():void {
@@ -85,6 +104,10 @@ export class WCGridButtonEditorComponent implements OnInit {
   onKOPressed():void {
     //console.log(">>>> onKOPressed (on component)")
     this.onCancel.emit();
+  }
+
+  onRendererClick():void {
+    alert("pippo clicked!");
   }
 
 }

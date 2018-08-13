@@ -107,13 +107,35 @@
                 
                 <kendo-grid-column field="state" title="State">
                     <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
-                        <wc-grid-editor [rowIndex]="rowIndex" [columnIndex]="columnIndex" [column]="column" [value]="dataItem[column.field]" [dataItem]="dataItem" (onConfirmation)="onOKPressed()" (onCancel)="onCancelPressed()"></wc-grid-editor>
+                        <wc-grid-editor 
+                            [question]="'Suspend ?'" 
+                            [rowIndex]="rowIndex" 
+                            [columnIndex]="columnIndex" 
+                            [column]="column" 
+                            [value]="dataItem[column.field]" 
+                            [dataItem]="dataItem" 
+                            [buttonClass]="'btn status-activated'" 
+                            (onConfirmation)="onOKPressed()"
+                            (onCancel)="onCancelPressed()">
+                            {{dataItem[column.field]}}
+                        </wc-grid-editor>
                     </ng-template>
                 </kendo-grid-column>
 
                 <kendo-grid-column title="" width="150" minResizableWidth="140">
                         <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
-                                <wc-grid-editor [rowIndex]="rowIndex" [columnIndex]="columnIndex" [column]="column" [value]="dataItem[column.field]" [dataItem]="dataItem" (onConfirmation)="onDeleteOKPressed()" (onCancel)="onDeleteCancelPressed()"></wc-grid-editor>
+                                <wc-grid-editor 
+                                [question]="'Delete ?'" 
+                                [rowIndex]="rowIndex" 
+                                [columnIndex]="columnIndex" 
+                                [column]="column" 
+                                [value]="dataItem[column.field]" 
+                                [dataItem]="dataItem"
+                                [buttonClass]="''" 
+                                (onConfirmation)="onDeleteOKPressed()" (onCancel)="onDeleteCancelPressed()">
+                                    <svg data-id="no"><use xlink:href="assets/img/icons.svg#ico-no"></use></svg>
+                                </wc-grid-editor>
+                                   
                                 <!--
                                 <div class="edit">
                                         <input type="checkbox" id="id_1_1">
