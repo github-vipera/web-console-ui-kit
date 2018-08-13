@@ -1,0 +1,29 @@
+<wc-dashboard-header [title]="'Services'"></wc-dashboard-header>
+
+<div class="row">
+
+        <div>
+                <kendo-grid [data]="gridView" 
+                [columnMenu]="false"
+                [resizable]="true" 
+                [reorderable]="false" 
+                [groupable]="true" [group]="groups"
+                style="height: 100%"
+                [scrollable]="'none'"
+                >
+                    <kendo-grid-column field="name" title="Name" sortable="false">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="description" title="Description" sortable="false">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="type" title="Type" sortable="false">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="channel" title="Channel" sortable="false">
+                    </kendo-grid-column>
+            
+                    
+                </kendo-grid>
+    
+        </div>
+
+</div>
+

@@ -2,13 +2,6 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
 import { WCOverlayPaneService, WCToasterService } from 'web-console-ui-kit'
 
-export interface NewUserModel {
-  userId?:string,
-  userIdInt?:number, 
-  msisdn?:number, 
-  serial?:number
-}
-
 @Component({
   selector: 'wa-app-content',
   styleUrls: [ './app-content.component.scss' ],
