@@ -14,8 +14,9 @@
  })
  export class WCTabItemComponent implements OnInit {
 
-  public tabId:string = "tab-1"
-
+  public tabId:string = ""
+  @Input() title:string="Tab Title"
+ 
   constructor(private element: ElementRef){
 
   }
@@ -27,4 +28,5 @@
   public getNativeElement(){
     return this.element.nativeElement;
   }
+
 } 

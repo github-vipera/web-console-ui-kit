@@ -35,6 +35,7 @@
     "@progress/kendo-theme-default": "latest",
     "@swimlane/ngx-charts": "^8.1.0",
     "core-js": "^2.5.4",
+    "guid-typescript": "^1.0.7",
     "ngx-toastr": "^8.8.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.0.0",
