@@ -11,7 +11,7 @@ export class WCGridButtonEditorComponent implements OnInit {
   private _columnIndex:number;
   private _column:number;
   private _mainClass:string = "";
-  private _buttonClass:string = "btn";
+  private _buttonClass:string = "";
   private _value:string;
   private _question:string ="n.d.";
 

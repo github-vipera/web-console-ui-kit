@@ -18,8 +18,8 @@ export interface NewUserModel {
 
 @Component({
   selector: 'wa-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: [ './users-list.component.css' ]
+  styleUrls: [ './users-list.component.scss' ],
+  templateUrl: './users-list.component.html'
 })
 @PluginView("Users List",{
   iconName: "ico-users" 
@@ -288,4 +288,17 @@ export class UsersListComponent implements OnInit {
     this._slideDownEditor.close();
   }
 
+  get statusButtonClass():string{
+    return "btn status-activated";
+  }
+
+  public getStatusButtonClass(statusStr:string):string{
+    if (statusStr && statusStr.toUpperCase()==="ACTIVE"){
+      return "btn user-status-active";
+    } else if (statusStr && statusStr.toUpperCase()==="PREACTIVE"){
+      return "btn user-status-preactive";
+    } else {
+      return "";
+    }
+  }
 }

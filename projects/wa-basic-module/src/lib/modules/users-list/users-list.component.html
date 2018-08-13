@@ -114,7 +114,7 @@
                             [column]="column" 
                             [value]="dataItem[column.field]" 
                             [dataItem]="dataItem" 
-                            [buttonClass]="'btn status-activated'" 
+                            [buttonClass]="getStatusButtonClass(dataItem[column.field])" 
                             (onConfirmation)="onOKPressed()"
                             (onCancel)="onCancelPressed()">
                             {{dataItem[column.field]}}
@@ -132,31 +132,10 @@
                                 [value]="dataItem[column.field]" 
                                 [dataItem]="dataItem"
                                 [buttonClass]="''" 
+                                [mainClass]="'wc-table-delete-command'"
                                 (onConfirmation)="onDeleteOKPressed()" (onCancel)="onDeleteCancelPressed()">
                                     <svg data-id="no"><use xlink:href="assets/img/icons.svg#ico-no"></use></svg>
                                 </wc-grid-editor>
-                                   
-                                <!--
-                                <div class="edit">
-                                        <input type="checkbox" id="id_1_1">
-                                        <label for="id_1_1">
-                                            <svg data-id="no"><use xlink:href="assets/img/icons.svg#ico-no"></use></svg>
-                                        </label>
-                                        <div class="actions">
-                                            <span>Delete ?</span>
-                                            <a>
-                                                <svg class="ok" data-id="ok">
-                                                    <use xlink:href="assets/img/icons.svg#ico-ok"></use>
-                                                </svg> 
-                                            </a>
-                                            <label for="id_1_1">
-                                                <svg class="ko" data-id="ko">
-                                                        <use xlink:href="assets/img/icons.svg#ico-ko"></use>
-                                                </svg>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    -->
                         </ng-template>
                 </kendo-grid-column>
             </kendo-grid>
