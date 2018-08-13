@@ -4,7 +4,8 @@
      
     <div class="tabs">
         <label *ngFor="let tab of tabs; let i = index" for="tab-{{i+1}}-cmd">
-           {{tab.title}}
+            <svg data-id="tab.dataId"><use [attr.xlink:href]="tab.icon"></use></svg>
+            <span>{{tab.title}}</span>
         </label>
     </div>
 

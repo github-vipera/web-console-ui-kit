@@ -16,7 +16,9 @@
 
   public tabId:string = ""
   @Input() title:string="Tab Title"
- 
+  @Input() icon:string="assets/img/icons.svg#ico-platform";
+  @Input() dataId:string="";
+
   constructor(private element: ElementRef){
 
   }
