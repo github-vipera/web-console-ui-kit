@@ -9,3 +9,9 @@
 :host ::ng-deep .service-catalog-tree .k-grid td {
     border-bottom: 1px dotted #666;
 }
+
+:host ::ng-deep .service-catalog-tree .k-grid tr, .k-grid td {
+    padding: 0.5rem;
+}
+
+
