@@ -30,7 +30,121 @@
     
         </div>
 
+        <aside>
+                <div class="inspector">
+                    <div>
+                        <label>Description</label>
+                        <input value="Vipera platform secure">
+                    </div>
+                    <div>
+                        <label>Offline</label>
+                        <div class="switch">
+                            <input type="checkbox" id="offline">
+                            <label for="offline"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>OTP expiry</label>
+                        <input value="-1">
+                    </div>
+                    <div>
+                        <label>OTP format</label>
+                        <input value="[0-9]+">
+                    </div>
+                    <div>
+                        <label>OTP length</label>
+                        <input value="4">
+                    </div>
+                    <div>
+                        <label>OTP reuse</label>
+                        <div class="switch">
+                            <input type="checkbox" id="otp-reuse" checked="">
+                            <label for="otp-reuse"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>OTP max failures</label>
+                        <input value="3">
+                    </div>
+                    <div>
+                        <label>Allow multiple sessions</label>
+                        <div class="switch">
+                            <input type="checkbox" id="multiple-sessions">
+                            <label for="multiple-sessions"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Password history</label>
+                        <input value="-1">
+                    </div>
+                    <div>
+                        <label>Password expiry</label>
+                        <input value="-1">
+                    </div>
+                    <div>
+                        <label>Password format</label>
+                        <input value=".+">
+                    </div>
+                    <div>
+                        <label>Max login failures</label>
+                        <input value="-1">
+                    </div>
+                    <div>
+                        <label>Register user</label>
+                        <div class="switch">
+                            <input type="checkbox" id="register-user">
+                            <label for="register-user"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Register password</label>
+                        <div class="switch">
+                            <input type="checkbox" id="register-password" checked="">
+                            <label for="register-password"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>User activation</label>
+                        <div class="switch">
+                            <input type="checkbox" id="user-activation">
+                            <label for="user-activation"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Verify client IP</label>
+                        <div class="switch">
+                            <input type="checkbox" id="verify-ip">
+                            <label for="verify-ip"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Vipera serial format</label>
+                        <input value="[a-zA-Z0-9]+">
+                    </div>
+                    <div>
+                        <label>Vipera serial length</label>
+                        <input value="16">
+                    </div>
+                    <div>
+                        <label>UserID format</label>
+                        <input value="[a-zA-Z0-9]+">
+                    </div>
+                    <div>
+                        <label>UserID length</label>
+                        <input value="16">
+                    </div>
+                </div>
+                
+                <div class="cmd">
+                    <a href="#" class="btn">
+                        <svg class="ok" data-id="ok"><use xlink:href="img/icons.svg#ico-ok"></use></svg> 
+                        Save
+                    </a>
+                </div>
+                
+            </aside>
 </div>
+
 
 
  <!--
