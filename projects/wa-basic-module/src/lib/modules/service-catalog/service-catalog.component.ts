@@ -44,15 +44,6 @@ export class ServiceCatalogComponent implements OnInit {
     ]
   }
 
-  /**
-  public data = [
-    { name:"Default", description:"MOTIF Default", type:"Domain", channel:"", domain: "Default", application: "", service: ""},
-      { name:"Vipera", description:"Vipera Default Application", type:"Application", channel:"", domain: "Default", application: "Vipera", service: ""},
-        { name:"Security", description:"Securiry Service", type:"Service", channel:"", domain: "Default", application: "Vipera", service: "Security"},
-          { name:"login", description:"Login Operation", type:"Operation", channel:"JSON", domain: "Default", application: "Vipera", service: "Security"},
-          { name:"logout", description:"Logout Operation", type:"Operation", channel:"JSON", domain: "Default", application: "Vipera", service: "Security"}
-  ]
-   */
 
   public data = [
     { name:"login", description:"Login Operation", type:"Operation", channel:"JSON", domain: "Default", application: "Vipera", service: "Security"},
