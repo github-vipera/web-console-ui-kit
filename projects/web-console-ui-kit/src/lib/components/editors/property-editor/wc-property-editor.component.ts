@@ -12,7 +12,9 @@ export interface  WCPropertyEditorItem {
   description?:string,
   field:string,
   type:WCPropertyEditorItemType,
-  value?:any
+  value?:any,
+  disabled?:boolean,
+  htmlInputType?:string
 }
 
 export interface WCPropertyEditorModel {

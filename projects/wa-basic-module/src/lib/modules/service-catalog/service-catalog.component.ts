@@ -39,6 +39,20 @@ export class ServiceCatalogComponent implements OnInit {
         field: "otpExpiry",
         type: WCPropertyEditorItemType.String,
         value: "-1"
+      },
+      {
+        name: "Disabled Value",
+        field: "disabledValue",
+        type: WCPropertyEditorItemType.String,
+        value: "this is disabled",
+        disabled:true
+      },
+      {
+        name: "Age",
+        field: "age",
+        type: WCPropertyEditorItemType.String,
+        value: "45",
+        htmlInputType: "number"
       }
 
     ]

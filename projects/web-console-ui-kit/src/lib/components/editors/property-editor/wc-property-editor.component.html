@@ -1,11 +1,11 @@
-<div class="inspector">
+<div class="inspector wc-property-editor">
 
     
                     
         <div *ngFor="let item of model.items; let i = index">
                 <label>{{item.name}}</label>
 
-                <input *ngIf="item.type === checkType.String" [(ngModel)]="item.value">
+                <input [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" *ngIf="item.type === checkType.String" [(ngModel)]="item.value" [attr.disabled]="item.disabled">
                 
                 <div *ngIf="item.type === checkType.Boolean" class="switch">
                         <input type="checkbox" id="{{item.name}}" [checked]="item.value" [(ngModel)]="item.value">
