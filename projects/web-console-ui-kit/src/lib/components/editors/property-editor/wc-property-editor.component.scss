@@ -1,3 +1,11 @@
 :host ::ng-deep  .inspector input:disabled {
     color:#888; 
 }
+
+:host ::ng-deep  .inspector .property-modified label::before {
+    vertical-align: middle;
+    font-size: 12pt;
+    color: rgb(114, 114, 114);
+    content: "\2022";
+    padding-right: 4px;
+  }

@@ -37,4 +37,11 @@ export interface WCPropertyEditorModel {
     console.log("WCPropertyEditorComponent: ", this.model);
   }
 
+  onModelChanged(event:any){
+    console.log("********* onModelChanged!!! ", event)
+  }
+  
+  onPropertyChange(event:any){
+    console.log("********* onPropertyChange!!! ", event)
+  }
 } 
