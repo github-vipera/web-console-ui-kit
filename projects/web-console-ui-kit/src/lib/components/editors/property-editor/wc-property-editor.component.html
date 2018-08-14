@@ -33,8 +33,8 @@
                         [attr.itemId]="item.field"
                         [(ngModel)]="item.value"  
                         >
-                        <option *ngFor="let listValue of item.listValues; let i = index" value="listValue" [attr.selected]="item.value==listValue ? true : null">{{listValue}}</option>
-                              </select>
+                        <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
+                </select>
 
         </div>
         
