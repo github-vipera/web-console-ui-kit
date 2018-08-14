@@ -1,6 +1,39 @@
 <wc-dashboard-header [title]="'Services'"></wc-dashboard-header>
 
-    <!--
+<div class="row service-catalog-tree">
+
+        <div>
+                <kendo-grid 
+                [groupable]="true"
+                [data]="gridView"
+                [group]="groups"
+                [selectable]="{
+                    'mode': 'single'
+                }"
+                [columnMenu]="false"
+                [resizable]="true" 
+                [reorderable]="false" 
+                style="height: 100%"
+                [scrollable]="'none'"
+                >
+                    <kendo-grid-column field="name" title="Name" sortable="false">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="description" title="Description" sortable="false">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="type" title="Type" sortable="false">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="channel" title="Channel" sortable="false">
+                    </kendo-grid-column>
+            
+                    
+                </kendo-grid>
+    
+        </div>
+
+</div>
+
+
+ <!--
     <div class="scrolly">
         <div class="tree">
             <div class="head">
@@ -140,34 +173,3 @@
         </div>
     </div>
 -->
-
-<div class="row service-catalog-tree">
-
-        <div>
-                <kendo-grid 
-                [groupable]="true"
-                [data]="gridView"
-                [group]="groups"
-
-                [columnMenu]="false"
-                [resizable]="true" 
-                [reorderable]="false" 
-                style="height: 100%"
-                [scrollable]="'none'"
-                >
-                    <kendo-grid-column field="name" title="Name" sortable="false">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="description" title="Description" sortable="false">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="type" title="Type" sortable="false">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="channel" title="Channel" sortable="false">
-                    </kendo-grid-column>
-            
-                    
-                </kendo-grid>
-    
-        </div>
-
-</div>
-
