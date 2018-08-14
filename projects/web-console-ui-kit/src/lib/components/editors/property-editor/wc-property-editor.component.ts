@@ -21,8 +21,8 @@ export interface WCPropertyEditorModel {
 
  @Component({
    selector: 'wc-property-editor',
-   templateUrl: './wc-property-edito.component.html',
-   styleUrls: [ './wc-property-edito.component.scss' ]
+   templateUrl: './wc-property-editor.component.html',
+   styleUrls: [ './wc-property-editor.component.scss' ]
  })
  export class WCPropertyEditorComponent implements AfterContentInit {
 

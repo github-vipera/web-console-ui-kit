@@ -11,10 +11,11 @@ import { WCOverlayPaneService } from '../services/OverlayPaneService/overlay-pan
 import { WCTabItemComponent } from '../components/containers/tabs/wc-tab-item.component'
 import { WCTabPanelComponent } from '../components/containers/tabs/wc-tab-panel.component'
 import { WCPropertyEditorComponent } from '../components/editors/property-editor/wc-property-editor.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule, ToastrModule.forRoot()
+    CommonModule, ToastrModule.forRoot(), FormsModule
   ],
   declarations: [ 
     WCGridButtonEditorComponent, 
