@@ -3,31 +3,29 @@
     
                     
         <div *ngFor="let item of model.items; let i = index" class="property-modified wc-property-editor-item">
-                <label>{{item.name}}</label>
+                <label id="label-for-{{item.name}}">{{item.name}}</label>
 
-                <input [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" *ngIf="item.type === checkType.String" [(ngModel)]="item.value" [attr.disabled]="item.disabled" (input)="onPropertyChange($event)" (ngModelChange)="onModelChanged($event)">
+                <input 
+                                [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
+                                *ngIf="item.type === checkType.String" 
+                                [(ngModel)]="item.value" 
+                                [attr.disabled]="item.disabled" 
+                                (input)="onPropertyChange($event)" 
+                                (ngModelChange)="onModelChanged($event)"
+                                [attr.itemId]="item.name"
+                                >
                 
                 <div *ngIf="item.type === checkType.Boolean" class="switch">
-                        <input type="checkbox" id="{{item.name}}" [checked]="item.value" [(ngModel)]="item.value"  (ngModelChange)="onModelChanged($event)"  (change)="onPropertyChange($event)">
+                        <input type="checkbox" id="{{item.name}}" 
+                        [checked]="item.value" 
+                        [(ngModel)]="item.value"  
+                        (ngModelChange)="onModelChanged($event)"  
+                        (change)="onPropertyChange($event)"
+                        [attr.itemId]="item.name"
+                        >
                         <label for="{{item.name}}"></label>
                 </div>
         </div>
         
 
-        <!--
-        <div>
-                <label>Description</label>
-                <input value="Vipera platform secure">
-        </div>
-        -->
-
-        <!--
-                <div>
-                <label>Offline</label>
-                <div class="switch">
-                        <input type="checkbox" id="offline">
-                        <label for="offline"></label>
-                </div>
-                </div>
-        -->
 </div>

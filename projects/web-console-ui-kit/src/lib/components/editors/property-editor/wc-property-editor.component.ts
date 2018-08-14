@@ -42,6 +42,7 @@ export interface WCPropertyEditorModel {
   }
   
   onPropertyChange(event:any){
-    console.log("********* onPropertyChange!!! ", event)
+    let propertyChanged = event.srcElement.getAttribute("itemId");
+    console.log("********* onPropertyChange for "+propertyChanged+" !!! ", event)
   }
 } 
