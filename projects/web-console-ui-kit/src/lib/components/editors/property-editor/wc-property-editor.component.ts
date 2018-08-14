@@ -30,7 +30,6 @@ export interface WCPropertyEditorModel {
  })
  export class WCPropertyEditorComponent implements AfterContentInit {
 
-  //@Input("model") model:WCPropertyEditorModel;
   private _model:WCPropertyEditorModel;
   private _originalModel:WCPropertyEditorModel;
   checkType: any = WCPropertyEditorItemType;
