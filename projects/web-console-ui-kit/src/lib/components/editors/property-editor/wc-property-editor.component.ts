@@ -1,5 +1,6 @@
  
 import { Component, AfterContentInit, ContentChildren, QueryList, Input  } from '@angular/core';
+import { THIS_EXPR } from '../../../../../../../node_modules/@angular/compiler/src/output/output_ast';
 
 
 export enum WCPropertyEditorItemType {
@@ -14,7 +15,8 @@ export interface  WCPropertyEditorItem {
   type:WCPropertyEditorItemType,
   value?:any,
   disabled?:boolean,
-  htmlInputType?:string
+  htmlInputType?:string,
+  valueChanged?:boolean
 }
 
 export interface WCPropertyEditorModel {
@@ -28,7 +30,9 @@ export interface WCPropertyEditorModel {
  })
  export class WCPropertyEditorComponent implements AfterContentInit {
 
-  @Input("model") model:WCPropertyEditorModel;
+  //@Input("model") model:WCPropertyEditorModel;
+  private _model:WCPropertyEditorModel;
+  private _originalModel:WCPropertyEditorModel;
   checkType: any = WCPropertyEditorItemType;
 
   constructor(){}
@@ -38,11 +42,52 @@ export interface WCPropertyEditorModel {
   }
 
   onModelChanged(event:any){
-    console.log("********* onModelChanged!!! ", event)
   }
   
   onPropertyChange(event:any){
     let propertyChanged = event.srcElement.getAttribute("itemId");
     console.log("********* onPropertyChange for "+propertyChanged+" !!! ", event)
+    let originalValue = this.getOriginalValueFor(propertyChanged);
+    let currentValue = this.getCurrentValueFor(propertyChanged);
+    if (originalValue && (originalValue===currentValue)){
+      this.markPropertyChanged(propertyChanged, false);
+    } else {
+      this.markPropertyChanged(propertyChanged, true);
+    }
   }
+
+  @Input()
+  public get model(){
+    return this._model;
+  }
+
+  public set model(model:WCPropertyEditorModel){
+    this._model = model;
+    this._originalModel =  JSON.parse(JSON.stringify(model))
+  }
+
+  private getOriginalValueFor(propertyName:string):any {
+    return this.getValueFor(propertyName, this._originalModel);
+  }
+
+  private getCurrentValueFor(propertyName:string):any {
+    return this.getValueFor(propertyName, this._model);
+  }
+
+  private getValueFor(propertyName:string, model:WCPropertyEditorModel):any {
+    let item =  model.items.find(x => x.name == propertyName);
+    if (item){
+      return item.value;
+    } else {
+      return null;
+    }
+  }
+
+  private markPropertyChanged(propertyName: string, changed:boolean){
+    let item =  this._model.items.find(x => x.name == propertyName);
+    if (item){
+      item.valueChanged = changed;
+    }
+  }
+
 } 

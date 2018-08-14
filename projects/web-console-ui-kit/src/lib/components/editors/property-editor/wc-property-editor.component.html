@@ -2,7 +2,7 @@
 
     
                     
-        <div *ngFor="let item of model.items; let i = index" class="property-modified wc-property-editor-item">
+        <div *ngFor="let item of model.items; let i = index" class="wc-property-editor-item" [class.property-modified]="item.valueChanged">
                 <label id="label-for-{{item.name}}">{{item.name}}</label>
 
                 <input 
