@@ -1,0 +1,11 @@
+:host ::ng-deep .service-catalog-tree  .k-grid .k-grouping-row {
+    background-color: #22272b;
+}
+
+:host ::ng-deep .service-catalog-tree  .k-grouping-header  {
+    display: none;
+}
+
+:host ::ng-deep .service-catalog-tree .k-grid td {
+    border-bottom: 1px dotted #666;
+}

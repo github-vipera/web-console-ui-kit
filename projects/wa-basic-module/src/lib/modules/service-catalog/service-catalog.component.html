@@ -1,13 +1,157 @@
 <wc-dashboard-header [title]="'Services'"></wc-dashboard-header>
 
-<div class="row">
+    <!--
+    <div class="scrolly">
+        <div class="tree">
+            <div class="head">
+                <div>Name</div>
+                <div>Description</div>
+                <div>Type</div>
+                <div>Channel</div>
+            </div>
+            <div class="tree-data">
+
+                <input type="checkbox" id="level-0" checked="">
+                <div class="parent active">
+                    <label for="level-0"></label>
+                    <div>vipera</div>
+                    <div>Vipera platform secure</div>
+                    <div>Application</div>
+                    <div></div>						
+                </div>
+                <div class="children">
+                    <input type="checkbox" id="level-0-1" checked="">
+                    <div class="parent">
+                        <label for="level-0-1"></label>
+                        <div>appcont</div>
+                        <div></div>
+                        <div>Service</div>
+                        <div>JSON</div>						
+                    </div>
+                    <div class="children">
+                        <div class="child">
+                            <div>appcheck</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>assetdld</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                    </div>
+                    <input type="checkbox" id="level-0-2" checked="">
+                    <div class="parent">
+                        <label for="level-0-2"></label>
+                        <div>public</div>
+                        <div></div>
+                        <div>Service</div>
+                        <div>JSON</div>						
+                    </div>
+                    <div class="children">
+                        <div class="child">
+                            <div>get</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>ping</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>register</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>update</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>usercheck</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                    </div>
+                    <input type="checkbox" id="level-0-3" checked="">
+                    <div class="parent">
+                        <label for="level-0-3"></label>
+                        <div>vipera</div>
+                        <div></div>
+                        <div>Service</div>
+                        <div>JSON</div>						
+                    </div>
+                    <div class="children">
+                        <div class="child">
+                            <div>activ</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>chpwd</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>deactiv</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>login</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>logout</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                        <div class="child">
+                            <div>secping</div>
+                            <div></div>
+                            <div>Operation</div>
+                            <div>JSON</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="child">
+                    <div>public</div>
+                    <div>Vipera platform public</div>
+                    <div>Application</div>
+                    <div></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+-->
+
+<div class="row service-catalog-tree">
 
         <div>
-                <kendo-grid [data]="gridView" 
+                <kendo-grid 
+                [groupable]="true"
+                [data]="gridView"
+                [group]="groups"
+
                 [columnMenu]="false"
                 [resizable]="true" 
                 [reorderable]="false" 
-                [groupable]="true" [group]="groups"
                 style="height: 100%"
                 [scrollable]="'none'"
                 >
