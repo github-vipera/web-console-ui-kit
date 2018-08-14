@@ -2,7 +2,7 @@
 
     
                     
-        <div *ngFor="let item of model.items; let i = index" class="property-modified">
+        <div *ngFor="let item of model.items; let i = index" class="property-modified wc-property-editor-item">
                 <label>{{item.name}}</label>
 
                 <input [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" *ngIf="item.type === checkType.String" [(ngModel)]="item.value" [attr.disabled]="item.disabled" (input)="onPropertyChange($event)" (ngModelChange)="onModelChanged($event)">

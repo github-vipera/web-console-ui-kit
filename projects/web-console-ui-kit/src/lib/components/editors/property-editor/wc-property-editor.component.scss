@@ -2,7 +2,7 @@
     color:#888; 
 }
 
-:host ::ng-deep  .inspector .property-modified label::before {
+:host ::ng-deep  .wc-property-editor-item.property-modified  > label::before {
     vertical-align: middle;
     font-size: 12pt;
     color: rgb(114, 114, 114);
