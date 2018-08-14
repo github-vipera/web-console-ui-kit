@@ -1,0 +1,33 @@
+<div class="inspector">
+
+    
+                    
+        <div *ngFor="let item of model.items; let i = index">
+                <label>{{item.name}}</label>
+
+                <input *ngIf="item.type === checkType.String" value="{{item.value}}" ng-model="item.value">
+                
+                <div *ngIf="item.type === checkType.Boolean" class="switch">
+                        <input type="checkbox" id="{{item.name}}" ng-model="item.value" [checked]="item.value">
+                        <label for="{{item.name}}"></label>
+                </div>
+        </div>
+        
+
+        <!--
+        <div>
+                <label>Description</label>
+                <input value="Vipera platform secure">
+        </div>
+        -->
+
+        <!--
+                <div>
+                <label>Offline</label>
+                <div class="switch">
+                        <input type="checkbox" id="offline">
+                        <label for="offline"></label>
+                </div>
+                </div>
+        -->
+</div>

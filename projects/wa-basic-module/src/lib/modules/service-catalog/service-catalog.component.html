@@ -29,7 +29,19 @@
                 </kendo-grid>
     
         </div>
-
+        
+        <aside>
+            <wc-property-editor
+                [model]="propertyModel">
+            </wc-property-editor>
+            <div class="cmd">
+                    <a href="#" class="btn" (click)="onSavePropertiesPressed()">
+                        <svg class="ok" data-id="ok"><use xlink:href="img/icons.svg#ico-ok"></use></svg> 
+                        Save
+                    </a>
+                </div>
+        </aside>
+        <!--
         <aside>
                 <div class="inspector">
                     <div>
@@ -143,6 +155,7 @@
                 </div>
                 
             </aside>
+        -->
 </div>
 
 

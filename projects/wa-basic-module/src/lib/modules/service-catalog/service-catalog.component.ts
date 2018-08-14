@@ -3,6 +3,7 @@ import { PluginView } from 'web-console-core'
 import { WCOverlayPaneService, WCToasterService } from 'web-console-ui-kit'
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
+import { WCPropertyEditorModel, WCPropertyEditorComponent, WCPropertyEditorItem, WCPropertyEditorItemType } from 'web-console-ui-kit'
 
 @Component({
   selector: 'wa-app-content',
@@ -17,6 +18,31 @@ export class ServiceCatalogComponent implements OnInit {
   public gridView: DataResult;
   public sort: SortDescriptor[] = [];
   public groups: GroupDescriptor[] = [];
+
+
+  public propertyModel:WCPropertyEditorModel = {
+    items: [
+      {
+        name: "Description",
+        field: "description",
+        type: WCPropertyEditorItemType.String,
+        value: "Vipera platform secure"
+      },
+      {
+        name: "Offline",
+        field: "offline",
+        type: WCPropertyEditorItemType.Boolean,
+        value: true
+      },
+      {
+        name: "OTP expiry",
+        field: "otpExpiry",
+        type: WCPropertyEditorItemType.String,
+        value: "-1"
+      }
+
+    ]
+  }
 
   /**
   public data = [
@@ -44,5 +70,8 @@ export class ServiceCatalogComponent implements OnInit {
     this.gridView = process(this.data, { group: this.groups });
   }
 
+  onSavePropertiesPressed():void{
+    console.log("propertyModel save: ", this.propertyModel);
+  }
 
 }

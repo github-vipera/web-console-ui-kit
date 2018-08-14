@@ -10,13 +10,33 @@ import { WCOverlayPane } from '../components/commons/OverlayPane/wc-overlay-pane
 import { WCOverlayPaneService } from '../services/OverlayPaneService/overlay-pane.service'
 import { WCTabItemComponent } from '../components/containers/tabs/wc-tab-item.component'
 import { WCTabPanelComponent } from '../components/containers/tabs/wc-tab-panel.component'
+import { WCPropertyEditorComponent } from '../components/editors/property-editor/wc-property-editor.component'
 
 @NgModule({
   imports: [
     CommonModule, ToastrModule.forRoot()
   ],
-  declarations: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton, WCSlideDownPanelComponent, WCOverlayPane, WCTabItemComponent, WCTabPanelComponent ],
-  exports: [ WCGridButtonEditorComponent, WCPanelComponent, WCDashboardHeaderComponent, WCSwitchButton, WCSlideDownPanelComponent, WCOverlayPane, WCTabItemComponent, WCTabPanelComponent  ],
+  declarations: [ 
+    WCGridButtonEditorComponent, 
+    WCPanelComponent, 
+    WCDashboardHeaderComponent, 
+    WCSwitchButton, 
+    WCSlideDownPanelComponent, 
+    WCOverlayPane, 
+    WCTabItemComponent, 
+    WCTabPanelComponent,
+    WCPropertyEditorComponent 
+  ],
+  exports: [ 
+    WCGridButtonEditorComponent, 
+    WCPanelComponent, 
+    WCDashboardHeaderComponent, 
+    WCSwitchButton, 
+    WCSlideDownPanelComponent, 
+    WCOverlayPane, 
+    WCTabItemComponent, 
+    WCTabPanelComponent,
+    WCPropertyEditorComponent  ],
   entryComponents: [ WCOverlayPane ],
   providers : [
     ToastrService, WCOverlayPaneService
