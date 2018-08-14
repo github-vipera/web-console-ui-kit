@@ -1,30 +1,41 @@
 <div class="inspector wc-property-editor">
 
-    
-                    
         <div *ngFor="let item of model.items; let i = index" class="wc-property-editor-item" [class.property-modified]="item.valueChanged">
-                <label id="label-for-{{item.name}}">{{item.name}}</label>
+                <label id="label-for-{{item.field}}">{{item.name}}</label>
 
                 <input 
-                                [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
-                                *ngIf="item.type === checkType.String" 
-                                [(ngModel)]="item.value" 
-                                [attr.disabled]="item.disabled" 
-                                (input)="onPropertyChange($event)" 
-                                (ngModelChange)="onModelChanged($event)"
-                                [attr.itemId]="item.name"
-                                >
+                        [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
+                        *ngIf="item.type === checkType.String" 
+                        [(ngModel)]="item.value" 
+                        [attr.disabled]="item.disabled" 
+                        (input)="onPropertyChange($event)" 
+                        (ngModelChange)="onModelChanged($event)"
+                        [attr.itemId]="item.field"
+                        >
                 
                 <div *ngIf="item.type === checkType.Boolean" class="switch">
-                        <input type="checkbox" id="{{item.name}}" 
+                        <input type="checkbox" id="{{item.field}}" 
                         [checked]="item.value" 
                         [(ngModel)]="item.value"  
                         (ngModelChange)="onModelChanged($event)"  
                         (change)="onPropertyChange($event)"
-                        [attr.itemId]="item.name"
+                        [attr.itemId]="item.field"
                         >
-                        <label for="{{item.name}}"></label>
+                        <label for="{{item.field}}"></label>
                 </div>
+
+
+                <select *ngIf="item.type === checkType.List" 
+                        name="{{item.field}}" 
+                        (ngModelChange)="onModelChanged($event)" 
+                        class="wc-property-editor-item-combo" 
+                        (change)="onPropertyChange($event)"
+                        [attr.itemId]="item.field"
+                        [(ngModel)]="item.value"  
+                        >
+                        <option *ngFor="let listValue of item.listValues; let i = index" value="listValue" [attr.selected]="item.value==listValue ? true : null">{{listValue}}</option>
+                              </select>
+
         </div>
         
 

@@ -53,6 +53,13 @@ export class ServiceCatalogComponent implements OnInit {
         type: WCPropertyEditorItemType.String,
         value: "45",
         htmlInputType: "number"
+      },
+      {
+        name: "Car Type",
+        field: "carType",
+        type: WCPropertyEditorItemType.List,
+        value: "BMW",
+        listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"]
       }
 
     ]

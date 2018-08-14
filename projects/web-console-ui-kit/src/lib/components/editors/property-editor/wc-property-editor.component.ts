@@ -5,7 +5,8 @@ import { THIS_EXPR } from '../../../../../../../node_modules/@angular/compiler/s
 
 export enum WCPropertyEditorItemType {
   String = 'string',
-  Boolean = 'boolean'
+  Boolean = 'boolean',
+  List = 'list'
 }
 
 export interface  WCPropertyEditorItem {
@@ -16,7 +17,8 @@ export interface  WCPropertyEditorItem {
   value?:any,
   disabled?:boolean,
   htmlInputType?:string,
-  valueChanged?:boolean
+  valueChanged?:boolean,
+  listValues?: string[]
 }
 
 export interface WCPropertyEditorModel {
@@ -74,7 +76,7 @@ export interface WCPropertyEditorModel {
   }
 
   private getValueFor(propertyName:string, model:WCPropertyEditorModel):any {
-    let item =  model.items.find(x => x.name == propertyName);
+    let item =  model.items.find(x => x.field == propertyName);
     if (item){
       return item.value;
     } else {
@@ -83,7 +85,8 @@ export interface WCPropertyEditorModel {
   }
 
   private markPropertyChanged(propertyName: string, changed:boolean){
-    let item =  this._model.items.find(x => x.name == propertyName);
+    console.log("markPropertyChanged "+propertyName+" -> "+ changed);
+    let item =  this._model.items.find(x => x.field == propertyName);
     if (item){
       item.valueChanged = changed;
     }

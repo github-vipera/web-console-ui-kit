@@ -9,3 +9,7 @@
     content: "\2022";
     padding-right: 4px;
   }
+
+  :host ::ng-deep   .wc-property-editor-item-combo {
+    height: 1.7rem;
+  }
