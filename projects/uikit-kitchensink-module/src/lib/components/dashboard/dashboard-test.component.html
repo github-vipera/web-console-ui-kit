@@ -1,12 +1,5 @@
 <wc-dashboard-header [title]="'Dashboard'"></wc-dashboard-header>
 
-    <button (click)="showMainMenu()">Main Menu</button>
-    <wc-main-menu (menuClick)="onMenuClicked($event)"></wc-main-menu>
-    
-  <!--
-  <wc-switch-button [id]="'myTest'" [title]="'Simple Switch'"></wc-switch-button>
-  -->
-
   <gridster [options]="options" class="row">
 
     <ng-template [aclPermission]="['test23']" >
