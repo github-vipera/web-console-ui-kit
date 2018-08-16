@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
 import { PluginView, StatusBarService, StatusBarItem } from 'web-console-core'
 import { WCToasterService } from 'web-console-ui-kit'
 import { GridsterItem, GridsterConfig, GridType, CompactType } from 'web-console-ui-kit'
 import { timer } from 'rxjs';
 import { DashboardStatusBarItemComponent } from './dashboard-status-bar-item.component'
+import { WCMainMenuComponent } from '../main-menu/main-menu.component'
 
 @Component({
   selector: 'wc-uikit-ks-dashboard-test',
@@ -25,6 +26,7 @@ export class DashboardTestComponent implements OnInit, OnDestroy, AfterViewInit 
 
   public numOfSessions:number=4;
 
+  @ViewChild(WCMainMenuComponent) mainMenu:WCMainMenuComponent;
 
   gaugeType = "semi";
   gaugeValue = 33;
@@ -190,6 +192,14 @@ export class DashboardTestComponent implements OnInit, OnDestroy, AfterViewInit 
 
   onSelect(event) {
     console.log(event);
+  }
+
+  onMenuClicked(menuId:string){
+    alert("Menu clicked:" +menuId)
+  }
+
+  showMainMenu(){
+    this.mainMenu.show();
   }
 
 }

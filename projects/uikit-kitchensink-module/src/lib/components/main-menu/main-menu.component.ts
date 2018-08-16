@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, OnDestroy, AfterViewInit, HostListener, Directive, Output, EventEmitter, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, OnDestroy, AfterViewInit, HostListener, EventEmitter, Input, Output, HostBinding, NgZone } from '@angular/core';
 
 
 @Component({
@@ -8,28 +8,34 @@ import { Component, ElementRef, OnInit, OnDestroy, AfterViewInit, HostListener, 
 })
 export class WCMainMenuComponent implements OnInit, OnDestroy, AfterViewInit {
 
-    constructor(private elementRef:ElementRef){}
+    @Output() menuClick: EventEmitter<string> = new EventEmitter<string>();
+
+    constructor(private elementRef:ElementRef, private _ngZone:NgZone){}
 
     @Input()
-    public visible:boolean=true;
+    public visible:boolean=false;
 
     ngOnInit(){
-        console.log("WCMainMenuComponent elementRef:",this.elementRef.nativeElement)
+        console.log("WCMainMenuComponent elementRef:",this.elementRef.nativeElement.children[0])
     }
 
     ngOnDestroy(){}
 
     ngAfterViewInit(){}
 
+    /*
     @HostListener('document:click', ['$event'])
     clickout(event) {
-        if(this.elementRef.nativeElement.contains(event.target)) {
-            console.log("WCMainMenuComponent clicked inside:",this.elementRef.nativeElement)
-        } else {
-            //this.hide();
-            console.log("WCMainMenuComponent clicked outside:",this.elementRef.nativeElement)
+        if (this.visible){
+            if(this.elementRef.nativeElement.contains(event.target)) {
+                console.log("WCMainMenuComponent clicked inside:",this.elementRef.nativeElement)
+            } else {
+                this.hide();
+                console.log("WCMainMenuComponent clicked outside:",this.elementRef.nativeElement)
+            }
         }
     }
+    */
 
     @HostListener('document:keydown', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) {
@@ -44,6 +50,9 @@ export class WCMainMenuComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public show():void{
         this.visible = true;
+        setTimeout(()=>{
+            this.elementRef.nativeElement.children[0].focus();
+        }, 10)
     }
 
     public hide():void{
@@ -52,6 +61,19 @@ export class WCMainMenuComponent implements OnInit, OnDestroy, AfterViewInit {
 
     onMenuClicked(menuItem:string):void{
         this.hide();
-        alert("Menu clicked: " + menuItem);
+        this.menuClick.emit(menuItem);        
     }
+
+      onDivFocus(){
+      }
+      
+      onDivFocusOut(){
+      }
+
+      onComponentBlur(){
+        this.hide();
+      }
+
+
 }
+
