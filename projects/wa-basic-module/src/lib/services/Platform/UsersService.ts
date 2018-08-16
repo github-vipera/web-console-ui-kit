@@ -3,7 +3,6 @@ import { MotifConnectorService, ServiceRequest } from 'web-console-core'
 import { WAGlobals } from '../../WAGlobals'
 import { String, StringBuilder } from 'typescript-string-operations'
 import { MotifQueryService, MotifQueryFilter, MotifQuerySort, MotifQueryResults } from 'web-console-core';
-import { StatusBarService } from 'web-console-core'
 
 const USERS_LIST_ENDPOINT =  WAGlobals.API_ENDPOINT_PRFIX + "/platform/domains/{0}/users"
 const CREATE_USER_ENDPOINT =  WAGlobals.API_ENDPOINT_PRFIX + "/platform/domains/{0}/users"
@@ -31,7 +30,7 @@ export class User {
 })
 export class UsersService {
 
-  constructor(private motifConnector: MotifConnectorService, private motifQueryService: MotifQueryService, private sbService:StatusBarService) {
+  constructor(private motifConnector: MotifConnectorService, private motifQueryService: MotifQueryService) {
     console.log("MotifConnectorService=", motifConnector);
   }
 
@@ -49,20 +48,16 @@ export class UsersService {
 
   getUserListEx(domain:string, pageIndex:number, pageSize:number, sort:MotifQuerySort, filter:MotifQueryFilter):Promise<MotifQueryResults>{
     return new Promise<MotifQueryResults>((resolve,reject) => {
-      this.sbService.setBusyIndicatorVisibile(true);
       let endpoint = String.Format(USERS_LIST_ENDPOINT, domain);
       this.motifQueryService.query(endpoint, pageIndex, pageSize, sort, filter).subscribe((queryResponse) => {
           console.log("Get Users List done: ",queryResponse);
           resolve(queryResponse);
-          this.sbService.setBusyIndicatorVisibile(false);
         },reject);
     });
   }
 
   getUsersList(domain:string): Promise<Array<User>>{
     return new Promise<Array<User>>((resolve,reject) => {
-      
-      this.sbService.setBusyIndicatorVisibile(true);
 
       let endpoint = String.Format(USERS_LIST_ENDPOINT, domain);
       let pageIndex = 1;
@@ -76,10 +71,8 @@ export class UsersService {
       
       this.motifQueryService.query(endpoint, pageIndex, pageSize, sort, filter).subscribe((queryResponse) => {
           console.log("Get Users List done: ",queryResponse);
-          this.sbService.setBusyIndicatorVisibile(false);
           resolve(queryResponse.data);
         },(error)=>{
-          this.sbService.setBusyIndicatorVisibile(false);
           reject(error)
         });
     });
@@ -87,7 +80,6 @@ export class UsersService {
 
   public createNewUser(domain:string, userId:string, userIdInt:number, msisdn:number, serial:number, state:string):Promise<void> {
     return new Promise<void>((resolve,reject) => {
-      this.sbService.setBusyIndicatorVisibile(true);
       let request:ServiceRequest = {
         "userIdInt": userIdInt,
         "msisdn": msisdn,
@@ -98,10 +90,8 @@ export class UsersService {
       let endpoint = String.Format(CREATE_USER_ENDPOINT, domain);
       this.motifConnector.post(endpoint, request).subscribe((data) => {
           console.log("createNewUser done: ",data);
-          this.sbService.setBusyIndicatorVisibile(true);
           resolve();
         },(error)=>{
-          this.sbService.setBusyIndicatorVisibile(false);
           reject(error)
         });
 

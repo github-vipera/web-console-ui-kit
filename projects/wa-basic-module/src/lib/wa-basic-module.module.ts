@@ -6,8 +6,12 @@ import { ServiceCatalogComponent } from './modules/service-catalog/service-catal
 
 import { WebConsoleCoreModule } from 'web-console-core'
 import { WebConsoleUIKitGridModule, WebConsoleUIKitModuleKendoProvider, WebConsoleUIKitCoreModule } from 'web-console-ui-kit'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 @NgModule({
+  providers:[
+  ],
   imports: [
     WebConsoleCoreModule, WebConsoleUIKitGridModule, WebConsoleUIKitModuleKendoProvider, WebConsoleUIKitCoreModule, FormsModule
   ],

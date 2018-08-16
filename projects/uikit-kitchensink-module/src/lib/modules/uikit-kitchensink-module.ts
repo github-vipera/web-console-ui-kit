@@ -7,13 +7,14 @@ import { GridsterModule } from 'web-console-ui-kit';
 import { WebConsoleUIKitChartsModule } from 'web-console-ui-kit';
 import { DashboardTestComponent } from '../components/dashboard/dashboard-test.component'
 import { DashboardStatusBarItemComponent } from '../components/dashboard/dashboard-status-bar-item.component' 
+import { WCMainMenuComponent } from '../components/main-menu/main-menu.component'
 
 @NgModule({
   imports: [
     WebConsoleCoreModule, WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule, GridsterModule, CommonModule, WebConsoleUIKitChartsModule
   ],
-  entryComponents:[DashboardTestComponent, DashboardStatusBarItemComponent],
-  declarations: [DashboardTestComponent, DashboardStatusBarItemComponent ],
+  entryComponents:[DashboardTestComponent, DashboardStatusBarItemComponent, WCMainMenuComponent],
+  declarations: [DashboardTestComponent, DashboardStatusBarItemComponent, WCMainMenuComponent  ],
   exports: [DashboardTestComponent ]
 })
 export class UIKITKitchenSinkModule { }
