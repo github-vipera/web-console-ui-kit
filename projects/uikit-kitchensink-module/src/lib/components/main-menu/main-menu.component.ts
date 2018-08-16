@@ -50,4 +50,8 @@ export class WCMainMenuComponent implements OnInit, OnDestroy, AfterViewInit {
         this.visible = false;
     }
 
+    onMenuClicked(menuItem:string):void{
+        this.hide();
+        alert("Menu clicked: " + menuItem);
+    }
 }

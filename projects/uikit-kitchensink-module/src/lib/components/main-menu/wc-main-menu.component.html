@@ -9,10 +9,10 @@
         <div class="wc-main-menu-popover-menu-container">
             <div class="wc-main-menu-popover-menu-item-divider"></div>
             <ul class="wc-main-menu-popover-menu-item-list">
-                <li>Profile</li>
-                <li>Settings</li>
+                <li (click)="onMenuClicked('profile')">Profile</li>
+                <li (click)="onMenuClicked('settings')">Settings</li>
                 <div class="wc-main-menu-popover-menu-item-divider"></div>
-                <li>Logout</li>
+                <li (click)="onMenuClicked('logout')">Logout</li>
             </ul>
         </div>
     </div>
