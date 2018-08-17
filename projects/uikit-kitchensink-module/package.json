@@ -4,7 +4,6 @@
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "web-console-core": "^0.0.1",
-    "@wa-test/my-simple-test-module" : "^0.0.1"
-  }
+    "web-console-core": "^0.0.1"
+   }
 }

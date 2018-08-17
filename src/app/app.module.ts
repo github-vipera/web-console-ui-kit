@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { LoggerModule, NGXLogger, NgxLoggerLevel } from 'web-console-core'
 import { PlatformServiceModule, BASE_PATH } from '@wa-motif-open-api/platform-service'
+import { SecurityServiceModule } from '@wa-motif-open-api/security-service'
 import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     ToolBarModule, 
     BrowserAnimationsModule, 
     GridModule,
-    PlatformServiceModule
+    PlatformServiceModule,
+    SecurityServiceModule
   ],
   providers: [ WebAdminModulesProvider,
     { provide: BASE_PATH, useValue: environment.API_BASE_PATH } ],

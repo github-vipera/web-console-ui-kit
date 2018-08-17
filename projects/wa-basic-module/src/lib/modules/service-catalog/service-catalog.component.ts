@@ -5,7 +5,7 @@ import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { WCPropertyEditorModel, WCPropertyEditorComponent, WCPropertyEditorItem, WCPropertyEditorItemType } from 'web-console-ui-kit'
 import { DomainsService } from '@wa-motif-open-api/platform-service'
-
+import { SecurityService } from '@wa-motif-open-api/security-service'
 
 @Component({
   selector: 'wa-app-content',
@@ -76,7 +76,10 @@ export class ServiceCatalogComponent implements OnInit {
   ]
   
 
-  constructor(private toaster: WCToasterService, private overlayPaneService: WCOverlayPaneService, private domainService: DomainsService) {
+  constructor(private toaster: WCToasterService, 
+    private overlayPaneService: WCOverlayPaneService , 
+    private domainService: DomainsService,
+    private securityService: SecurityService) {
     console.log("ServiceCatalogComponent domainService", domainService)
   }
 
@@ -100,10 +103,16 @@ export class ServiceCatalogComponent implements OnInit {
     this.domainService.createDomain({name:"TestDomain", description:"Test Domain description"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data),
       error=>console.log("ServiceCatalogComponent create new domain error:", error));
   */
- this.domainService.updateDomain("TestDomain", {description:"Test Domain description modified"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data),
- error=>console.log("ServiceCatalogComponent create new domain error:", error));
+
+    /*
+    this.domainService.updateDomain("TestDomain", {description:"Test Domain description modified"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data),
+    error=>console.log("ServiceCatalogComponent create new domain error:", error));
+    */
 
     this.domainService.getDomains().subscribe(data=>console.log("ServiceCatalogComponent getDomains:", data));
+    this.securityService.getSessions().subscribe(sessions=>console.log("ServiceCatalogComponent getSessions:", sessions));
+    this.securityService.logoutCurrentUser().subscribe(res=>console.log("ServiceCatalogComponent logout:", res));
+
   }
 
 }

@@ -7,12 +7,10 @@ import { GridsterModule } from 'web-console-ui-kit';
 import { WebConsoleUIKitChartsModule } from 'web-console-ui-kit';
 import { DashboardTestComponent } from '../components/dashboard/dashboard-test.component'
 import { DashboardStatusBarItemComponent } from '../components/dashboard/dashboard-status-bar-item.component' 
-//import { PlatformServiceApiModule } from '@wa-motif-api/platform-service'
-import { MySimpleTestModuleModule } from '@wa-test/my-simple-test-module'
 
 @NgModule({
   imports: [
-    WebConsoleCoreModule, WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule, GridsterModule, CommonModule, WebConsoleUIKitChartsModule, MySimpleTestModuleModule
+    WebConsoleCoreModule, WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule, GridsterModule, CommonModule, WebConsoleUIKitChartsModule
   ],
   entryComponents:[DashboardTestComponent, DashboardStatusBarItemComponent],
   declarations: [DashboardTestComponent, DashboardStatusBarItemComponent  ],
