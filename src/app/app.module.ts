@@ -10,6 +10,8 @@ import { ToolBarModule } from '@progress/kendo-angular-toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { LoggerModule, NGXLogger, NgxLoggerLevel } from 'web-console-core'
+import { PlatformServiceModule, BASE_PATH } from '@wa-motif-open-api/platform-service'
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -28,9 +30,15 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.TRACE, serverLogLevel: NgxLoggerLevel.OFF}),
-    WebAdminModulesProvider, KendoUIModulesProvider, ToolBarModule, BrowserAnimationsModule, GridModule
+    WebAdminModulesProvider, 
+    KendoUIModulesProvider, 
+    ToolBarModule, 
+    BrowserAnimationsModule, 
+    GridModule,
+    PlatformServiceModule
   ],
-  providers: [ WebAdminModulesProvider ],
+  providers: [ WebAdminModulesProvider,
+    { provide: BASE_PATH, useValue: environment.API_BASE_PATH } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

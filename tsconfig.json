@@ -40,6 +40,24 @@
       ],
       "uikit-kitchensink-module/*": [
         "dist/uikit-kitchensink-module/*"
+      ],
+      "@wa-test/my-simple-test-module": [
+        "dist/wa-test/my-simple-test-module"
+      ],
+      "@wa-test/my-simple-test-module/*": [
+        "dist/wa-test/my-simple-test-module/*"
+      ],
+      "@wa-motif-open-api/platform-service": [
+        "dist/wa-motif-open-api/platform-service"
+      ],
+      "@wa-motif-open-api/platform-service/*": [
+        "dist/wa-motif-open-api/platform-service/*"
+      ],
+      "@wa-motif-open-api/security-service": [
+        "dist/wa-motif-open-api/security-service"
+      ],
+      "@wa-motif-open-api/security-service/*": [
+        "dist/wa-motif-open-api/security-service/*"
       ]
     }
   }

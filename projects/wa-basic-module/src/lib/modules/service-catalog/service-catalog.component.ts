@@ -4,6 +4,8 @@ import { WCOverlayPaneService, WCToasterService } from 'web-console-ui-kit'
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { WCPropertyEditorModel, WCPropertyEditorComponent, WCPropertyEditorItem, WCPropertyEditorItemType } from 'web-console-ui-kit'
+import { DomainsService } from '@wa-motif-open-api/platform-service'
+
 
 @Component({
   selector: 'wa-app-content',
@@ -74,16 +76,27 @@ export class ServiceCatalogComponent implements OnInit {
   ]
   
 
-  constructor(private toaster: WCToasterService, private overlayPaneService: WCOverlayPaneService) {
+  constructor(private toaster: WCToasterService, private overlayPaneService: WCOverlayPaneService, private domainService: DomainsService) {
+    console.log("ServiceCatalogComponent domainService", domainService)
   }
 
   ngOnInit() {
     this.groups = [{ field: 'domain' },{ field: 'application' },{ field: 'service' } ];
     this.gridView = process(this.data, { group: this.groups });
+
   }
 
   onSavePropertiesPressed():void{
     console.log("propertyModel save: ", this.propertyModel);
+
+    this.domainService.deleteDomain("TestDomain").subscribe(data=>{
+      console.log("ServiceCatalogComponent domain deleted:", data)
+    },
+    error => console.log('oops', error))
+    
+    //this.domainService.createDomain({name:"TestDomain", description: "Test Domain description"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data));
+    
+    this.domainService.getDomains().subscribe(data=>console.log("ServiceCatalogComponent getDomains:", data));
   }
 
 }
