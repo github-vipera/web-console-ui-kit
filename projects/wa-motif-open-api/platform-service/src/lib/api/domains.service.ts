@@ -35,7 +35,6 @@ export class DomainsService {
     public configuration = new Configuration();
 
     constructor(protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
-        debugger
         if (basePath) {
             this.basePath = basePath;
         }
@@ -271,7 +270,8 @@ export class DomainsService {
         }
 
         return this.httpClient.put(`${this.basePath}/platform/domains/${encodeURIComponent(String(domain))}`,
-            {
+                body,
+                {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

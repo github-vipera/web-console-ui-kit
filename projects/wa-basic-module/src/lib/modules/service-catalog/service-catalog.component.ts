@@ -89,13 +89,20 @@ export class ServiceCatalogComponent implements OnInit {
   onSavePropertiesPressed():void{
     console.log("propertyModel save: ", this.propertyModel);
 
+    /*
     this.domainService.deleteDomain("TestDomain").subscribe(data=>{
       console.log("ServiceCatalogComponent domain deleted:", data)
     },
     error => console.log('oops', error))
-    
-    //this.domainService.createDomain({name:"TestDomain", description: "Test Domain description"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data));
-    
+    */
+
+    /*
+    this.domainService.createDomain({name:"TestDomain", description:"Test Domain description"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data),
+      error=>console.log("ServiceCatalogComponent create new domain error:", error));
+  */
+ this.domainService.updateDomain("TestDomain", {description:"Test Domain description modified"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data),
+ error=>console.log("ServiceCatalogComponent create new domain error:", error));
+
     this.domainService.getDomains().subscribe(data=>console.log("ServiceCatalogComponent getDomains:", data));
   }
 
