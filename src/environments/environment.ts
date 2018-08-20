@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_BASE_PATH: 'http://localhost:4200/rest/v2'
+  API_BASE_PATH: '/rest/v2',
+  OAUTH_BAS_PATH: ''
 };
 
 /*

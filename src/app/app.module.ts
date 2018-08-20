@@ -13,6 +13,7 @@ import { LoggerModule, NGXLogger, NgxLoggerLevel } from 'web-console-core'
 import { PlatformServiceModule, BASE_PATH } from '@wa-motif-open-api/platform-service'
 import { SecurityServiceModule } from '@wa-motif-open-api/security-service'
 import { environment } from '../environments/environment';
+import { WC_API_BASE_PATH, WC_OAUTH_BASE_PATH } from 'web-console-core'
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -39,8 +40,12 @@ const appRoutes: Routes = [
     PlatformServiceModule,
     SecurityServiceModule
   ],
-  providers: [ WebAdminModulesProvider,
-    { provide: BASE_PATH, useValue: environment.API_BASE_PATH } ],
+  providers: [ 
+    { provide: BASE_PATH, useValue: environment.API_BASE_PATH }, 
+    { provide: WC_API_BASE_PATH, useValue: environment.API_BASE_PATH }, 
+    { provide: WC_OAUTH_BASE_PATH, useValue: environment.OAUTH_BAS_PATH }, 
+    WebAdminModulesProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
