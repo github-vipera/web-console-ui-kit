@@ -110,8 +110,8 @@ export class ServiceCatalogComponent implements OnInit {
     */
 
     this.domainService.getDomains().subscribe(data=>console.log("ServiceCatalogComponent getDomains:", data));
-    this.securityService.getSessions().subscribe(sessions=>console.log("ServiceCatalogComponent getSessions:", sessions));
-    this.securityService.logoutCurrentUser().subscribe(res=>console.log("ServiceCatalogComponent logout:", res));
+    //this.securityService.getSessions().subscribe(sessions=>console.log("ServiceCatalogComponent getSessions:", sessions));
+    //this.securityService.logoutCurrentUser().subscribe(res=>console.log("ServiceCatalogComponent logout:", res));
 
   }
 

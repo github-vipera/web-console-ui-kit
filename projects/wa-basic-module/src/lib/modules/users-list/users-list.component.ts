@@ -1,13 +1,19 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
-import { UsersService, User } from '../../services/Platform/UsersService';
-import { DomainsService, Domain } from '../../services/Platform/DomainsService';
+//import { UsersService, User } from '../../services/Platform/UsersService';
+//import { DomainsService, Domain } from '../../services/Platform/DomainsService';
 import { WCGridConfiguration, WCGridColumnType, WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
-import { MotifQueryFilter, MotifQuerySort, MotifQueryResults } from 'web-console-core';
+import { MotifQueryFilter, MotifQuerySort, MotifQueryResults, MotifQueryService, MotifPagedQuery } from 'web-console-core';
 import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
 import { WCOverlayPaneService } from 'web-console-ui-kit'
+import { DomainsService, DomainsList, Domain, UsersService, UsersList } from '@wa-motif-open-api/platform-service'
+import { String, StringBuilder } from 'typescript-string-operations'
+import { WAGlobals } from '../../WAGlobals'
+
+const USERS_LIST_ENDPOINT = "/platform/domains/{0}/users"
+const CREATE_USER_ENDPOINT = "/platform/domains/{0}/users"
 
 export interface NewUserModel {
   userId?:string,
@@ -30,8 +36,8 @@ export class UsersListComponent implements OnInit {
   @ViewChild(WCSlideDownPanelComponent) _slideDownEditor : WCSlideDownPanelComponent;
 
   //Data
-  public usersList: User[] = [];
-  public domainList: Domain[] = [];
+  public usersList: UsersList = [];
+  public domainList: DomainsList = [];
   public _selectedDomain:Domain; //combo box selection
 
   //Grid Options
@@ -53,9 +59,10 @@ export class UsersListComponent implements OnInit {
   @Input('newUserModel') newUserModel:NewUserModel={};
 
   constructor(private usersService: UsersService,  
-
     private domainsService:DomainsService,
-    private toaster: WCToasterService, private overlayPaneService: WCOverlayPaneService) {
+    private motifQueryService: MotifQueryService,
+    private toaster: WCToasterService, 
+    private overlayPaneService: WCOverlayPaneService) {
     console.log("usersService=", usersService);
 
     this.gridConfiguration = {
@@ -76,14 +83,14 @@ export class UsersListComponent implements OnInit {
    * Get the list of the available Domains
    */
   public refreshDomainList():void {
-    this.domainsService.getDomainList().then((data)=>{
-      console.log("Data received: ", data);
+    this.domainsService.getDomains().subscribe(data=>{
       this.domainList = data;
-    }, (error)=>{
+    }, error=>{
       console.error("Error: ", error);
     });
   } 
 
+  /*
   private createTestDomains():void{
     this.domainsService.deleteDomain("NewDomain").then((data)=>{
       console.log(">>>>>>>>>>>>>>> deleteDomain OK: ", data);
@@ -98,7 +105,9 @@ export class UsersListComponent implements OnInit {
     });
 
   }
+  */  
 
+  /*
   private createTestUsers():void {
     this.usersService.createNewUser('Default', 'joe', 123456,12345678, 12345678, "ACTIVE").then(()=>{
       console.log("Created");
@@ -156,6 +165,7 @@ export class UsersListComponent implements OnInit {
       console.log("Error:", error);
     })
   }
+  */
 
   public pageChange({ skip, take }: PageChangeEvent): void {
     this.skip = skip;
@@ -169,8 +179,32 @@ export class UsersListComponent implements OnInit {
       console.log("loadData pageIndex=" + pageIndex +" pageSize="+pageSize);
 
       let sort:MotifQuerySort = this.buildQuerySort(); 
+      
+      let pagedQuery:MotifPagedQuery = new MotifPagedQuery();
+      pagedQuery.pageIndex = pageIndex;
+      pagedQuery.pageSize = pageSize;
+      pagedQuery.sort = sort;
+      
+      this.usersService.getUsersList(domain, "response", false, pagedQuery).subscribe((response)=>{
 
-      this.usersService.getUserListEx(domain, pageIndex, pageSize, sort, null).then((results)=>{
+
+        let results:MotifQueryResults = MotifQueryResults.fromHttpResponse(response);
+        this.usersList = results.data;
+        this.totalPages = results.totalPages;
+        this.totalRecords = results.totalRecords;
+        this.currentPage = results.pageIndex;
+        this.gridView = {
+          data: this.usersList,
+          total: results.totalRecords
+        }
+        this.currentPage = results.pageIndex;
+
+      }, error=>{
+        console.log("MotifPagedQueryInterceptor test query error: ", error);
+      });
+
+      /*
+      this.getUserListEx(domain, pageIndex, pageSize, sort, null).then((results)=>{
         console.log("Data received: ", results.data);
         this.usersList = results.data;
         this.totalPages = results.totalPages;
@@ -184,7 +218,19 @@ export class UsersListComponent implements OnInit {
         },(error)=>{
         console.error("Error: ", error);
       });
+      */
+
     }
+  }
+
+  private getUserListEx(domain:string, pageIndex:number, pageSize:number, sort:MotifQuerySort, filter:MotifQueryFilter):Promise<MotifQueryResults>{
+    return new Promise<MotifQueryResults>((resolve,reject) => {
+      let endpoint = String.Format(USERS_LIST_ENDPOINT, domain);
+      this.motifQueryService.query(endpoint, pageIndex, pageSize, sort, filter).subscribe((queryResponse) => {
+          console.log("Get Users List done: ",queryResponse);
+          resolve(queryResponse);
+        },reject);
+    });
   }
 
   private calculatePageIndex(skip:number, take:number):number {
@@ -267,8 +313,8 @@ export class UsersListComponent implements OnInit {
     this.dismissNewUserEditor();
   }
 
-  onEditorConfirmButtonPressed():void{
-    //this.overlayPaneService.setVisible(true);
+  onEditorConfirmButtonPressed():void{  
+    /*
     let domainName = this._selectedDomain.name;
     let userId = this.newUserModel.userId;
     let userIdInt = this.newUserModel.userIdInt;
@@ -284,6 +330,7 @@ export class UsersListComponent implements OnInit {
       //this.overlayPaneService.setVisible(false);
       this.toaster.error("User '"+userId+"' creation error: " + error, "New User");
     })
+    */
   }
 
   dismissNewUserEditor(){

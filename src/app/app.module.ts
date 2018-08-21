@@ -31,7 +31,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.TRACE, serverLogLevel: NgxLoggerLevel.OFF}),
+    LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
     WebAdminModulesProvider, 
     KendoUIModulesProvider, 
     ToolBarModule, 
@@ -41,9 +41,8 @@ const appRoutes: Routes = [
     SecurityServiceModule
   ],
   providers: [ 
-    { provide: BASE_PATH, useValue: environment.API_BASE_PATH }, 
     { provide: WC_API_BASE_PATH, useValue: environment.API_BASE_PATH }, 
-    { provide: WC_OAUTH_BASE_PATH, useValue: environment.OAUTH_BAS_PATH }, 
+    { provide: WC_OAUTH_BASE_PATH, useValue: environment.OAUTH_BAS_PATH },
     WebAdminModulesProvider
   ],
   bootstrap: [AppComponent]
