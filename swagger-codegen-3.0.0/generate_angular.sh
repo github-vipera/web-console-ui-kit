@@ -1,0 +1,1 @@
+java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i /Users/marcobonati/Develop/sources/Vipera/Labs/WebAdmin2/MOTIF_OpenApi/20180710viperaopenapi/yaml/PlatformService.yaml -l typescript-angular -o ./output-angular/sources -c options.json
