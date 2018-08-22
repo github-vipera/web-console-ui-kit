@@ -94,5 +94,11 @@ To add a switch button you nedd to use the `wc-switch-button` directive:
 
 
 
+## Dashboard
+
+The dashboard is a component that allows you to quickly and easily create complex data visualizations arranged in elements with automatic layout, drag & drop, etc.
+
+![](./images/dashboard.gif)
+
 
 
