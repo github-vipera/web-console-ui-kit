@@ -207,3 +207,35 @@ Option 2 (with text selection):
 
 ### 
 
+## Panel
+
+The `WCPanelComponent` is a simple UI container with a title.
+
+![](./images/wc-panel.png)
+
+
+
+To create a panel you need to use the wc-panel directive:
+
+
+
+```html
+<wc-panel [title]="'Operations Count'">
+    <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
+</wc-panel>
+```
+
+If you want to add into a dashboard item:
+
+```html
+<gridster-item [item]="operationCountsItem">
+	<wc-panel [title]="'Operations Count'">
+         <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
+     </wc-panel>
+</gridster-item>
+```
+
+
+
+
+
