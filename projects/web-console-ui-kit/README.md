@@ -82,3 +82,17 @@ To add a slide down panel you need to use the `wc-slide-down-panel` directive:
 
 
 
+## Switch Button
+
+With the `WCSwitchButton` you can implement an ON / OFF editing field:
+
+![](./images/switch-button.gif)
+
+To add a switch button you nedd to use the `wc-switch-button` directive:
+
+    `<wc-switch-button title="This is a Switch Button"></wc-switch-button>`
+
+
+
+
+
