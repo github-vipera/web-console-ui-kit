@@ -41,7 +41,7 @@ Here is a list:
 
 The `WCDashboardHeaderComponent` is a label that you can put as a title for every element of your dashboard:
 
-![](./images/dashboard-header.png)
+![](./images/dashboard-header2.png)
 
 
 
