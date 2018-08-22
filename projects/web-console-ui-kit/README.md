@@ -39,7 +39,7 @@ Here is a list:
 
 ## Dashboard Header
 
-The `WCDashboardHeaderComponent` is a label that you can put as a title for every element of your dashboard.
+The `WCDashboardHeaderComponent` is a label that you can put as a title for every element of your dashboard:
 
 ![](./images/dashboard-header.png)
 
@@ -48,4 +48,37 @@ The `WCDashboardHeaderComponent` is a label that you can put as a title for ever
 To add a dashboard header in your page you need to use this directive:
 
 `<wc-dashboard-header [title]="'User Management'"></wc-dashboard-header>` 
+
+
+
+## Slide Down Panel
+
+With the `WCSlideDownPanelComponent` you can create non-invasive interface elements that can appear and disappear when needed:
+
+![](./images/slide-down-panel.gif)
+
+
+
+To add a slide down panel you need to use the `wc-slide-down-panel` directive:
+
+```html
+<wc-slide-down-panel>
+    <div id="user-add" class="editor slidedown">
+        <input placeholder="UserID" id="new-user-userid" [(ngModel)]="newUserModel.userId">
+        <input placeholder="UserIDInt" id="new-user-useridint" [(ngModel)]="newUserModel.userIdInt">
+        <input placeholder="msisdn" id="new-user-msisdn" [(ngModel)]="newUserModel.msisdn">
+        <input placeholder="serial" id="new-user-serial" [(ngModel)]="newUserModel.serial">
+        <div class="cmd">
+            <a>
+                <svg class="ok" data-id="ok" (click)="onEditorConfirmButtonPressed()"><use xlink:href="assets/img/icons.svg#ico-ok"></use></svg> 
+            </a>
+            <a data-slideup="#user-add" (click)="onEditorDismissButtonPressed()">
+                <svg class="ko" data-id="ko"><use xlink:href="assets/img/icons.svg#ico-ko"></use></svg>
+            </a>
+        </div>
+    </div>
+</wc-slide-down-panel>
+```
+
+
 
