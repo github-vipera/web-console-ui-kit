@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@progress/kendo-angular-buttons": "^4.0.0",
-    "@progress/kendo-angular-dateinputs": "2 - 3",
+    "@progress/kendo-angular-dateinputs": "^3.4.4",
     "@progress/kendo-angular-dropdowns": "2 - 3",
     "@progress/kendo-angular-excel-export": "1 - 2",
     "@progress/kendo-angular-grid": "^3.5.0",

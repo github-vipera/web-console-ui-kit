@@ -1,5 +1,16 @@
-<div>
+<div>   
 
+        <kendo-calendar></kendo-calendar>
+        
+
+        <button kendoButton>Browse</button>
+        <kendo-buttongroup>
+                <button kendoButton [toggleable]="true" [icon]="'bold'"></button>
+                <button kendoButton [toggleable]="true" [icon]="'italic'"></button>
+                <button kendoButton [toggleable]="true" [icon]="'underline'"></button>
+        </kendo-buttongroup>
+
+<!--
                         <kendo-panelbar>
                                 <kendo-panelbar-item [title]="'My Teammates'" expanded="true">
                                     <ng-template kendoPanelBarContent>
@@ -47,5 +58,5 @@
                                 </kendo-panelbar-item>
                                 <kendo-panelbar-item [title]="'Communication'" [disabled]="true"></kendo-panelbar-item>
                             </kendo-panelbar>
-
+-->
 </div>
