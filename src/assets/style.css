@@ -474,3 +474,24 @@ body.l-theme {background:#fff;}
 	width: 100%;	
 }
 
+
+
+
+gridster {
+	background: transparent !important;
+  }
+  
+gridster-item {
+	background: #353A3E !important;
+}
+
+gridster .gridster-column {
+	border-left: 1px dotted rgba(255, 255, 255, 0.19) !important;
+	border-right: 1px dotted rgba(255, 255, 255, 0.19) !important;
+}
+
+gridster .gridster-row {
+	border-top: 1px dotted rgba(255, 255, 255, 0.19) !important;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.19) !important;
+}
+

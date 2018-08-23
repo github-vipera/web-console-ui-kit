@@ -8,6 +8,9 @@
   "whitelistedNonPeerDependencies": [
     "progress",
     "ngx-toastr",
-    "swimlane/ngx-charts"
+    "swimlane/ngx-charts",
+    "primeicons",
+    "primeng",
+    "angular-gridster2"
   ]
 }

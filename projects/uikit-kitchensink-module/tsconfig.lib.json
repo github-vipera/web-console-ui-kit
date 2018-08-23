@@ -15,7 +15,12 @@
     "lib": [
       "dom",
       "es2015"
-    ]
+    ],
+    "paths": {
+      "web-console-ui-kit": [
+       "./dist/web-console-ui-kit"
+      ]      
+    }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

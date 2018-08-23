@@ -3,5 +3,9 @@
   "dest": "../../dist/uikit-kitchensink-module",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "tslib",
+    "web-console-ui-kit"
+  ]
 }

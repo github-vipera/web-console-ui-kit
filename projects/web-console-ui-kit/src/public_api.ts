@@ -11,10 +11,8 @@ export * from './lib/modules/web-console-ui-kit-data.module'
 export * from './lib/modules/web-console-ui-kit-grid.module'
 export * from './lib/modules/web-console-ui-kit-charts.module'
 export * from './lib/modules/web-console-ui-kit-kendo-provider.module'
-
-// Third Part
-export * from './lib/components/containers/dashboard/lib/gridster.module'
-export * from '@swimlane/ngx-charts';
+export * from './lib/modules/web-console-ui-kit-primeng-provider.module'
+export * from './lib/modules/web-console-ui-kit-gridster-provider.module'
 
 // Services
 export * from './lib/services/Toaster/WCToasterService'

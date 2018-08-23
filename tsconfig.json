@@ -23,12 +23,6 @@
       "web-admin-users-list-module/*": [
         "dist/web-admin-users-list-module/*"
       ],
-      "wa-basic-module": [
-        "dist/wa-basic-module"
-      ],
-      "wa-basic-module/*": [
-        "dist/wa-basic-module/*"
-      ],
       "web-console-ui-kit": [
         "dist/web-console-ui-kit"
       ],

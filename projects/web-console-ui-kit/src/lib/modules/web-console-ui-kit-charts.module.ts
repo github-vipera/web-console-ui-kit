@@ -1,20 +1,11 @@
+
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-/*
-import { NgxChartsModule, BarChartModule, AreaChartModule, AxesModule, BubbleChartModule, ChartCommonModule,GaugeModule,HeatMapModule,LineChartModule,NumberCardModule, PieChartModule,PolarChartModule,TooltipModule,TreeMapModule } from '@swimlane/ngx-charts'
+import * as NgxCharts from '@swimlane/ngx-charts';
+export { NgxCharts }; 
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-@NgModule({
-    imports: [ NgxChartsModule, BarChartModule, AreaChartModule, AxesModule, BubbleChartModule, ChartCommonModule, GaugeModule, HeatMapModule, LineChartModule, NumberCardModule, PieChartModule, PolarChartModule, TooltipModule, TreeMapModule ],
-    exports: [ NgxChartsModule, BarChartModule, AreaChartModule, AxesModule, BubbleChartModule, ChartCommonModule, GaugeModule, HeatMapModule, LineChartModule, NumberCardModule, PieChartModule, PolarChartModule, TooltipModule, TreeMapModule ],
-    declarations: [],
-    providers : []
-})
-export class WebConsoleUIKitChartsModule { } 
-*/
-
-import { NgxChartsModule } from '@swimlane/ngx-charts'
 
 @NgModule({
     imports: [ NgxChartsModule],
@@ -22,4 +13,4 @@ import { NgxChartsModule } from '@swimlane/ngx-charts'
     declarations: [],
     providers : []
 })
-export class WebConsoleUIKitChartsModule { } 
+export class WebConsoleUIKitNgxChartsProviderModule { } 
