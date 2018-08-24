@@ -69,7 +69,7 @@ The UI Kit library contains a series of modules that allow you to use the variou
 
 
 
-## Dashboard Header
+## Dashboard Header <sup>`WebConsoleUIKitCoreModule`</sup>
 
 The `WCDashboardHeaderComponent` is a label that you can put as a title for every element of your dashboard:
 
@@ -83,7 +83,7 @@ To add a dashboard header in your page you need to use this directive:
 
 
 
-## Slide Down Panel
+## Slide Down Panel<sup>`WebConsoleUIKitCoreModule`</sup>
 
 With the `WCSlideDownPanelComponent` you can create non-invasive interface elements that can appear and disappear when needed:
 
@@ -114,7 +114,7 @@ To add a slide down panel you need to use the `wc-slide-down-panel` directive:
 
 
 
-## Switch Button
+## Switch Button<sup>`WebConsoleUIKitCoreModule`</sup>
 
 With the `WCSwitchButton` you can implement an ON / OFF editing field:
 
@@ -126,7 +126,37 @@ To add a switch button you nedd to use the `wc-switch-button` directive:
 
 
 
-## Dashboard
+## Panel<sup>`WebConsoleUIKitCoreModule`</sup>
+
+The `WCPanelComponent` is a simple UI container with a title.
+
+![](./images/wc-panel.png)
+
+
+
+To create a panel you need to use the wc-panel directive:
+
+
+
+```html
+<wc-panel [title]="'Operations Count'">
+    <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
+</wc-panel>
+```
+
+If you want to add into a dashboard item:
+
+```html
+<gridster-item [item]="operationCountsItem">
+	<wc-panel [title]="'Operations Count'">
+         <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
+     </wc-panel>
+</gridster-item>
+```
+
+
+
+## Dashboard<sup>`WebConsoleUIKitGridsterProviderModule`</sup>
 
 The dashboard is a component that allows you to quickly and easily create complex data visualizations arranged in elements with automatic layout, drag & drop, etc.
 
@@ -237,35 +267,6 @@ Option 2 (with text selection):
 </gridster-item>
 ```
 
-### 
-
-## Panel
-
-The `WCPanelComponent` is a simple UI container with a title.
-
-![](./images/wc-panel.png)
-
-
-
-To create a panel you need to use the wc-panel directive:
-
-
-
-```html
-<wc-panel [title]="'Operations Count'">
-    <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
-</wc-panel>
-```
-
-If you want to add into a dashboard item:
-
-```html
-<gridster-item [item]="operationCountsItem">
-	<wc-panel [title]="'Operations Count'">
-         <wc-data-counter [title]="'REST Calls'" [value]="counter"></wc-data-counter>
-     </wc-panel>
-</gridster-item>
-```
 
 
 
