@@ -37,6 +37,38 @@ Here is a list:
 
 
 
+## Library Modules
+
+The UI Kit library contains a series of modules that allow you to use the various components available: depending on the components you wish to use in your UI, you will need to import one of these modules to make them available in your code.
+
+
+
+| Module                                       | Components                             |
+| -------------------------------------------- | -------------------------------------- |
+| **`WebConsoleUIKitCoreModule`**              |                                        |
+|                                              | `WCGridButtonEditorComponent`            |
+|                                              | `WCPanelComponent`                       |
+|                                              | `WCDashboardHeaderComponent`             |
+|                                              | `WCSwitchButton`                         |
+|                                              | `WCSlideDownPanelComponent`              |
+|                                              | `WCOverlayPane`                          |
+|                                              | `WCTabItemComponent`                     |
+|                                              | `WCTabPanelComponent`                    |
+|                                              | `WCPropertyEditorComponent`              |
+| **`WebConsoleUIKitDataModule`**              |                                        |
+|                                              | `WCDataCounterComponent`                 |
+|                                              | `NgxGaugeModule`                         |
+| **`WebConsoleUIKitNgxChartsProviderModule`** |                                        |
+|                                              | *All NgxCharts available componenents* |
+| **`WebConsoleUIKitGridsterProviderModule`**    |                                        |
+|                                              | *All Gridster available componenents*  |
+| **`WebConsoleUIKitKendoProviderModule`**       |                                        |
+|                                              | *All Kendo UI available componenents*  |
+|                                        
+
+
+
+
 ## Dashboard Header
 
 The `WCDashboardHeaderComponent` is a label that you can put as a title for every element of your dashboard:
