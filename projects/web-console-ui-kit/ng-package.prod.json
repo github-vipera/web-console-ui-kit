@@ -8,8 +8,7 @@
     "progress",
     "ngx-toastr",
     "swimlane/ngx-charts",
-    "primeicons",
-    "primeng",
-    "angular-gridster2"
+    "angular-gridster2",
+    "@progress/kendo-drawing"
   ]
 }

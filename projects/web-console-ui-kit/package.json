@@ -25,8 +25,6 @@
     "@progress/kendo-angular-layout": "^3.1.2",
     "ngx-toastr": "^8.8.0",
     "@swimlane/ngx-charts": "^8.1.0",
-    "primeicons": "^1.0.0-beta.10",
-    "primeng": "^6.1.2",
     "angular-gridster2": "^6.0.5"
   },
   "devDependencies": {

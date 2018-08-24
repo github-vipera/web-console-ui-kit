@@ -7,6 +7,9 @@ import { LayoutModule, PanelBarModule, SplitterModule, TabStripModule } from '@p
 import { ButtonGroupModule, ButtonModule, ButtonsModule  } from '@progress/kendo-angular-buttons'
 import { CalendarModule, DatePickerModule, DateRangeModule, TimePickerModule, MultiViewCalendarModule, DateInputModule, DateInputsModule, CalendarsModule } from '@progress/kendo-angular-dateinputs';
 
+import * as KendoUIDrawing from '@progress/kendo-drawing';
+export { KendoUIDrawing } 
+
 @NgModule({
     imports:[ 
         BrowserAnimationsModule, 
@@ -30,3 +33,4 @@ import { CalendarModule, DatePickerModule, DateRangeModule, TimePickerModule, Mu
 export class WebConsoleUIKitKendoProviderModule {
     
 }
+

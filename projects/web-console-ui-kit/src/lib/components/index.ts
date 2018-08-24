@@ -8,9 +8,6 @@ export * from './commons';
 //gridster
 //export * from './third-party/gridster-exports'
 
-//primeng
-export * from './third-party/primeng-exports'
-
 //swimlane charts
 //export * from './third-party/swimlane-charts-exports'
 

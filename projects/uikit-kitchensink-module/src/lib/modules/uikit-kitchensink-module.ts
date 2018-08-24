@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WebConsoleCoreModule } from 'web-console-core'
 import { WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule } from 'web-console-ui-kit'
-import { WebConsoleUIKitGridsterProviderModule, WebConsoleUIKitNgxChartsProviderModule, WebConsoleUIKitPrimeNgProviderModule, WebConsoleUIKitKendoProviderModule } from 'web-console-ui-kit';
+import { WebConsoleUIKitGridsterProviderModule, WebConsoleUIKitNgxChartsProviderModule, WebConsoleUIKitKendoProviderModule } from 'web-console-ui-kit';
 
 import { DashboardTestComponent } from '../sections/dashboard/dashboard-test.component'
 import { DashboardStatusBarItemComponent } from '../sections/dashboard/dashboard-status-bar-item.component' 
 import { AppContentComponent } from '../sections/app-content/app-content.component'
 import { ServiceCatalogComponent } from '../sections/service-catalog/service-catalog.component'
 import { UsersListComponent } from '../sections/users-list/users-list.component'
-import { PrimengControlsComponent} from '../sections/primeng-controls/primeng-controls.component'
+import { KendoControlsComponent} from '../sections/kendo-controls/kendo-controls.component'
 
 @NgModule({
   imports: [
@@ -17,7 +17,6 @@ import { PrimengControlsComponent} from '../sections/primeng-controls/primeng-co
     WebConsoleUIKitGridsterProviderModule, 
     CommonModule, 
     WebConsoleUIKitNgxChartsProviderModule, 
-    WebConsoleUIKitPrimeNgProviderModule, 
     WebConsoleUIKitKendoProviderModule
   ],
   entryComponents:[
@@ -26,7 +25,7 @@ import { PrimengControlsComponent} from '../sections/primeng-controls/primeng-co
     AppContentComponent,  
     ServiceCatalogComponent,
     UsersListComponent,
-    PrimengControlsComponent
+    KendoControlsComponent
   ],
   declarations: [
     DashboardTestComponent, 
@@ -34,7 +33,7 @@ import { PrimengControlsComponent} from '../sections/primeng-controls/primeng-co
     AppContentComponent, 
     ServiceCatalogComponent,
     UsersListComponent,
-    PrimengControlsComponent
+    KendoControlsComponent
   ],
   exports: [DashboardTestComponent ]
 })
