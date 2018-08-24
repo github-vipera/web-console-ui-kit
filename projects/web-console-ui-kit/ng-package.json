@@ -10,6 +10,22 @@
     "ngx-toastr",
     "swimlane/ngx-charts",
     "angular-gridster2",
-    "@progress/kendo-drawing"
-  ]
+    "@progress/kendo-drawing",
+    "@progress/kendo-angular-buttons",
+    "@progress/kendo-angular-dateinputs",
+    "@progress/kendo-angular-dropdowns",
+    "@progress/kendo-angular-excel-export",
+    "@progress/kendo-angular-grid",
+    "@progress/kendo-angular-inputs",
+    "@progress/kendo-angular-intl",
+    "@progress/kendo-angular-l10n",
+    "@progress/kendo-angular-popup",
+    "@progress/kendo-angular-toolbar",
+    "@progress/kendo-data-query",
+    "@progress/kendo-drawing",
+    "@progress/kendo-theme-default",
+    "@progress/kendo-angular-layout"
+    ]
 }
+
+
