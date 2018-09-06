@@ -1,11 +1,10 @@
 {
   "/rest": {
-    "target": "http://localhost:8080/",
-    "secure": false,
-    "logLevel": "debug"
+    "target": "http://ec2-34-209-90-152.us-west-2.compute.amazonaws.com:8080/",
+    "secure": false
   },
-  "/oauth": {
-    "target": "http://localhost:8080/",
+  "/oauth2": {
+    "target": "http://ec2-34-209-90-152.us-west-2.compute.amazonaws.com:8080/",
     "secure": false
   }
 }
