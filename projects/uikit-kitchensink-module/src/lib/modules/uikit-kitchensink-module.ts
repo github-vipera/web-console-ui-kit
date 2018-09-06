@@ -9,6 +9,8 @@ import { DashboardStatusBarItemComponent } from '../sections/dashboard/dashboard
 import { AppContentComponent } from '../sections/app-content/app-content.component'
 import { ServiceCatalogComponent } from '../sections/service-catalog/service-catalog.component'
 import { UsersListComponent } from '../sections/users-list/users-list.component'
+import { OAuth2TokensListComponent } from '../sections/oauth2/oauth2.component'
+import { RefreshTokenDetailsComponent } from '../sections/oauth2/refresh-token-details.component'
 import { KendoControlsComponent} from '../sections/kendo-controls/kendo-controls.component'
 
 @NgModule({
@@ -25,6 +27,8 @@ import { KendoControlsComponent} from '../sections/kendo-controls/kendo-controls
     AppContentComponent,  
     ServiceCatalogComponent,
     UsersListComponent,
+    OAuth2TokensListComponent,
+    RefreshTokenDetailsComponent,
     KendoControlsComponent
   ],
   declarations: [
@@ -33,6 +37,8 @@ import { KendoControlsComponent} from '../sections/kendo-controls/kendo-controls
     AppContentComponent, 
     ServiceCatalogComponent,
     UsersListComponent,
+    OAuth2TokensListComponent,
+    RefreshTokenDetailsComponent,
     KendoControlsComponent
   ],
   exports: [DashboardTestComponent ]

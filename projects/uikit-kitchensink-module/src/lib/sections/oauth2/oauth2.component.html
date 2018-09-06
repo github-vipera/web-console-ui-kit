@@ -1,0 +1,78 @@
+<wc-dashboard-header [title]="'OAuth2 Token Management'"></wc-dashboard-header>
+
+<div class="row spread">
+    <div>
+        <label>Domain</label>
+        <kendo-combobox [data]="domainList" [allowCustom]="false" [valueField]="'name'" [textField]="'name'" [(ngModel)]="selectedDomain"></kendo-combobox>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <!--
+        <div id="user-add" class="editor slidedown AVAST_PAM_signupform">
+                <input placeholder="UserID">
+            
+                <select>
+                    <option>Storeman</option>
+                </select>
+            
+                <input type="password" placeholder="Password" class="error">
+                <input type="password" placeholder="Confirm password" class="error">
+                
+                <div class="cmd">
+                    <a>
+                        <svg class="ok" data-id="ok"><use xlink:href="img/icons.svg#ico-ok"></use></svg> 
+                    </a>
+                    <a data-slideup="#user-add">
+                        <svg class="ko" data-id="ko"><use xlink:href="img/icons.svg#ico-ko"></use></svg>
+                    </a>
+                </div>
+            </div>
+        -->
+
+    <div>
+        <kendo-grid [data]="gridView" [columnMenu]="true" [resizable]="true" [reorderable]="true" [groupable]="false" [group]="groups"
+            (groupChange)="groupChange($event)" [sort]="sort" (sortChange)="sortChange($event)" [sortable]="{ allowUnsort: true, mode: 'multiple' }"
+            style="height: 100%" [pageSize]="pageSize" [skip]="skip" [pageable]="{
+                buttonCount: 5,
+                info: true,
+                type: type,
+                pageSizes: true,
+                previousNext: true
+                }" [scrollable]="'none'" (pageChange)="pageChange($event)">
+            <kendo-grid-column field="createTime" title="Created" sortable="isFieldSortable">
+            </kendo-grid-column>
+            <kendo-grid-column field="expiryTime" title="Expiry Time">
+            </kendo-grid-column>
+            <kendo-grid-column field="clientId" title="Client ID">
+            </kendo-grid-column>
+            <kendo-grid-column field="tokenType" title="Type">
+            </kendo-grid-column>
+            <kendo-grid-column field="token" title="Token">
+            </kendo-grid-column>
+            <kendo-grid-column title="" width="150" minResizableWidth="140">
+                <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
+                    <wc-grid-editor [question]="'Revoke ?'" [rowIndex]="rowIndex" [columnIndex]="columnIndex" [column]="column" [value]="dataItem[column.field]"
+                        [dataItem]="dataItem" [buttonClass]="''" [mainClass]="'wc-table-delete-command'" (onConfirmation)="onDeleteOKPressed(dataItem)"
+                        (onCancel)="onDeleteCancelPressed(dataItem)">
+                        <svg data-id="no">
+                            <use xlink:href="assets/img/icons.svg#ico-no"></use>
+                        </svg>
+                    </wc-grid-editor>
+                </ng-template>
+            </kendo-grid-column>
+            <div *kendoGridDetailTemplate="let dataItem">
+                <wa-refresh-token-details [refreshToken]="dataItem"></wa-refresh-token-details>
+            </div>
+        </kendo-grid>
+
+    </div>
+
+</div>
+
+<!--
+    <wc-grid [data]="usersList" [configuration]="gridConfiguration">
+    </wc-grid>
+-->
