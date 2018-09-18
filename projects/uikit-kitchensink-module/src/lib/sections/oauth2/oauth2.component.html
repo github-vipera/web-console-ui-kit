@@ -33,8 +33,7 @@
         -->
 
     <div>
-        <kendo-grid [data]="gridView" [columnMenu]="true" [resizable]="true" [reorderable]="true" [groupable]="false" [group]="groups"
-            (groupChange)="groupChange($event)" [sort]="sort" (sortChange)="sortChange($event)" [sortable]="{ allowUnsort: true, mode: 'multiple' }"
+        <kendo-grid [data]="gridView" [columnMenu]="true" [resizable]="true" [reorderable]="true" [sort]="sort" (sortChange)="sortChange($event)" [sortable]="{ allowUnsort: true, mode: 'multiple' }"
             style="height: 100%" [pageSize]="pageSize" [skip]="skip" [pageable]="{
                 buttonCount: 5,
                 info: true,
@@ -42,9 +41,9 @@
                 pageSizes: true,
                 previousNext: true
                 }" [scrollable]="'none'" (pageChange)="pageChange($event)">
-            <kendo-grid-column field="createTime" title="Created" sortable="isFieldSortable">
+            <kendo-grid-column field="createTime" title="Created" sortable="isFieldSortable" format="{0:dd/MM/yyyy HH:mm:ss}">
             </kendo-grid-column>
-            <kendo-grid-column field="expiryTime" title="Expiry Time">
+            <kendo-grid-column field="expiryTime" title="Expiry Time" format="{0:dd/MM/yyyy HH:mm:ss}">
             </kendo-grid-column>
             <kendo-grid-column field="clientId" title="Client ID">
             </kendo-grid-column>

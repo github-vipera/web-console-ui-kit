@@ -84,7 +84,7 @@
             [scrollable]="'none'"
             (pageChange)="pageChange($event)"
             >
-                <kendo-grid-column field="created" title="Created" sortable="isFieldSortable">
+                <kendo-grid-column field="created" title="Created" sortable="isFieldSortable" format="{0:dd/MM/yyyy HH:mm:ss}">
                 </kendo-grid-column>
                 <kendo-grid-column field="userId" title="User ID">
                 </kendo-grid-column>
@@ -94,7 +94,7 @@
                 </kendo-grid-column>
                 <kendo-grid-column field="email" title="Email">
                 </kendo-grid-column>
-                <kendo-grid-column field="lastLogin" title="Last Login">
+                <kendo-grid-column field="lastLogin" title="Last Login" format="{0:dd/MM/yyyy HH:mm:ss}">
                 </kendo-grid-column>
                 <kendo-grid-column field="locale" title="Locale">
                 </kendo-grid-column>

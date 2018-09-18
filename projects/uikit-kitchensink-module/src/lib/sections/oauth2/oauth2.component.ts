@@ -10,9 +10,10 @@ import { Oauth2Service, OAuthRequest, RefreshTokenList, AccessTokenList, Refresh
 import { DomainsService, DomainsList, Domain } from '@wa-motif-open-api/platform-service'
 import { String, StringBuilder } from 'typescript-string-operations'
 import { HttpParams } from '@angular/common/http';
+import * as _ from 'lodash';
 //import { WAGlobals } from '../../WAGlobals'
 
-const REFRESH_TOKENS_LIST_ENDPOINT = "/oauth2/refreshTokens"
+const REFRESH_TOKENS_LIST_ENDPOINT = "/oauth2/domains/{0}/refreshTokens"
 
 @Component({
   selector: 'wa-oauth2',
@@ -79,83 +80,6 @@ export class OAuth2TokensListComponent implements OnInit {
     });
   } 
 
-  /*
-  private createTestDomains():void{
-    this.domainsService.deleteDomain("NewDomain").then((data)=>{
-      console.log(">>>>>>>>>>>>>>> deleteDomain OK: ", data);
-    }, (error)=>{
-      console.error(">>>>>>>>>>>>>>> deleteDomain ERROR: ", error);
-    })
-    
-    this.domainsService.createDomain({name:"NewDomain",description:"My new domain"}).then((data)=>{
-      console.log(">>>>>>>>>>>>>>> createDomain OK: ", data);
-    }, (error)=>{
-      console.error(">>>>>>>>>>>>>>> createDomain ERROR: ", error);
-    });
-
-  }
-  */  
-
-  /*
-  private createTestUsers():void {
-    this.usersService.createNewUser('Default', 'joe', 123456,12345678, 12345678, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'john', 123457,12345679, 12345679, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'paul', 123458,12345680, 12345680, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'carl', 123459,12345681, 12345681, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'susy', 123460,12345682, 12345682, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'pauline', 123461,12345683, 12345683, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'margot', 123462,12345684, 12345684, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'sandra', 123463,12345685, 12345685, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'lisa', 123464,12345686, 12345686, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'maria', 123465,12345687, 12345687, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-    this.usersService.createNewUser('Default', 'robert', 123466,12345688, 12345688, "ACTIVE").then(()=>{
-      console.log("Created");
-    }, (error)=>{
-      console.log("Error:", error);
-    })
-  }
-  */
-
   public pageChange({ skip, take }: PageChangeEvent): void {
     this.skip = skip;
     this.pageSize = take;
@@ -169,10 +93,13 @@ export class OAuth2TokensListComponent implements OnInit {
 
       let sort:MotifQuerySort = this.buildQuerySort();
            
-      this.oauth2Service.getRefreshTokenList(pageIndex, pageSize, sort.encode(new HttpParams()).get('sort'), 'response', false).subscribe((response)=>{
+      this.oauth2Service.getRefreshTokenList(this._selectedDomain.name, pageIndex, pageSize, sort.encode(new HttpParams()).get('sort'), 'response', false).subscribe((response)=>{
 
         let results:MotifQueryResults = MotifQueryResults.fromHttpResponse(response);
-        this.refreshTokenList = results.data;
+        this.refreshTokenList = _.forEach(results.data, function(element) {
+          element.createTime = new Date(element.createTime);
+          element.expiryTime = new Date(element.expiryTime);
+        });
         this.totalPages = results.totalPages;
         this.totalRecords = results.totalRecords;
         this.currentPage = results.pageIndex;
@@ -261,9 +188,22 @@ export class OAuth2TokensListComponent implements OnInit {
   }
 
   onDeleteOKPressed(dataItem:any):void {
-    this.toaster.info("Not yet implemented", "Attention Please", {
-      positionClass: 'toast-top-center'
-    });
+    let oauthReq:OAuthRequest = {
+      clientId : '123456789',
+      token : dataItem.token,
+      tokenType : 'REFRESH_TOKEN'
+    }
+    
+    this.oauth2Service.revoke(oauthReq).subscribe(value => {
+      this.refreshData();
+      this.toaster.info("Refresh token revoked!", "Attention Please", {
+        positionClass: 'toast-top-center'
+      });
+      }, error => {
+        this.toaster.warning("Refresh token could not be removed.", "Attention Please", {
+          positionClass: 'toast-top-center'
+        });
+    })
   }
 
   onDeleteCancelPressed(dataItem:any):void {

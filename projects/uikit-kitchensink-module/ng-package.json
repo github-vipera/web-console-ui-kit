@@ -7,6 +7,7 @@
   },
   "whitelistedNonPeerDependencies": [
     "tslib",
-    "web-console-ui-kit"
+    "web-console-ui-kit",
+    "lodash"
   ]
 }
