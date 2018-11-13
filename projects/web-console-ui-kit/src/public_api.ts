@@ -3,7 +3,7 @@
  */
 
  // All componentrs
-export * from './lib/components'
+export * from './lib/components/index'
 
 // Modules
 export * from './lib/modules/web-console-ui-kit-core.module'
