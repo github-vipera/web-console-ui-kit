@@ -5,18 +5,13 @@
       <ng-content></ng-content>
   </label>
 
-  <!--
-      <label class="btn status-activated {{buttonClass}}" for="edit-{{rowId}}">
-  </label>
-
-  -->
   <div class="actions">
     <span >{{question}}</span>
-    <a >
+    <label for="edit-{{rowId}}">
       <svg  class="ok" (click)="onOKPressed()">
         <use  xlink:href="assets/img/icons.svg#ico-ok"></use>
       </svg>
-    </a>
+    </label>
     <label  for="edit-{{rowId}}">
       <svg  class="ko" (click)="onKOPressed()">
         <use  xlink:href="assets/img/icons.svg#ico-ko"></use>
