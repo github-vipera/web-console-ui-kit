@@ -14,6 +14,7 @@ import { PlatformServiceModule, BASE_PATH } from '@wa-motif-open-api/platform-se
 import { SecurityServiceModule } from '@wa-motif-open-api/security-service'
 import { environment } from '../environments/environment';
 import { WC_API_BASE_PATH, WC_OAUTH_BASE_PATH } from 'web-console-core'
+import { OAuth2ServiceModule } from '@wa-motif-open-api/oauth2-service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule, 
     GridModule,
     PlatformServiceModule,
+    OAuth2ServiceModule,
     SecurityServiceModule
   ],
   providers: [ 

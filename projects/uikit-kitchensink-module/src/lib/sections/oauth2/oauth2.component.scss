@@ -1,0 +1,41 @@
+/*
+
+body {
+    background-color: red !important;
+    zoom: 3 !important;
+}
+
+.wa-users-list-container {
+    width: 100%;
+    height: 100%;
+}
+
+.k-grid-header {
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: .625rem;
+    font-weight: bold;
+    border-bottom: 2px solid #aaa;
+}
+*/
+
+:host ::ng-deep table .edit>label.btn.user-status-active {
+    background-color: green !important;
+}
+
+:host ::ng-deep  table .edit>label.btn.user-status-preactive {
+	background-color: rgb(105, 202, 60) !important;
+	color: black;
+}
+
+:host ::ng-deep .grid-btn-editor.wc-table-delete-command {
+    justify-content: center; 
+}
+
+
+
+/*
+.paperino {
+    background-color: orange;
+}
+*/

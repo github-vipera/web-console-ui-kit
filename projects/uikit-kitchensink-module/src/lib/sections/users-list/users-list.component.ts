@@ -10,6 +10,7 @@ import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
 import { WCOverlayPaneService } from 'web-console-ui-kit'
 import { DomainsService, DomainsList, Domain, UsersService, UsersList } from '@wa-motif-open-api/platform-service'
 import { String, StringBuilder } from 'typescript-string-operations'
+import * as _ from 'lodash';
 //import { WAGlobals } from '../../WAGlobals'
 
 const USERS_LIST_ENDPOINT = "/platform/domains/{0}/users"
@@ -189,7 +190,10 @@ export class UsersListComponent implements OnInit {
 
 
         let results:MotifQueryResults = MotifQueryResults.fromHttpResponse(response);
-        this.usersList = results.data;
+        this.usersList = _.forEach(results.data, function(element) {
+          element.created = new Date(element.created);
+          element.lastLogin = new Date(element.lastLogin);
+        });
         this.totalPages = results.totalPages;
         this.totalRecords = results.totalRecords;
         this.currentPage = results.pageIndex;
