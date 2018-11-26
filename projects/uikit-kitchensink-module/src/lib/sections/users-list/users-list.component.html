@@ -1,6 +1,14 @@
 <wc-dashboard-header [title]="'User Management'"></wc-dashboard-header>
 
 <div class="row spread">
+
+        <div>
+                <label>test checkbox</label>
+                <input type="checkbox">
+        
+            </div>
+        
+
     <div>
         <label>Domain</label>
         <kendo-combobox [data]="domainList" [allowCustom]="false" [valueField]="'name'" [textField]="'name'" [(ngModel)]="selectedDomain"></kendo-combobox>

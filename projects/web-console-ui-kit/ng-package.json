@@ -24,7 +24,8 @@
     "@progress/kendo-data-query",
     "@progress/kendo-drawing",
     "@progress/kendo-theme-default",
-    "@progress/kendo-angular-layout"
+    "@progress/kendo-angular-layout",
+    "uuid"
     ]
 }
 
