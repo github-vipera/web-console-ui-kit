@@ -25,7 +25,8 @@
     "@progress/kendo-angular-layout": "^3.1.2",
     "ngx-toastr": "^8.8.0",
     "@swimlane/ngx-charts": "^8.1.0",
-    "angular-gridster2": "^6.0.5"
+    "angular-gridster2": "^6.0.5",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@compodoc/compodoc" : "latest"

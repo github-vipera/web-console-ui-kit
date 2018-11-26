@@ -1,0 +1,9 @@
+<div class="switch">
+        <input type="checkbox" id="{{id}}" 
+        [checked]="value" 
+        [(ngModel)]="value"  
+        (ngModelChange)="onModelChanged($event)"  
+        (change)="onPropertyChange($event)"
+    >
+    <label for ="{{id}}"></label>
+</div>
