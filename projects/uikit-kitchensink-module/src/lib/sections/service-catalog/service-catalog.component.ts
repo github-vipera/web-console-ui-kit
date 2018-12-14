@@ -61,7 +61,8 @@ export class ServiceCatalogComponent implements OnInit {
         field: "carType",
         type: WCPropertyEditorItemType.List,
         value: "BMW",
-        listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"]
+        listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"],
+        disabled:true
       }
 
     ]
