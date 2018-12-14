@@ -34,7 +34,9 @@ export class ServiceCatalogComponent implements OnInit {
         name: "Offline",
         field: "offline",
         type: WCPropertyEditorItemType.Boolean,
-        value: true
+        value: true,
+        miniCommand: true,
+        miniCommandCaption: 'Test...'
       },
       {
         name: "OTP expiry",
@@ -62,7 +64,15 @@ export class ServiceCatalogComponent implements OnInit {
         type: WCPropertyEditorItemType.List,
         value: "BMW",
         listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"],
-        disabled:true
+        disabled:false,
+        miniCommand: true,
+        miniCommandCaption: 'Setup...'
+      },
+      {
+        name: "Simple On/Off",
+        field: "simpleOnOff",
+        type: WCPropertyEditorItemType.Boolean,
+        value: true
       }
 
     ]

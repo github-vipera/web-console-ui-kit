@@ -18,7 +18,9 @@ export interface  WCPropertyEditorItem {
   disabled?:boolean,
   htmlInputType?:string,
   valueChanged?:boolean,
-  listValues?: string[]
+  listValues?: string[],
+  miniCommand?: boolean,
+  miniCommandCaption?:string
 }
 
 export interface WCPropertyEditorModel {
