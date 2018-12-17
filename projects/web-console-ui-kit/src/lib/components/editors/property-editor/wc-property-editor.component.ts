@@ -1,11 +1,11 @@
  
 import { Component, AfterContentInit, Input, Output, EventEmitter  } from '@angular/core';
 
-
 export enum WCPropertyEditorItemType {
   String = 'string',
   Boolean = 'boolean',
-  List = 'list'
+  List = 'list',
+  Text = 'text'
 }
 
 export interface  WCPropertyEditorItem {
@@ -20,6 +20,8 @@ export interface  WCPropertyEditorItem {
   listValues?: string[];
   miniCommand?: boolean;
   miniCommandCaption?: string;
+  placeholder?: string;
+  elementRef?: string;
 }
 
 export interface WCPropertyEditorModel {
