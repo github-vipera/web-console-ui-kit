@@ -1,18 +1,29 @@
 <div class="inspector wc-property-editor">      
 
         <div *ngFor="let item of model.items; let i = index" [class.property-modified]="item.valueChanged" class="wc-property-editor-item-container">
-                <div class="wc-property-editor-item" >
-                        <label id="label-for-{{item.field}}">{{item.name}}</label>
-                        <input 
+                <div class="wc-property-editor-item wc-property-editor-item-{{item.type}}" >
+                        <label id="label-for-{{item.field}}" class="wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
+                        <input
                                 [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
                                 *ngIf="item.type === checkType.String" 
                                 [(ngModel)]="item.value" 
-                                [attr.disabled]="item.disabled" 
+                                [attr.disabled]="item.disabled?'':null"
                                 (input)="onPropertyChange($event)" 
                                 (ngModelChange)="onModelChanged($event)"
                                 [attr.itemId]="item.field"
-                                >
+                                [attr.placeholder]="item.placeholder"
+                        >
                         
+                        <textarea *ngIf="item.type === checkType.Text" 
+                                (input)="onPropertyChange($event)" 
+                                (ngModelChange)="onModelChanged($event)"
+                                [(ngModel)]="item.value" 
+                                [attr.itemId]="item.field"
+                                [attr.placeholder]="item.placeholder"
+                                [attr.disabled]="item.disabled?'':null"
+                        ></textarea>
+
+
                         <div *ngIf="item.type === checkType.Boolean" class="switch">
                                 <input type="checkbox" id="{{item.field}}" 
                                 [checked]="item.value" 
@@ -32,13 +43,18 @@
                                 class="wc-property-editor-item-combo" 
                                 (change)="onPropertyChange($event)"
                                 [attr.itemId]="item.field"
-                                [attr.disabled]="item.disabled" 
+                                [attr.disabled]="item.disabled?'':null"
                                 [(ngModel)]="item.value"  
                                 >
                                 <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
                         </select>
                 </div>
-                <button *ngIf="item.miniCommand" type="button" [attr.miniButtonItemId]="item.field" class="wc-property-editor-mini-button" (click)='onMiniButtonClick($event)'>{{item.miniCommandCaption}}</button>
+                <button *ngIf="item.miniCommand" 
+                type="button" 
+                [attr.miniButtonItemId]="item.field" class="wc-property-editor-mini-button" 
+                (click)='onMiniButtonClick($event)'
+                [attr.disabled]="item.disabled?'':null"
+                >{{item.miniCommandCaption}}</button>
         </div>
 
 

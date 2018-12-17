@@ -32,3 +32,25 @@
 .inspector > div > div {
   margin-bottom: 0.2rem;
 }
+
+.inspector {
+
+  textarea {
+    font-family: 'Open Sans';
+  }
+
+  ngx-monaco-editor {
+    height: 15rem;
+  }
+
+}
+
+.wc-property-editor-item-label-text {
+  margin-bottom: auto;
+  padding-top: 6px;
+}
+
+.wc-property-editor-item-label-code {
+  margin-bottom: auto;
+  padding-top: 6px;
+}

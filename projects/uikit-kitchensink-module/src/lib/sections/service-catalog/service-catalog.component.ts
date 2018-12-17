@@ -74,10 +74,17 @@ export class ServiceCatalogComponent implements OnInit {
         field: "simpleOnOff",
         type: WCPropertyEditorItemType.Boolean,
         value: true
+      },
+      {
+        name: "JSON Value",
+        field: "jsonValue",
+        type: WCPropertyEditorItemType.Text,
+        disabled: false,
+        elementRef: 'myJSONValueText',
+        placeholder: "Put here yout JSON"
       }
-
     ]
-  }
+  };
 
 
   public data = [
@@ -119,9 +126,24 @@ export class ServiceCatalogComponent implements OnInit {
     console.log('>> onTestButtonClicked');
     const item: WCPropertyEditorItem = this._propertyEditor.getPropertyItem('description');
     item.value = 'Pippo';
-    const carType: WCPropertyEditorItem = this._propertyEditor.getPropertyItem('carType'); 
-    carType.disabled = true;
+    this.disableAllControls();
     console.log('>> onTestButtonClicked done');
   }
 
-}
+  disableAllControls(): void {
+    this.disableControl('description');
+    this.disableControl('offline');
+    this.disableControl('otpExpiry');
+    this.disableControl('disabledValue');
+    this.disableControl('age');
+    this.disableControl('carType');
+    this.disableControl('simpleOnOff');
+    this.disableControl('jsonValue');
+  }
+
+  disableControl(name: string) {
+    const field: WCPropertyEditorItem = this._propertyEditor.getPropertyItem(name);
+    field.disabled = !field.disabled;
+  }
+
+ }
