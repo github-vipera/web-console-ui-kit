@@ -119,6 +119,8 @@ export class ServiceCatalogComponent implements OnInit {
     console.log('>> onTestButtonClicked');
     const item: WCPropertyEditorItem = this._propertyEditor.getPropertyItem('description');
     item.value = 'Pippo';
+    const carType: WCPropertyEditorItem = this._propertyEditor.getPropertyItem('carType'); 
+    carType.disabled = true;
     console.log('>> onTestButtonClicked done');
   }
 
