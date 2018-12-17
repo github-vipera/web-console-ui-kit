@@ -1,5 +1,9 @@
 <wc-dashboard-header [title]="'Services'"></wc-dashboard-header>
 
+<div class="row">
+    <button (click)="onTestButtonClicked();">Test</button>
+</div>
+
 <div class="row service-catalog-tree">
 
         <div>
@@ -31,8 +35,8 @@
         </div>
         
         <aside style="background-color: #282D31;">
-            <wc-property-editor
-                [model]="propertyModel">
+            <wc-property-editor #propertyEditor
+                [model]="propertyModel" (propertyChange)="onPropertyChange($event)" (miniButtonClick)="onMinitButtonClick($event)">
             </wc-property-editor>
             <div class="cmd">
                     <a class="btn" (click)="onSavePropertiesPressed()">

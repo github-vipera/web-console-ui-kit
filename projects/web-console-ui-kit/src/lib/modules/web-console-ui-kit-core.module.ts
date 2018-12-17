@@ -18,27 +18,27 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule, ToastrModule.forRoot(), FormsModule
   ],
-  declarations: [ 
-    WCGridButtonEditorComponent, 
-    WCPanelComponent, 
-    WCDashboardHeaderComponent, 
-    WCSwitchButton, 
+  declarations: [
+    WCGridButtonEditorComponent,
+    WCPanelComponent,
+    WCDashboardHeaderComponent,
+    WCSwitchButton,
     WCSwitchControl,
-    WCSlideDownPanelComponent, 
-    WCOverlayPane, 
-    WCTabItemComponent, 
+    WCSlideDownPanelComponent,
+    WCOverlayPane,
+    WCTabItemComponent,
     WCTabPanelComponent,
-    WCPropertyEditorComponent 
+    WCPropertyEditorComponent
   ],
-  exports: [ 
-    WCGridButtonEditorComponent, 
-    WCPanelComponent, 
-    WCDashboardHeaderComponent, 
-    WCSwitchButton, 
+  exports: [
+    WCGridButtonEditorComponent,
+    WCPanelComponent,
+    WCDashboardHeaderComponent,
+    WCSwitchButton,
     WCSwitchControl,
-    WCSlideDownPanelComponent, 
-    WCOverlayPane, 
-    WCTabItemComponent, 
+    WCSlideDownPanelComponent,
+    WCOverlayPane,
+    WCTabItemComponent,
     WCTabPanelComponent,
     WCPropertyEditorComponent  ],
   entryComponents: [ WCOverlayPane ],
