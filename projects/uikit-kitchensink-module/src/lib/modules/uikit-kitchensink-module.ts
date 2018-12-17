@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WebConsoleCoreModule } from 'web-console-core'
-import { WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule } from 'web-console-ui-kit'
-import { WebConsoleUIKitGridsterProviderModule, WebConsoleUIKitNgxChartsProviderModule, WebConsoleUIKitKendoProviderModule } from 'web-console-ui-kit';
+import { WebConsoleUIKitCoreModule,
+         WebConsoleUIKitDataModule,
+         WebConsoleUIKitGridsterProviderModule,
+         WebConsoleUIKitNgxChartsProviderModule,
+         WebConsoleUIKitKendoProviderModule } from 'web-console-ui-kit';
 
 import { DashboardTestComponent } from '../sections/dashboard/dashboard-test.component'
 import { DashboardStatusBarItemComponent } from '../sections/dashboard/dashboard-status-bar-item.component' 
@@ -16,9 +19,9 @@ import { KendoControlsComponent} from '../sections/kendo-controls/kendo-controls
 @NgModule({
   imports: [
     WebConsoleCoreModule, WebConsoleUIKitCoreModule, WebConsoleUIKitDataModule, 
-    WebConsoleUIKitGridsterProviderModule, 
-    CommonModule, 
-    WebConsoleUIKitNgxChartsProviderModule, 
+    WebConsoleUIKitGridsterProviderModule,
+    CommonModule,
+    WebConsoleUIKitNgxChartsProviderModule,
     WebConsoleUIKitKendoProviderModule
   ],
   entryComponents:[

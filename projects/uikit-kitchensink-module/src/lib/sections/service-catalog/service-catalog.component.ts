@@ -21,6 +21,7 @@ export class ServiceCatalogComponent implements OnInit {
   public sort: SortDescriptor[] = [];
   public groups: GroupDescriptor[] = [];
 
+  @ViewChild('propertyEditor') _propertyEditor: WCPropertyEditorComponent;
 
   public propertyModel:WCPropertyEditorModel = {
     items: [
@@ -84,14 +85,13 @@ export class ServiceCatalogComponent implements OnInit {
     { name:"logout", description:"Logout Operation", type:"Operation", channel:"JSON", domain: "Default", application: "Vipera", service: "Security"},
     { name:"appcheck", description:"App Check Operation", type:"Operation", channel:"JSON", domain: "Default", application: "Vipera", service: "Utility"},
     { name:"pay", description:"HCE Pay Operation", type:"Operation", channel:"JSON", domain: "Bankart", application: "NLB Pay", service: "Payments"}
-  ]
-  
+  ];
 
   constructor(private toaster: WCToasterService, 
     private overlayPaneService: WCOverlayPaneService , 
     private domainService: DomainsService,
     private securityService: SecurityService) {
-    console.log("ServiceCatalogComponent domainService", domainService)
+    console.log('ServiceCatalogComponent domainService', domainService);
   }
 
   ngOnInit() {
@@ -101,29 +101,25 @@ export class ServiceCatalogComponent implements OnInit {
   }
 
   onSavePropertiesPressed():void{
-    console.log("propertyModel save: ", this.propertyModel);
+    console.log('propertyModel save: ', this.propertyModel);
 
-    /*
-    this.domainService.deleteDomain("TestDomain").subscribe(data=>{
-      console.log("ServiceCatalogComponent domain deleted:", data)
-    },
-    error => console.log('oops', error))
-    */
+    this.domainService.getDomains().subscribe(data=>console.log('ServiceCatalogComponent getDomains:', data));
 
-    /*
-    this.domainService.createDomain({name:"TestDomain", description:"Test Domain description"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data),
-      error=>console.log("ServiceCatalogComponent create new domain error:", error));
-  */
+  }
 
-    /*
-    this.domainService.updateDomain("TestDomain", {description:"Test Domain description modified"}).subscribe(data=>console.log("ServiceCatalogComponent create new domain:", data),
-    error=>console.log("ServiceCatalogComponent create new domain error:", error));
-    */
+  onPropertyChange(event: any) {
+    console.log('>> onPropertyChange:', event);
+  }
 
-    this.domainService.getDomains().subscribe(data=>console.log("ServiceCatalogComponent getDomains:", data));
-    //this.securityService.getSessions().subscribe(sessions=>console.log("ServiceCatalogComponent getSessions:", sessions));
-    //this.securityService.logoutCurrentUser().subscribe(res=>console.log("ServiceCatalogComponent logout:", res));
+  onMinitButtonClick(event: any) {
+    console.log('>> onMinitButtonClick:', event);
+  }
 
+  onTestButtonClicked(): void {
+    console.log('>> onTestButtonClicked');
+    const item: WCPropertyEditorItem = this._propertyEditor.getPropertyItem('description');
+    item.value = 'Pippo';
+    console.log('>> onTestButtonClicked done');
   }
 
 }

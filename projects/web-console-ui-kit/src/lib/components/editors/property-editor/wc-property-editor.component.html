@@ -38,7 +38,7 @@
                                 <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
                         </select>
                 </div>
-                <button *ngIf="item.miniCommand" type="button" class="wc-property-editor-mini-button">{{item.miniCommandCaption}}</button>
+                <button *ngIf="item.miniCommand" type="button" [attr.miniButtonItemId]="item.field" class="wc-property-editor-mini-button" (click)='onMiniButtonClick($event)'>{{item.miniCommandCaption}}</button>
         </div>
 
 
