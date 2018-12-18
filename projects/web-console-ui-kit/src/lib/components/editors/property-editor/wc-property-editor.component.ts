@@ -1,5 +1,5 @@
- 
 import { Component, AfterContentInit, Input, Output, EventEmitter  } from '@angular/core';
+
 
 export enum WCPropertyEditorItemType {
   String = 'string',
@@ -22,6 +22,7 @@ export interface  WCPropertyEditorItem {
   miniCommandCaption?: string;
   placeholder?: string;
   elementRef?: string;
+  linkTo?: string[];
 }
 
 export interface WCPropertyEditorModel {
@@ -63,7 +64,6 @@ export interface MinitButtonClickEvent {
 
   onPropertyChange(event: any) {
     const propertyChanged = event.srcElement.getAttribute('itemId');
-    // console.log('********* onPropertyChange for '+propertyChanged+' !!! ', event)
     const originalValue = this.getOriginalValueFor(propertyChanged);
     const currentValue = this.getCurrentValueFor(propertyChanged);
     if (originalValue && (originalValue === currentValue)) {
@@ -73,6 +73,10 @@ export interface MinitButtonClickEvent {
     }
     const item: WCPropertyEditorItem = this.getModelItemFor(propertyChanged, this._model);
     if ( item ) {
+      // handle linked items if it's a boolean swicth and has a linked items
+      if ((item.type === WCPropertyEditorItemType.Boolean) && (item.linkTo)){
+        this.handleLinkedItems(item);
+      }
       this.propertyChange.emit({ item: item, newValue: currentValue, originalValue: originalValue });
     }
   }
@@ -113,7 +117,6 @@ export interface MinitButtonClickEvent {
     }
   }
   private markPropertyChanged(propertyName: string, changed: boolean) {
-    // console.log('markPropertyChanged ' + propertyName + ' -> ' + changed);
     const item =  this._model.items.find(x => x.field === propertyName);
     if (item) {
       item.valueChanged = changed;
@@ -133,5 +136,16 @@ export interface MinitButtonClickEvent {
     return this.getModelItemFor(propertyName, this._model);
   }
 
-  
+  /**
+   * Enable/disable linked items to a boolean switch field
+   * @param item
+   */
+  private handleLinkedItems(item: WCPropertyEditorItem): void {
+    const linkedItems: string[] = item.linkTo;
+    for (let i = 0; i < linkedItems.length; i++) {
+      const linkedItem: WCPropertyEditorItem = this.getPropertyItem(linkedItems[i]);
+      linkedItem.disabled = !item.value;
+    }
+  }
+
 }

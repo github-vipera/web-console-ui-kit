@@ -1,8 +1,11 @@
 <div class="inspector wc-property-editor">      
 
         <div *ngFor="let item of model.items; let i = index" [class.property-modified]="item.valueChanged" class="wc-property-editor-item-container">
-                <div class="wc-property-editor-item wc-property-editor-item-{{item.type}}" >
-                        <label id="label-for-{{item.field}}" class="wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
+                <div class="wc-property-editor-item wc-property-editor-item-{{item.type}}" [class.disabled]="item.disabled" >
+                        <label id="label-for-{{item.field}}" 
+                                [class.disabled]="item.disabled"
+                                [attr.disabled]="item.disabled?'':null"
+                                class="wc-property-editor-item-label wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
                         <input
                                 [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
                                 *ngIf="item.type === checkType.String" 
@@ -12,6 +15,7 @@
                                 (ngModelChange)="onModelChanged($event)"
                                 [attr.itemId]="item.field"
                                 [attr.placeholder]="item.placeholder"
+                                [class.disabled]="item.disabled"
                         >
                         
                         <textarea *ngIf="item.type === checkType.Text" 
@@ -21,6 +25,7 @@
                                 [attr.itemId]="item.field"
                                 [attr.placeholder]="item.placeholder"
                                 [attr.disabled]="item.disabled?'':null"
+                                [class.disabled]="item.disabled"
                         ></textarea>
 
 
@@ -32,6 +37,7 @@
                                 (change)="onPropertyChange($event)"
                                 [attr.itemId]="item.field"
                                 [attr.disabled]="item.disabled" 
+                                [class.disabled]="item.disabled"
                                 >
                                 <label for="{{item.field}}"></label>
                         </div>
@@ -45,6 +51,7 @@
                                 [attr.itemId]="item.field"
                                 [attr.disabled]="item.disabled?'':null"
                                 [(ngModel)]="item.value"  
+                                [class.disabled]="item.disabled"
                                 >
                                 <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
                         </select>
@@ -54,6 +61,7 @@
                 [attr.miniButtonItemId]="item.field" class="wc-property-editor-mini-button" 
                 (click)='onMiniButtonClick($event)'
                 [attr.disabled]="item.disabled?'':null"
+                [class.disabled]="item.disabled"
                 >{{item.miniCommandCaption}}</button>
         </div>
 
