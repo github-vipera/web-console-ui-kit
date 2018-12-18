@@ -4,7 +4,8 @@
                 <div class="wc-property-editor-item wc-property-editor-item-{{item.type}}" [class.disabled]="item.disabled" >
                         <label id="label-for-{{item.field}}" 
                                 [class.disabled]="item.disabled"
-                                class="wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
+                                [attr.disabled]="item.disabled?'':null"
+                                class="wc-property-editor-item-label wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
                         <input
                                 [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
                                 *ngIf="item.type === checkType.String" 
