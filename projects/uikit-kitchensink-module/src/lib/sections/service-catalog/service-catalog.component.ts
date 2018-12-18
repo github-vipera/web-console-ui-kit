@@ -23,7 +23,7 @@ export class ServiceCatalogComponent implements OnInit {
 
   @ViewChild('propertyEditor') _propertyEditor: WCPropertyEditorComponent;
 
-  public propertyModel:WCPropertyEditorModel = {
+  public propertyModel: WCPropertyEditorModel = {
     items: [
       {
         name: "Description",
@@ -35,9 +35,20 @@ export class ServiceCatalogComponent implements OnInit {
         name: "Offline",
         field: "offline",
         type: WCPropertyEditorItemType.Boolean,
-        value: true,
+        value: false,
         miniCommand: true,
-        miniCommandCaption: 'Test...'
+        miniCommandCaption: 'Test...',
+        linkTo: ['offlineMessages']
+      },
+      {
+        name: "Offline Messages",
+        field: "offlineMessages",
+        type: WCPropertyEditorItemType.List,
+        value: "",
+        listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"],
+        disabled: true,
+        miniCommand: true,
+        miniCommandCaption: 'Setup...'
       },
       {
         name: "OTP expiry",
