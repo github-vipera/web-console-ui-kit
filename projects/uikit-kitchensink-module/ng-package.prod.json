@@ -2,7 +2,29 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/uikit-kitchensink-module",
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+	"umdModuleIds": {
+    	"@progress/kendo-drawing": "KendoDrawing",
+    	"@progress/kendo-angular-buttons": "KendoAngularButtons",
+    	"@progress/kendo-angular-dateinputs": "KendoAngularDateinputs",
+    	"@progress/kendo-angular-dropdowns": "KendoAngularDropdowns",
+    	"@progress/kendo-angular-grid": "KendoAngularGrid",
+    	"@progress/kendo-angular-toolbar": "KendoAngularToolbar",
+    	"@progress/kendo-drawing": "KendoDrawing",
+    	"@progress/kendo-angular-layout": "KendoAngularLayout",
+    	"@swimlane/ngx-charts": "NgxCharts",
+    	"angular-gridster2": "AngularGridster2",
+    	"ngx-toastr": "NgxToastr",
+    	"uuid": "uuid",
+		"@progress/kendo-data-query": "KendoDataQuery",
+		"@wa-motif-open-api/security-service": "SecurityService",
+		"typescript-string-operations": "TypescriptStringOperations",
+		"@wa-motif-open-api/platform-service": "PlatformService",
+		"lodash": "_",
+		"@wa-motif-open-api/oauth2-service": "Oauth2Service",
+		"web-console-core": "WebConsoleCore",
+		"web-console-ui-kit": "WebConsoleUiKit"
+ 	}
   },
   "whitelistedNonPeerDependencies": [
     "tslib",

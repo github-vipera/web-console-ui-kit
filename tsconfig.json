@@ -17,12 +17,6 @@
       "dom"
     ],
     "paths": {
-      "web-admin-users-list-module": [
-        "dist/web-admin-users-list-module"
-      ],
-      "web-admin-users-list-module/*": [
-        "dist/web-admin-users-list-module/*"
-      ],
       "web-console-ui-kit": [
         "dist/web-console-ui-kit"
       ],

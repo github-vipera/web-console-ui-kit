@@ -10,6 +10,7 @@ import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
 import { WCOverlayPaneService } from 'web-console-ui-kit'
 import { DomainsService, DomainsList, Domain, UsersService, UsersList } from '@wa-motif-open-api/platform-service'
 import { String, StringBuilder } from 'typescript-string-operations'
+import { HttpParams } from '@angular/common/http';
 import * as _ from 'lodash';
 //import { WAGlobals } from '../../WAGlobals'
 
@@ -186,7 +187,7 @@ export class UsersListComponent implements OnInit {
       pagedQuery.pageSize = pageSize;
       pagedQuery.sort = sort;
       
-      this.usersService.getUsersList(domain, "response", false, pagedQuery).subscribe((response)=>{
+      this.usersService.getUsersList(domain, null, null, null, pageIndex, pageSize, sort.encode(new HttpParams()).get('sort'), "response", false).subscribe((response)=>{
 
 
         let results:MotifQueryResults = MotifQueryResults.fromHttpResponse(response);
