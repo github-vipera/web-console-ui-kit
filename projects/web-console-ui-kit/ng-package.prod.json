@@ -2,7 +2,21 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/web-console-ui-kit",
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+	"umdModuleIds": {
+    	"@progress/kendo-drawing": "KendoDrawing",
+    	"@progress/kendo-angular-buttons": "KendoAngularButtons",
+    	"@progress/kendo-angular-dateinputs": "KendoAngularDateinputs",
+    	"@progress/kendo-angular-dropdowns": "KendoAngularDropdowns",
+    	"@progress/kendo-angular-grid": "KendoAngularGrid",
+    	"@progress/kendo-angular-toolbar": "KendoAngularToolbar",
+    	"@progress/kendo-drawing": "KendoDrawing",
+    	"@progress/kendo-angular-layout": "KendoAngularLayout",
+    	"@swimlane/ngx-charts": "NgxCharts",
+    	"angular-gridster2": "AngularGridster2",
+    	"ngx-toastr": "NgxToastr",
+    	"uuid": "uuid"
+ 	}
   },
   "whitelistedNonPeerDependencies": [
     "progress",
