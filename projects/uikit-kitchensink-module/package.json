@@ -1,6 +1,6 @@
 {
   "name": "uikit-kitchensink-module",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
