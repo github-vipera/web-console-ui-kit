@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ContentChild, Renderer, ElementRef, AfterViewInit } from '@angular/core';
+import * as uuidv1_ from 'uuid/v1';
+const uuidv1 = uuidv1_;
 
 @Component({
   selector: 'wc-grid-editor',
@@ -6,6 +8,8 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ContentChild
 })
 export class WCGridButtonEditorComponent implements OnInit {
   
+
+
   private _dataItem:any;
   private _rowIndex:number;
   private _columnIndex:number;
@@ -14,13 +18,16 @@ export class WCGridButtonEditorComponent implements OnInit {
   private _buttonClass:string = "";
   private _value:string;
   private _question:string ="n.d.";
-
+  private _rowId: string;
+  
   @Output() 
   onConfirmation:EventEmitter<void> = new EventEmitter<void>();
   @Output() 
   onCancel:EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private elt:ElementRef, private renderer:Renderer) { }
+  constructor(private elt:ElementRef, private renderer:Renderer) {
+    this._rowId = uuidv1();
+   }
 
   ngOnInit() {
   }
@@ -61,9 +68,9 @@ export class WCGridButtonEditorComponent implements OnInit {
   }
 
   get rowId():string {
-      return this._rowIndex +"_" + this._columnIndex;
+    return this._rowId;
   }
-
+  
   get mainClass():string {
     return this._mainClass;
   }
