@@ -10,7 +10,6 @@ export class WCToasterService {
 
 
   constructor(private toastr: ToastrService) {
-    console.log("WCToasterService");
   }
 
   /**
