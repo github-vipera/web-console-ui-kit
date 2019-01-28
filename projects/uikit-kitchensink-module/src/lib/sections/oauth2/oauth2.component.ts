@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
-import { WCGridConfiguration, WCGridColumnType, WCToasterService } from 'web-console-ui-kit'
+import { WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { MotifQueryFilter, MotifQuerySort, MotifQueryResults, MotifQueryService, MotifPagedQuery } from 'web-console-core';
 import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
-import { WCOverlayPaneService } from 'web-console-ui-kit'
 import { Oauth2Service, OAuthRequest, RefreshTokenList, AccessTokenList, RefreshToken, AccessToken } from '@wa-motif-open-api/oauth2-service'
 import { DomainsService, DomainsList, Domain } from '@wa-motif-open-api/platform-service'
 import { String, StringBuilder } from 'typescript-string-operations'
@@ -35,7 +34,6 @@ export class OAuth2TokensListComponent implements OnInit {
   public _selectedDomain:Domain; //combo box selection
 
   //Grid Options
-  public gridConfiguration:WCGridConfiguration;
   public sort: SortDescriptor[] = [];
   public groups: GroupDescriptor[] = [];
   public gridView: DataResult;
@@ -50,20 +48,9 @@ export class OAuth2TokensListComponent implements OnInit {
   constructor(private oauth2Service: Oauth2Service,  
     private domainsService:DomainsService,
     private motifQueryService: MotifQueryService,
-    private toaster: WCToasterService, 
-    private overlayPaneService: WCOverlayPaneService) {
+    private toaster: WCToasterService) {
     console.log("oauth2Service=", oauth2Service);
-
-    this.gridConfiguration = {
-      columns: [
-        { label: "Domain", name:"domain", sortable:false },
-        { label: "Token", name:"token", sortable:true },
-        { label: "Type", name:"tokenType", sortable:true },
-        { label: "User ID", name:"userId", sortable:true },
-        { label: "", name:"", sortable:true, type: WCGridColumnType.Command },
-      ]
-    }
-  }
+ }
 
   ngOnInit() {
     this.refreshDomainList();

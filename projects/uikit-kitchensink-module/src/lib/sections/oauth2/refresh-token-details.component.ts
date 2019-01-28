@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { WCGridConfiguration, WCGridColumnType, WCToasterService } from 'web-console-ui-kit'
+import { WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { GridDataResult, PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
-import { WCOverlayPaneService } from 'web-console-ui-kit'
 import { Oauth2Service, OAuthRequest, RefreshTokenList, AccessTokenList, RefreshToken, AccessToken } from '@wa-motif-open-api/oauth2-service'
 import { String, StringBuilder } from 'typescript-string-operations'
 import { HttpParams } from '@angular/common/http';
@@ -24,22 +23,12 @@ export class RefreshTokenDetailsComponent implements OnInit {
   public accessTokenList: AccessTokenList = [];
 
   //Grid Options
-  public gridConfiguration:WCGridConfiguration;
   public gridView: DataResult;
   public type: 'numeric' | 'input' = 'numeric';
 
   constructor(private oauth2Service: Oauth2Service,  
-    private toaster: WCToasterService, 
-    private overlayPaneService: WCOverlayPaneService) {
+    private toaster: WCToasterService) {
     console.log("oauth2Service=", oauth2Service);
-
-    this.gridConfiguration = {
-      columns: [
-        { label: "Token", name:"token", sortable:true },
-        { label: "Type", name:"tokenType", sortable:true },
-        { label: "", name:"", sortable:true, type: WCGridColumnType.Command },
-      ]
-    }
   }
 
   ngOnInit() {

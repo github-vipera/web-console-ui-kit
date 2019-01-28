@@ -15,6 +15,7 @@ import { UsersListComponent } from '../sections/users-list/users-list.component'
 import { OAuth2TokensListComponent } from '../sections/oauth2/oauth2.component'
 import { RefreshTokenDetailsComponent } from '../sections/oauth2/refresh-token-details.component'
 import { KendoControlsComponent} from '../sections/kendo-controls/kendo-controls.component'
+import { WCGridModule } from 'web-console-ui-kit';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { KendoControlsComponent} from '../sections/kendo-controls/kendo-controls
     WebConsoleUIKitGridsterProviderModule,
     CommonModule,
     WebConsoleUIKitNgxChartsProviderModule,
-    WebConsoleUIKitKendoProviderModule
+    WebConsoleUIKitKendoProviderModule,
+    WCGridModule
   ],
   entryComponents:[
     DashboardTestComponent, 

@@ -1,0 +1,29 @@
+<div class="grid-edit-command grid-edit-command-state-disabled-{{disabled}} grid-edit-command-{{alignMode}}-align">
+
+    <div *ngIf="hasConfirmation">
+        <input type="checkbox" id="{{controlUID}}" [attr.disabled]="disabled ? 'disabled' : null" (change)="onCheckChange($event)">
+        <label for="{{controlUID}}" class="grid-edit-command-button" title="{{title}}">
+            <ng-content></ng-content>
+            <svg data-id="no1"><use [attr.xlink:href]="commandIcon"></use></svg>
+        </label>
+        <div class="actions">
+            <span>{{confirmationTitle}}</span>
+            <label for="{{controlUID}}" (click)="onConfirm($event)" class="grid-edit-command-action-button">
+                <svg class="ok" data-id="ok"><use xlink:href="assets/img/icons.svg#ico-ok"></use></svg> 
+            </label>
+            <label for="{{controlUID}}" (click)="onCancel($event)" class="grid-edit-command-action-button">
+                <svg class="ko" data-id="ko"><use xlink:href="assets/img/icons.svg#ico-ko"></use></svg>
+            </label>
+        </div>
+    </div>
+
+    <div *ngIf="!hasConfirmation">
+        <input type="checkbox" id="{{controlUID}}-nop" disabled="true" (change)="onCheckChange($event)">
+        <label for="{{controlUID}}" class="grid-edit-command-button" title="{{title}}" (click)="onCommandClick($event)" [attr.disabled]="disabled ? 'disabled' : null">
+            <svg data-id="no1"><use [attr.xlink:href]="commandIcon"></use></svg>
+        </label>
+    </div>
+
+</div>
+
+

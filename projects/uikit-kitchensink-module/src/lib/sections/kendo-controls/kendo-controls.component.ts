@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
-import { WCOverlayPaneService, WCToasterService } from 'web-console-ui-kit'
+import { WCToasterService } from 'web-console-ui-kit'
 
 import { KendoUIDrawing } from 'web-console-ui-kit'
 
@@ -31,7 +31,7 @@ export class KendoControlsComponent implements OnInit {
   private text:KendoUIDrawing.Text;
   private group:KendoUIDrawing.Group;
 
-  constructor(private toaster: WCToasterService, private overlayPaneService: WCOverlayPaneService) {
+  constructor(private toaster: WCToasterService) {
 
   }
 
