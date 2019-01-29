@@ -51,6 +51,7 @@
             </kendo-grid-column>
             <kendo-grid-column field="token" title="Token">
             </kendo-grid-column>
+
             <kendo-grid-column title="" width="150" minResizableWidth="140">
                 <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
                     <wc-grid-editor [question]="'Revoke ?'" [rowIndex]="rowIndex" [columnIndex]="columnIndex" [column]="column" [value]="dataItem[column.field]"
@@ -62,6 +63,7 @@
                     </wc-grid-editor>
                 </ng-template>
             </kendo-grid-column>
+            
             <div *kendoGridDetailTemplate="let dataItem">
                 <wa-refresh-token-details [refreshToken]="dataItem"></wa-refresh-token-details>
             </div>
@@ -70,8 +72,3 @@
     </div>
 
 </div>
-
-<!--
-    <wc-grid [data]="usersList" [configuration]="gridConfiguration">
-    </wc-grid>
--->

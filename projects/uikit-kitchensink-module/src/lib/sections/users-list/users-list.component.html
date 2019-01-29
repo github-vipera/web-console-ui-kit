@@ -113,48 +113,43 @@
                 <kendo-grid-column field="serial" title="Serial">
                 </kendo-grid-column>
                 
-                <kendo-grid-column field="state" title="State">
+                <kendo-grid-column field="state" title="Status">
                     <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
-                        <wc-grid-editor 
-                            [question]="getStatusButtonQuestion(dataItem[column.field])" 
+                            <wc-grid-editor-command
                             [rowIndex]="rowIndex" 
+                            [hasConfirmation]="true"
+                            [confirmationTitleProvider]="publishConfirmationTitleProvider"
                             [columnIndex]="columnIndex" 
                             [column]="column" 
                             [value]="dataItem[column.field]" 
-                            [dataItem]="dataItem" 
-                            [buttonClass]="getStatusButtonClass(dataItem[column.field])" 
-                            (onConfirmation)="onStatusChangeOKPressed(dataItem)"
-                            (onCancel)="onStatusChangeCancelPressed(dataItem)">
-                            {{dataItem[column.field]}}
-                        </wc-grid-editor>
+                            [dataItem]="dataItem"
+                            (commandConfirm)="doPublishAssetsBundle(dataItem)"  
+                            >
+                            <span class="badge badge-status badge-enabled state-{{dataItem.state}}">
+                                {{dataItem.state}}
+                                </span>
+                            </wc-grid-editor-command>
+                    </ng-template>
+            </kendo-grid-column>         
+            
+                <kendo-grid-column title="">
+                    <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
+                            <wc-grid-editor-commands-group 
+                                    [commands]="commands" 
+                                    [alignMode]="'end'" 
+                                    [rowIndex]="rowIndex"
+                                    [columnIndex]="columnIndex" 
+                                    [column]="column" 
+                                    [value]="dataItem[column.field]" 
+                                    [dataItem]="dataItem"
+                                    (commandConfirm)="onCommandConfirm($event)"
+                                    (commandClick)="onCommandClick($event)"
+                                    ></wc-grid-editor-commands-group>
                     </ng-template>
                 </kendo-grid-column>
 
-                <kendo-grid-column title="" width="150" minResizableWidth="140">
-                        <ng-template kendoGridCellTemplate let-dataItem let-columnIndex="columnIndex" let-rowIndex="rowIndex" let-column="column">
-                                <wc-grid-editor 
-                                [question]="'Delete ?'" 
-                                [rowIndex]="rowIndex" 
-                                [columnIndex]="columnIndex" 
-                                [column]="column" 
-                                [value]="dataItem[column.field]" 
-                                [dataItem]="dataItem"
-                                [buttonClass]="''" 
-                                [mainClass]="'wc-table-delete-command'"
-                                (onConfirmation)="onDeleteOKPressed(dataItem)" (onCancel)="onDeleteCancelPressed(dataItem)">
-                                    <svg data-id="no"><use xlink:href="assets/img/icons.svg#ico-no"></use></svg>
-                                </wc-grid-editor>
-                        </ng-template>
-                </kendo-grid-column>
             </kendo-grid>
 
     </div>
 
 </div>
-
-<!--
-    <wc-grid [data]="usersList" [configuration]="gridConfiguration">
-    </wc-grid>
--->
-
- 

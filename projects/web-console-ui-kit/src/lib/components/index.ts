@@ -12,7 +12,6 @@ export * from './data/Gauge/wc-gauge.component';
 
 //grid
 export * from './grid/index';
-export * from './grid-editor/WCGridButtonEditorComponent';
 
 // Property Editor
 export * from './editors/property-editor/wc-property-editor.component';

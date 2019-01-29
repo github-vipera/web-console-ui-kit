@@ -21,7 +21,6 @@ Here is a list:
 
 | Component Name   | Descirption                                                  |
 | ---------------- | ------------------------------------------------------------ |
-| Overlay Pane     | A simple overlay pane for blocking/modal operations          |
 | Switch Button    | A simple switch ON/OFF button                                |
 | Dashboard Header | A label for a dashboard item title                           |
 | Dashboard        | A dashboard component (see: https://github.com/tiberiuzuld/angular-gridster2) |
@@ -51,7 +50,6 @@ The UI Kit library contains a series of modules that allow you to use the variou
 |                                              | `WCDashboardHeaderComponent`             |
 |                                              | `WCSwitchButton`                         |
 |                                              | `WCSlideDownPanelComponent`              |
-|                                              | `WCOverlayPane`                          |
 |                                              | `WCTabItemComponent`                     |
 |                                              | `WCTabPanelComponent`                    |
 |                                              | `WCPropertyEditorComponent`              |

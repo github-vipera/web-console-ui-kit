@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ContentChild, Renderer, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Renderer, ElementRef } from '@angular/core';
 import * as uuidv1_ from 'uuid/v1';
 const uuidv1 = uuidv1_;
 

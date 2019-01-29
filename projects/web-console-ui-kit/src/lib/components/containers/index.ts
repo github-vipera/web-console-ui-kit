@@ -1,3 +1,3 @@
-export * from './panel/WCPanelComponent'
-export * from './slide-down-panel/wc-slide-down-panel.component'
-export * from './tabs/index'
+export * from './panel/WCPanelComponent';
+export * from './slide-panel/slide-panel-component';
+export * from './tabs/index';

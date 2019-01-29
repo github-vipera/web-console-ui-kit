@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
-import { WCOverlayPaneService, WCToasterService } from 'web-console-ui-kit'
+import { WCToasterService } from 'web-console-ui-kit'
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { WCPropertyEditorModel, WCPropertyEditorComponent, WCPropertyEditorItem, WCPropertyEditorItemType } from 'web-console-ui-kit'
@@ -106,7 +106,6 @@ export class ServiceCatalogComponent implements OnInit {
   ];
 
   constructor(private toaster: WCToasterService, 
-    private overlayPaneService: WCOverlayPaneService , 
     private domainService: DomainsService,
     private securityService: SecurityService) {
     console.log('ServiceCatalogComponent domainService', domainService);

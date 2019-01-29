@@ -1,7 +1,8 @@
 import { Component, AfterContentInit, Input, Output, EventEmitter, forwardRef  } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import uuid from 'uuid'
+import * as uuidv1_ from 'uuid/v1';
+const uuidv1 = uuidv1_;
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 const noop = () => {
@@ -34,7 +35,7 @@ export class WCSwitchControl implements AfterContentInit {
     private onChangeCallback: (_: any) => void = noop;
 
     constructor(){
-        this._id = "wc-switch-" + uuid();
+        this._id = "wc-switch-" + uuidv1();
     }
 
     ngAfterContentInit(){

@@ -1,18 +1,15 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PluginView } from 'web-console-core'
-//import { UsersService, User } from '../../services/Platform/UsersService';
-//import { DomainsService, Domain } from '../../services/Platform/DomainsService';
-import { WCGridConfiguration, WCGridColumnType, WCToasterService } from 'web-console-ui-kit'
+import { WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { MotifQueryFilter, MotifQuerySort, MotifQueryResults, MotifQueryService, MotifPagedQuery } from 'web-console-core';
 import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
-import { WCOverlayPaneService } from 'web-console-ui-kit'
 import { DomainsService, DomainsList, Domain, UsersService, UsersList } from '@wa-motif-open-api/platform-service'
 import { String, StringBuilder } from 'typescript-string-operations'
 import { HttpParams } from '@angular/common/http';
 import * as _ from 'lodash';
-//import { WAGlobals } from '../../WAGlobals'
+import { WCConfirmationTitleProvider, WCGridEditorCommandComponentEvent, WCGridEditorCommandsConfig } from 'web-console-ui-kit';
 
 const USERS_LIST_ENDPOINT = "/platform/domains/{0}/users"
 const CREATE_USER_ENDPOINT = "/platform/domains/{0}/users"
@@ -43,7 +40,6 @@ export class UsersListComponent implements OnInit {
   public _selectedDomain:Domain; //combo box selection
 
   //Grid Options
-  public gridConfiguration:WCGridConfiguration;
   public sort: SortDescriptor[] = [];
   public groups: GroupDescriptor[] = [];
   public gridView: DataResult;
@@ -55,6 +51,38 @@ export class UsersListComponent implements OnInit {
   public totalRecords = 0;
   public isFieldSortable=false;
 
+  publishConfirmationTitleProvider: WCConfirmationTitleProvider = {
+    getTitle(rowData): string {
+        if (rowData.published){
+            return "Unpublish ?";
+        } else {
+            return "Publish ?";
+        }
+    }
+}
+
+commands: WCGridEditorCommandsConfig = [
+  { 
+      commandIcon: 'assets/img/icons.svg#ico-publish',
+      commandId: 'cmdPublish',
+      title: 'Publish/Unpublish',
+      hasConfirmation: true,
+      confirmationTitle: 'Publish ?',
+      confirmationTitleProvider: this.publishConfirmationTitleProvider
+  },
+  { 
+      commandIcon: 'assets/img/icons.svg#ico-download',
+      commandId: 'cmdDownload',
+      title: 'Download'
+  },
+  { 
+      commandIcon: 'assets/img/icons.svg#ico-no',
+      commandId: 'cmdDelete',
+      title: 'Delete',
+      hasConfirmation: true,
+      confirmationTitle: 'Delete ?' 
+  }
+];
 
   //new user form
   @Input('newUserId') newUserId:string = "";
@@ -63,18 +91,8 @@ export class UsersListComponent implements OnInit {
   constructor(private usersService: UsersService,  
     private domainsService:DomainsService,
     private motifQueryService: MotifQueryService,
-    private toaster: WCToasterService, 
-    private overlayPaneService: WCOverlayPaneService) {
+    private toaster: WCToasterService) {
     console.log("usersService=", usersService);
-
-    this.gridConfiguration = {
-      columns: [
-        { label: "Domain", name:"domain", sortable:false },
-        { label: "User ID", name:"userId", sortable:true },
-        { label: "State", name:"state", sortable:true },
-        { label: "", name:"", sortable:true, type: WCGridColumnType.Command },
-      ]
-    }
   }
 
   ngOnInit() {
@@ -189,8 +207,8 @@ export class UsersListComponent implements OnInit {
       
       this.usersService.getUsersList(domain, null, null, null, pageIndex, pageSize, sort.encode(new HttpParams()).get('sort'), "response", false).subscribe((response)=>{
 
-
         let results:MotifQueryResults = MotifQueryResults.fromHttpResponse(response);
+        console.log("loadData results: ", results);
         this.usersList = _.forEach(results.data, function(element) {
           element.created = new Date(element.created);
           element.lastLogin = new Date(element.lastLogin);
@@ -327,12 +345,10 @@ export class UsersListComponent implements OnInit {
     let serial = this.newUserModel.serial;
     this.dismissNewUserEditor();
     this.usersService.createNewUser(domainName, userId, userIdInt, msisdn, serial, "PREACTIVE").then(()=>{
-      //this.overlayPaneService.setVisible(false);
       this.toaster.success("User '"+userId+"' created successfully.", "New User");
       this.refreshData();
     }, (error)=>{
       console.log("New user error: ", error);
-      //this.overlayPaneService.setVisible(false);
       this.toaster.error("User '"+userId+"' creation error: " + error, "New User");
     })
     */
@@ -366,4 +382,22 @@ export class UsersListComponent implements OnInit {
       return "";
     }
   }
+
+
+  doPublishAssetsBundle(dataItem){
+    alert("doPublishAssetsBundle " + dataItem);
+  }
+
+  onCommandConfirm(event: WCGridEditorCommandComponentEvent) {
+    alert("onCommandConfirm " + event.id )
+  }
+
+onCommandClick(event: WCGridEditorCommandComponentEvent){
+  alert("onCommandClick " + event.id )
+}
+
+onConfirmationCancel(event){
+}
+
+
 }
