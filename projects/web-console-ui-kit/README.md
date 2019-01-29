@@ -49,7 +49,7 @@ The UI Kit library contains a series of modules that allow you to use the variou
 |                                              | `WCPanelComponent`                       |
 |                                              | `WCDashboardHeaderComponent`             |
 |                                              | `WCSwitchButton`                         |
-|                                              | `WCSlideDownPanelComponent`              |
+|                                              | `WCSlidePanelComponent`              |
 |                                              | `WCTabItemComponent`                     |
 |                                              | `WCTabPanelComponent`                    |
 |                                              | `WCPropertyEditorComponent`              |
