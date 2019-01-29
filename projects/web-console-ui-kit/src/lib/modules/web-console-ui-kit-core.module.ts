@@ -39,4 +39,4 @@ import { FormsModule } from '@angular/forms';
     ToastrService
   ]
 })
-export class WebConsoleUIKitCoreModule { } 
+export class WCUIKitCoreModule { } 

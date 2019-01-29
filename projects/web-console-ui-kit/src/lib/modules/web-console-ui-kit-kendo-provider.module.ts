@@ -30,7 +30,7 @@ export { KendoUIDrawing }
         CalendarModule, DatePickerModule, DateRangeModule, TimePickerModule, MultiViewCalendarModule, DateInputModule, DateInputsModule, CalendarsModule
     ]
 })
-export class WebConsoleUIKitKendoProviderModule {
+export class WCUIKitKendoProviderModule {
     
 }
 

@@ -1,4 +1,4 @@
-export * from './WCGridModule';
+export * from './WCUIKitGridModule';
 export * from './grid-editor-command/grid-editor-command-component';
 export * from './grid-editor-commands-group/grid-editor-commands-group-component';
 export * from './edit-service/wc-edit-service';

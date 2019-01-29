@@ -13,4 +13,4 @@ import { NgxGaugeModule } from '../components/data/NxGauge/ngx-gauge.module'
   providers : [
   ]
 })
-export class WebConsoleUIKitDataModule { } 
+export class WCUIKitDataModule { } 

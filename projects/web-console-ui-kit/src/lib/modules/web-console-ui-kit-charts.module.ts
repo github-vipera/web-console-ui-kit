@@ -13,4 +13,4 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     declarations: [],
     providers : []
 })
-export class WebConsoleUIKitNgxChartsProviderModule { } 
+export class WCUIKitNgxChartsProviderModule { } 
