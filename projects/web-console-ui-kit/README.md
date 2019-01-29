@@ -25,7 +25,7 @@ Here is a list:
 | Dashboard Header | A label for a dashboard item title                           |
 | Dashboard        | A dashboard component (see: https://github.com/tiberiuzuld/angular-gridster2) |
 | Panel            | A simple panel container                                     |
-| Slide Down Panel | A drop down panel for editing UI                             |
+| Slide Panel | A drop down panel for editing UI                             |
 | Tabs             | A Tab component                                              |
 | Counter          | A simple value display for metrics                           |
 | Gauge            | A gauge value display for metrics                            |
@@ -33,6 +33,7 @@ Here is a list:
 | Grid Cell Editor | A cell editor customizable for the grid                      |
 | Kendo Components | All Kendo UI components for Angular                          |
 | Charts           | A charts suite from Swimlane Charts                          |
+| Grid Commands    | A toolbar for grid column for multiple commands with confirmation support | 
 
 
 
@@ -44,30 +45,30 @@ The UI Kit library contains a series of modules that allow you to use the variou
 
 | Module                                       | Components                             |
 | -------------------------------------------- | -------------------------------------- |
-| **`WebConsoleUIKitCoreModule`**              |                                        |
+| **`WCUIKitCoreModule`**              |                                        |
 |                                              | `WCGridButtonEditorComponent`            |
 |                                              | `WCPanelComponent`                       |
 |                                              | `WCDashboardHeaderComponent`             |
 |                                              | `WCSwitchButton`                         |
-|                                              | `WCSlideDownPanelComponent`              |
+|                                              | `WCSlidePanelComponent`              |
 |                                              | `WCTabItemComponent`                     |
 |                                              | `WCTabPanelComponent`                    |
 |                                              | `WCPropertyEditorComponent`              |
-| **`WebConsoleUIKitDataModule`**              |                                        |
+| **`WCUIKitDataModule`**              |                                        |
 |                                              | `WCDataCounterComponent`                 |
 |                                              | `NgxGaugeModule`                         |
-| **`WebConsoleUIKitNgxChartsProviderModule`** |                                        |
+| **`WCUIKitNgxChartsProviderModule`** |                                        |
 |                                              | *All NgxCharts available componenents* |
-| **`WebConsoleUIKitGridsterProviderModule`**    |                                        |
+| **`WCUIKitGridsterProviderModule`**    |                                        |
 |                                              | *All Gridster available componenents*  |
-| **`WebConsoleUIKitKendoProviderModule`**       |                                        |
+| **`WCUIKitKendoProviderModule`**       |                                        |
 |                                              | *All Kendo UI available componenents*  |
 |                                        
 
 
 
 
-## Dashboard Header <sup>`WebConsoleUIKitCoreModule`</sup>
+## Dashboard Header <sup>`WCUIKitCoreModule`</sup>
 
 The `WCDashboardHeaderComponent` is a label that you can put as a title for every element of your dashboard:
 
@@ -81,7 +82,7 @@ To add a dashboard header in your page you need to use this directive:
 
 
 
-## Slide Down Panel<sup>`WebConsoleUIKitCoreModule`</sup>
+## Slide Down Panel<sup>`WCUIKitCoreModule`</sup>
 
 With the `WCSlideDownPanelComponent` you can create non-invasive interface elements that can appear and disappear when needed:
 
@@ -112,7 +113,7 @@ To add a slide down panel you need to use the `wc-slide-down-panel` directive:
 
 
 
-## Switch Button<sup>`WebConsoleUIKitCoreModule`</sup>
+## Switch Button<sup>`WCUIKitCoreModule`</sup>
 
 With the `WCSwitchButton` you can implement an ON / OFF editing field:
 
@@ -124,7 +125,7 @@ To add a switch button you nedd to use the `wc-switch-button` directive:
 
 
 
-## Panel<sup>`WebConsoleUIKitCoreModule`</sup>
+## Panel<sup>`WCUIKitCoreModule`</sup>
 
 The `WCPanelComponent` is a simple UI container with a title.
 
@@ -154,7 +155,7 @@ If you want to add into a dashboard item:
 
 
 
-## Dashboard<sup>`WebConsoleUIKitGridsterProviderModule`</sup>
+## Dashboard<sup>`WCUIKitGridsterProviderModule`</sup>
 
 The dashboard is a component that allows you to quickly and easily create complex data visualizations arranged in elements with automatic layout, drag & drop, etc.
 

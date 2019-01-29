@@ -4,7 +4,7 @@ import { WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { MotifQueryFilter, MotifQuerySort, MotifQueryResults, MotifQueryService, MotifPagedQuery } from 'web-console-core';
-import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
+import { WCSlidePanelComponent } from 'web-console-ui-kit'
 import { DomainsService, DomainsList, Domain, UsersService, UsersList } from '@wa-motif-open-api/platform-service'
 import { String, StringBuilder } from 'typescript-string-operations'
 import { HttpParams } from '@angular/common/http';
@@ -32,7 +32,7 @@ export interface NewUserModel {
 export class UsersListComponent implements OnInit {
 
   @ViewChild(GridComponent) _grid : GridComponent;
-  @ViewChild(WCSlideDownPanelComponent) _slideDownEditor : WCSlideDownPanelComponent;
+  @ViewChild(WCSlidePanelComponent) _slideDownEditor : WCSlidePanelComponent;
 
   //Data
   public usersList: UsersList = [];
@@ -329,7 +329,7 @@ commands: WCGridEditorCommandsConfig = [
   }
 
   onAddButtonPressed():void {
-    this._slideDownEditor.open();
+    this._slideDownEditor.show(true);
   }
 
   onEditorDismissButtonPressed():void{
@@ -356,7 +356,7 @@ commands: WCGridEditorCommandsConfig = [
 
   dismissNewUserEditor(){
     this.newUserModel = {};
-    this._slideDownEditor.close();
+    this._slideDownEditor.show(false);
   }
 
   get statusButtonClass():string{

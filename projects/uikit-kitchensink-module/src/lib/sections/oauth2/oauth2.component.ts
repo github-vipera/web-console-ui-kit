@@ -4,7 +4,6 @@ import { WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { MotifQueryFilter, MotifQuerySort, MotifQueryResults, MotifQueryService, MotifPagedQuery } from 'web-console-core';
-import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
 import { Oauth2Service, OAuthRequest, RefreshTokenList, AccessTokenList, RefreshToken, AccessToken } from '@wa-motif-open-api/oauth2-service'
 import { DomainsService, DomainsList, Domain } from '@wa-motif-open-api/platform-service'
 import { String, StringBuilder } from 'typescript-string-operations'
@@ -25,7 +24,6 @@ const REFRESH_TOKENS_LIST_ENDPOINT = "/oauth2/domains/{0}/refreshTokens"
 export class OAuth2TokensListComponent implements OnInit {
 
   @ViewChild(GridComponent) _grid : GridComponent;
-  @ViewChild(WCSlideDownPanelComponent) _slideDownEditor : WCSlideDownPanelComponent;
 
   //Data
   public refreshTokenList: RefreshTokenList = [];

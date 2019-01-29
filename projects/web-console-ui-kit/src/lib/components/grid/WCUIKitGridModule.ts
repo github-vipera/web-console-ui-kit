@@ -31,7 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ]
 
   })
-  export class WCGridModule { }
+  export class WCUIKitGridModule { }
 
 
 

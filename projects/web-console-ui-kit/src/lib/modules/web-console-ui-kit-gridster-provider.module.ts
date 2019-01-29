@@ -9,7 +9,7 @@ import { GridsterModule } from 'angular-gridster2'
     imports:[ GridsterModule ],
     exports:[ GridsterModule ]
 })
-export class WebConsoleUIKitGridsterProviderModule {
+export class WCUIKitGridsterProviderModule {
     
 }
 

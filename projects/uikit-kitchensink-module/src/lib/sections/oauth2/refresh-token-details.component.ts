@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { WCToasterService } from 'web-console-ui-kit'
 import { SortDescriptor, orderBy, GroupDescriptor, process, DataResult } from '@progress/kendo-data-query';
 import { GridDataResult, PageChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
-import { WCSlideDownPanelComponent } from 'web-console-ui-kit'
 import { Oauth2Service, OAuthRequest, RefreshTokenList, AccessTokenList, RefreshToken, AccessToken } from '@wa-motif-open-api/oauth2-service'
 import { String, StringBuilder } from 'typescript-string-operations'
 import { HttpParams } from '@angular/common/http';
