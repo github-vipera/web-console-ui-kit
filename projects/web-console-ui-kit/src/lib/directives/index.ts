@@ -1,0 +1,1 @@
+export * from './wc-after-value-change-directive';

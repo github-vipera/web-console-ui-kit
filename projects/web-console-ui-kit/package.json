@@ -1,6 +1,6 @@
 {
   "name": "web-console-ui-kit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
@@ -21,6 +21,7 @@
     "@progress/kendo-drawing": "^1.0.0",
     "@progress/kendo-theme-default": "latest",
     "@progress/kendo-angular-layout": "^3.1.2",
+    "@progress/kendo-angular-notification": "^1.2.0",
     "ngx-toastr": "^9.0.0",
     "@swimlane/ngx-charts": "^10.0.0",
     "angular-gridster2": "^7.0.0",
