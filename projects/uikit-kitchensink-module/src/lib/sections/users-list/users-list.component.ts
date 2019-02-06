@@ -27,7 +27,7 @@ export interface NewUserModel {
   templateUrl: './users-list.component.html'
 })
 @PluginView("Users List",{
-  iconName: "ico-users" 
+  iconName: "wa-ico-users" 
 })
 export class UsersListComponent implements OnInit {
 
@@ -63,7 +63,7 @@ export class UsersListComponent implements OnInit {
 
 commands: WCGridEditorCommandsConfig = [
   { 
-      commandIcon: 'assets/img/icons.svg#ico-publish',
+      commandIcon: 'wa-ico-publish',
       commandId: 'cmdPublish',
       title: 'Publish/Unpublish',
       hasConfirmation: true,
@@ -71,12 +71,12 @@ commands: WCGridEditorCommandsConfig = [
       confirmationTitleProvider: this.publishConfirmationTitleProvider
   },
   { 
-      commandIcon: 'assets/img/icons.svg#ico-download',
+      commandIcon: 'wa-ico-download',
       commandId: 'cmdDownload',
       title: 'Download'
   },
   { 
-      commandIcon: 'assets/img/icons.svg#ico-no',
+      commandIcon: 'wa-ico-no',
       commandId: 'cmdDelete',
       title: 'Delete',
       hasConfirmation: true,

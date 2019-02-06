@@ -1,0 +1,79 @@
+/* form specific formatting */
+
+.wc-form-group {
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+    align-items: center;
+  }
+  
+  .wc-form-group label {
+    flex: none;
+    display: block;
+    width: 125px;
+    font-weight: bold;
+    
+  }
+  .wc-form-group label.right-inline {
+    text-align: right;  
+    padding-right: 8px;
+    padding-left: 10px;
+    width: auto;
+  }
+  
+  .wc-form-group .input-control {
+    flex: 1 1 auto;
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 8px;
+    padding: 4px;
+    margin-top: -4px;
+  }
+  
+  .wc-form-group-tooltip {
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 4pt;
+  }
+
+  .wc-form-group button {
+    padding: 5px 15px;
+    margin: 5px;
+    min-width: 100px
+  }
+  
+  @media (max-width: 768px) {
+    .wc-form-group {
+      flex-direction: column;
+    }
+    .wc-form-group .input-control {
+      margin-top: 2px;
+    }
+    .wc-form-group label.right-inline {
+      text-align: left;  
+      padding-right: 0;
+      padding-left: 0;   
+    }
+  }
+  
+
+.switch-control-label {
+  padding-top:12px;
+  padding-bottom:4px;
+  display:flex;
+  flex-direction: column;
+}
+
+.switch-control-button {
+  padding-top:5px;
+}
+
+.combo-control-label {
+  padding-top:12px;
+  display:flex;
+  flex-direction: column;
+}
+
+.combo-control-label kendo-dropdownlist {
+  padding-top: 4px;
+}

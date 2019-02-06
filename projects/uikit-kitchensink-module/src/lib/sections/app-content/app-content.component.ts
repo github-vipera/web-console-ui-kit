@@ -15,7 +15,7 @@ export interface Car {
   templateUrl: './app-content.component.html'
 })
 @PluginView("App Content",{
-  iconName: "ico-app-content" 
+  iconName: "wa-ico-app-content" 
 })
 export class AppContentComponent implements OnInit {
 

@@ -13,7 +13,7 @@ import { SecurityService } from '@wa-motif-open-api/security-service'
   templateUrl: './service-catalog.component.html'
 })
 @PluginView("Service Catalog",{
-  iconName: "ico-services" 
+  iconName: "wa-ico-services" 
 })
 export class ServiceCatalogComponent implements OnInit {
 

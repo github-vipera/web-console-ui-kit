@@ -17,7 +17,7 @@ export interface Car {
   templateUrl: './kendo-controls.component.html'
 })
 @PluginView("Kendo Controls",{
-  iconName: "ico-json" 
+  iconName: "wa-ico-json" 
 })
 export class KendoControlsComponent implements OnInit {
 

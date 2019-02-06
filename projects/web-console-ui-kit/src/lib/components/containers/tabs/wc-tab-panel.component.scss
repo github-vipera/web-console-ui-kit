@@ -1,0 +1,55 @@
+.wc-tabs label i {
+  fill: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+  transition:transform .2s;
+}
+
+.tabs {
+  margin-top: -1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabs label {
+  opacity: 0.4;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.tabs label span {
+  font-size: 0;
+}
+.tabs label:hover {
+  opacity: 0.6;
+}
+.tabs label:hover span {
+  font-size: 0.9rem;
+}
+.tabs label svg {
+  fill: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+.tabs label i {
+  fill: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.tabs label span {
+    transition: .1s;
+}
+
+.tabs label {
+    transition: .1s;
+}

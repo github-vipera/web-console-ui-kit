@@ -2,9 +2,9 @@
 
     <input type="radio" name="tabs" *ngFor="let tab of tabs; let i = index" id="tab-{{i+1}}-cmd" [attr.checked]="i === 0 ? '' : null">
      
-    <div class="tabs">
+    <div class="tabs wc-tabs">
         <label *ngFor="let tab of tabs; let i = index" for="tab-{{i+1}}-cmd">
-            <svg data-id="tab.dataId"><use [attr.xlink:href]="tab.icon"></use></svg>
+            <i data-id="tab.dataId" class="wc-tab-icon icon {{tab.icon}}"></i>
             <span>{{tab.title}}</span>
         </label>
     </div>

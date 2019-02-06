@@ -67,4 +67,15 @@ input[type=checkbox] + label:before {
     justify-content: start;
 } 
 
-//    input[type=checkbox] + label:before {content:''; width:1rem; height:1rem; margin-right:.5rem; border:1px solid #666;}
+.grid-edit-command label i {
+    font-size: 0.8rem;
+} 
+
+.grid-edit-command label {
+    vertical-align: middle;
+}
+
+.confirmation-icon {
+    font-size: 1rem;
+    vertical-align: middle;
+}
