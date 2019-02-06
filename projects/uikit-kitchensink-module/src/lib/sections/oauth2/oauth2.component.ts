@@ -19,7 +19,7 @@ const REFRESH_TOKENS_LIST_ENDPOINT = "/oauth2/domains/{0}/refreshTokens"
   templateUrl: './oauth2.component.html'
 })
 @PluginView("OAuth2 Tokens",{
-  iconName: "ico-users" 
+  iconName: "wa-ico-users" 
 })
 export class OAuth2TokensListComponent implements OnInit {
 

@@ -11,7 +11,7 @@ import { DashboardStatusBarItemComponent } from './dashboard-status-bar-item.com
   styleUrls: [ './dashboard-test.component.css' ]
 })
 @PluginView("Dashboard",{
-  iconName: "ico-json" 
+  iconName: "wa-ico-json" 
 })
 export class DashboardTestComponent implements OnInit, OnDestroy, AfterViewInit {
 

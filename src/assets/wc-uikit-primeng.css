@@ -1,0 +1,168 @@
+/**
+ * MENU
+ */
+
+.ui-contextmenu {
+	background-color: #363F44;
+	font-size: 0.85rem;
+}
+
+
+.ui-menu-list {
+	background-color: #363F44;
+}
+
+.ui-menuitem:hover {
+	background-color: rgb(45, 53, 57);
+}
+
+.ui-menuitem-link{ 
+	font-family: 'Open Sans',sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+    font-weight: normal;
+	font-size: 11px;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.ui-contextmenu .ui-menuitem-link {
+    padding-top: .45em;
+	padding-bottom: .45em;
+	color: #bdbdbd;
+}
+
+.ui-contextmenu:hover .ui-menuitem-link:hover {
+    padding-top: .45em;
+	padding-bottom: .45em;
+	color: #fff;
+}
+
+.ui-menuitem-link.ui-state-disabled {
+	color: #666;
+}
+
+.ui-menuitem-link.ui-state-disabled:hover {
+	color: #666;
+}
+
+.ui-contextmenu.ui-state-disabled:hover {
+	color: #666;
+}
+
+.ui-menuitem-link.ui-state-disabled:hover {
+	color: #666;
+}
+
+.ui-submenu-list {
+	background-color: #363F44;
+}
+
+.ui-menu .ui-menu-separator {
+    border-top: solid .5px #ffffff73;
+}
+
+/**
+ * DIALOGS
+ */
+.ui-dialog {
+	/*background: #343b40;*/
+	background: #36424a;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+	background-color: #1b1f21;
+	color: #c1c1c1;
+}
+
+.ui-dropdown-panel .ui-dropdown-list {
+	background: #444c50;
+	color: white;
+	font-size: 0.8rem;
+}
+
+.ui-dropdown-item:hover {
+	background: #3e4448;
+}
+
+.ui-treetable {
+    height: 100%;
+}
+
+.ui-treetable-scrollable-wrapper {
+    height: 100%;            
+}	
+
+    
+.ui-treetable-scrollable-view {
+    height: 100%;
+}
+    
+.ui-treetable-scrollable-body {
+    max-height: none !important;
+    height: 95% !important;
+}
+
+.wa-ng-combo-box 
+{ 
+	height: 30px;
+	background : rgb(83, 84, 84);
+	padding-top: 6px;
+	padding-left:6px;
+	color: #ddd;
+}
+
+.ui-dropdown label.ui-dropdown-label  {
+	color: #ddd;
+}
+
+.ui-placeholder {
+	color: #888888 !important;
+}
+
+/* Switch Button */
+.ui-inputswitch .ui-inputswitch-slider 
+{
+	background-color: #7a7b7b
+}
+
+.ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider 
+{
+	background-color: #62ce39
+}
+
+.ui-inputswitch-slider:before
+{
+	background: white;
+}
+	
+.ui-inputswitch {
+    width: 2.1em;
+    height: 1.3em;
+}
+
+.ui-inputswitch-slider:before {
+    left: 0.2em;
+	bottom: .2em;
+	height: 1em;
+    width: 1em;
+    transition: .1s;
+}
+
+.ui-inputswitch-checked .ui-inputswitch-slider:before {
+    -webkit-transform: translateX(0.7em);
+    transform: translateX(0.7em);
+}
+
+/*
+.ui-inputswitch-slider:before {
+    position: absolute;
+    content: "";
+    height: 1.250em;
+    width: 1.250em;
+    left: .25em;
+    bottom: .25em;
+    border-radius: 50%;
+    transition: .1s;
+}
+*/

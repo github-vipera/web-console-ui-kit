@@ -1,0 +1,43 @@
+.grid-cell-checkbox {
+    left: 50%;
+    transform: translate(-50%, 0px);
+}
+
+.grid-cell-checkbox-true:before {
+    content: "\e118"; 
+    color: #009900;
+}
+
+.grid-cell-checkbox-true:false {
+    content: "\e121";
+}
+
+.grid-cell-dirty {
+    color: red;
+}
+
+.grid-cell-dirty-true:before {
+    content: "\e003";
+}
+
+.k-grid tr:not(.k-state-selected):hover {
+    background: none;
+    color: inherit;
+}
+
+.k-grid tr.k-alt:not(.k-state-selected):hover {
+    background: transparent;
+}
+
+.wc-grid-command-column {
+    padding: 0px;
+}
+
+.k-grid td.k-state-selected, .k-grid tr.k-state-selected > td {
+    color: white;
+    background-color: rgba(105, 148, 179, 0.19);
+}
+
+.k-grid td {
+    border-bottom: 1px dotted #666;
+}

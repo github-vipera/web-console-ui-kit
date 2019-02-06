@@ -6,7 +6,7 @@
  @Component({
    selector: 'wc-tab-panel',
    templateUrl: './wc-tab-panel.component.html',
-   styleUrls: [ './wc-tab-panel.component.css' ]
+   styleUrls: [ './wc-tab-panel.component.scss' ]
  })
  export class WCTabPanelComponent implements AfterContentInit {
 

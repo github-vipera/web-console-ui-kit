@@ -109,3 +109,155 @@ kendo-popup {
     border-radius: 100px;
 }
 
+.k-button {
+    font-size: 11px;
+    background: #525f69;
+    color: white;
+}
+
+.k-toolbar {
+    background: transparent;
+}
+
+.k-grid tbody tr:hover, .k-grid tbody tr.k-state-hover {
+    color: #ffffff;
+    background-color: #ededed3b;
+}
+
+.k-input {
+    color: white;
+}
+
+/**
+
+.k-content, .k-window, .k-spreadsheet-filter-menu .k-spreadsheet-value-treeview-wrapper, .k-flatcolorpicker, .k-editor, .k-scheduler-agendaview tr.k-state-hover .k-scheduler-datecolumn, .k-scheduler-agendaview tr:hover .k-scheduler-datecolumn, .k-scheduler-agendaview tr:hover .k-scheduler-groupcolumn, .k-notification {
+    background-color: red;
+}
+
+.kendo-dialog > .k-content {
+    background-color: #323c40;
+}
+**/
+
+.k-dialog-titlebar {
+    color: #ffffff;
+    background-color: #67696b;
+    border: none;
+    border-bottom: solid 1px black;
+}
+
+.k-content.k-window-content.k-dialog-content {
+    background-color: #323c40;
+}
+
+.k-window-title {
+    font-size: 16px;
+}
+
+.k-dialog-wrapper .k-dialog {
+    border: solid 1px #000000a8;
+}
+
+.k-dialog-buttongroup .k-button {
+    padding: 0px;
+ }
+
+ .k-textbox, .k-textbox, .k-textarea, .k-textarea, .k-input.k-textbox, .k-input.k-textbox {
+    /*background-color: #535454;*/
+    background-color: #353a3e;
+    color: white;
+}
+
+ .k-textbox:focus, .k-textbox.k-state-focus, .k-textarea:focus, .k-textarea.k-state-focus, .k-input.k-textbox:focus, .k-input.k-textbox.k-state-focus {
+    color: white;
+    background-color: #67696b;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.k-textbox-container > .k-label {
+    top: 50%;
+}
+
+.k-textbox-container > .k-label, .k-textbox-container.k-state-focused > .k-label {
+    -webkit-transform: translate(-8px, -6px) translate(-1px, -1.07142857em) translate(-12.5%, -9.375%) scale(0.75);
+    transform: translate(-8px, -6px) translate(-1px, -1.07142857em) translate(-12.5%, -9.375%) scale(0.75);
+}
+
+
+.k-widget:not(.k-notification), .k-block, .k-panel {
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+}
+
+.k-splitbar {
+    color: #656565;
+    background-color: rgb(56, 56, 56);
+}
+
+.k-ghost-splitbar-horizontal, .k-splitbar-horizontal {
+    width: 6px;
+    border-width: 0;
+    background-repeat: repeat-y;
+    flex-direction: column;
+    top: 0;
+    margin: 0 4px 0 4px;
+}
+
+.dropdown-flat-button {
+    color: #ddd;
+}
+
+.k-list > li {
+    color: #ddd;
+}
+
+.k-dropdown-wrap {
+    background-color: #353a3e !important;
+    color: #ddd;
+}
+
+.k-textbox::placeholder, .k-input::placeholder, .k-input.k-textbox::placeholder, .k-textarea::placeholder {
+    color: rgb(147, 147, 147);
+    font-size: 11px;
+    font-family: montserrat;
+    text-transform: uppercase;
+}
+
+.k-dropdown .k-dropdown-wrap, .k-dropdowntree .k-dropdown-wrap, .k-dropdown .k-state-focused  {
+    background: transparent;
+    color: #ddd;
+}
+
+.k-dropdown .k-dropdown-wrap:hover {
+    background: transparent;
+    color: #ddd;
+}
+
+.k-dropdown-wrap .k-input {
+    color: #ddd;
+}
+
+.k-textbox-container > .k-textbox {
+    border-radius: 4px;
+}
+
+.k-combobox .k-dropdown-wrap {
+    border-radius: 4px;
+}
+
+.k-grid-content {
+    overflow-y: auto;
+}
+
+button.k-button.k-state-disabled:not(.k-state-active) {
+    background: #525f69;
+    color: #909192;
+}
+
+.k-widget, .k-block, .k-panel {
+    color: unset;
+}
+
+.k-notification-wrap {
+    color: white;
+}
