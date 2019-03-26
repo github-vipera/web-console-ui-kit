@@ -38,7 +38,9 @@ export class ServiceCatalogComponent implements OnInit {
         value: false,
         miniCommand: true,
         miniCommandCaption: 'Test...',
-        linkTo: ['offlineMessages']
+        linkTo: ['offlineMessages'],
+        badge: 'I',
+        badgeStyle: 'bcblue'
       },
       {
         name: "Offline Messages",
@@ -54,7 +56,9 @@ export class ServiceCatalogComponent implements OnInit {
         name: "OTP expiry",
         field: "otpExpiry",
         type: WCPropertyEditorItemType.String,
-        value: "-1"
+        value: "-1",
+        badge: 'M',
+        badgeStyle: 'bcred'
       },
       {
         name: "Disabled Value",

@@ -23,6 +23,8 @@ export interface  WCPropertyEditorItem {
   placeholder?: string;
   elementRef?: string;
   linkTo?: string[];
+  badge?:string;
+  badgeStyle?:string;
 }
 
 export interface WCPropertyEditorModel {
