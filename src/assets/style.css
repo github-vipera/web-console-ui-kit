@@ -186,7 +186,7 @@ aside .cmd {margin:2rem auto; text-align:center;}
 
 .inspector {margin:1rem 0;}
 .inspector > div > div {display:flex; margin-bottom:.4rem; align-items:center; min-height:1.6rem;}
-.inspector > div > div > label {text-transform:none; width:30%; text-align:right; margin-right:.5rem; margin-bottom:0;}
+.inspector > div > div > label {text-transform:none; width:30%; text-align:right; margin-right:.5rem; margin-bottom:0;text-overflow: ellipsis;overflow: hidden;}
 .inspector input {height:1.6rem; border-radius: 4px;}
 .inspector textarea { border-radius: 5px; }
 .inspector input:focus { background-color: #484f54; } 
