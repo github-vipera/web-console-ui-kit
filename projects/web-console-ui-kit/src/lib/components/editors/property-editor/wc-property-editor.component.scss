@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 0.5rem;
+  position: relative;
 }
 
 .inspector > div > div {
@@ -53,4 +54,59 @@
 .wc-property-editor-item-label-code {
   margin-bottom: auto;
   padding-top: 6px;
+}
+
+.wc-property-editor-badge-field[data-badge]:after {
+  content: attr(data-badge);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-weight: bold;
+  font-size: .5em;
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  line-height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px #333;
+  background: rgb(28, 124, 19);
+  color: white;
+  -webkit-box-shadow: -1px 10px 36px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 10px 36px 0px rgba(0,0,0,0.75);
+  box-shadow: -1px 10px 36px 0px rgba(0,0,0,0.75);
+}
+
+.wc-property-editor-badge-field-blue[data-badge]:after {
+  background: rgb(62, 73, 218);
+  color: white;
+}
+
+.wc-property-editor-badge-field-red[data-badge]:after {
+  background: rgb(204, 40, 40);
+  color: white;
+}
+
+.wc-property-editor-badge-field-green[data-badge]:after {
+  background: green;
+  color: white;
+}
+
+.wc-property-editor-badge-blue[data-badge]:after {
+  background: rgb(62, 73, 218);
+  color: white;
+}
+
+.wc-property-editor-badge-red[data-badge]:after {
+  background: rgb(204, 40, 40);
+  color: white;
+}
+
+.wc-property-editor-badge-green[data-badge]:after {
+  background: rgb(6, 163, 90);
+  color: white;
+}
+
+.wc-property-editor-badge-gray[data-badge]:after {
+  background: rgb(92, 92, 92);
+  color: white;
 }

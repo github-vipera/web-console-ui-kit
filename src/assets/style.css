@@ -541,8 +541,14 @@ div .editor.slidedown {
 	padding-top: 4px;
 }
 
+label {
+	transition: all .3s ease;
+}
+
 .property-modified label {
-	color: red;
+	color: #ff4b4b;
+	text-decoration: underline;
+	transition: all .3s ease;
 }
 
 input {

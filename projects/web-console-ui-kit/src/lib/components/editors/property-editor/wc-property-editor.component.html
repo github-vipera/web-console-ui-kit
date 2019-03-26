@@ -2,11 +2,15 @@
 
         <div *ngFor="let item of model.items; let i = index" [class.property-modified]="item.valueChanged" class="wc-property-editor-item-container">
                 <div class="wc-property-editor-item wc-property-editor-item-{{item.type}}" [class.disabled]="item.disabled" >
+
                         <label id="label-for-{{item.field}}" 
                                 [class.disabled]="item.disabled"
                                 [attr.disabled]="item.disabled?'':null"
                                 class="wc-property-editor-item-label wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
-                        <input
+
+
+                        <span  *ngIf="item.type === checkType.String" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="flex:1;">
+                        <input 
                                 [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
                                 *ngIf="item.type === checkType.String" 
                                 [(ngModel)]="item.value" 
@@ -17,8 +21,10 @@
                                 [attr.placeholder]="item.placeholder"
                                 [class.disabled]="item.disabled"
                         >
-                        
-                        <textarea *ngIf="item.type === checkType.Text" 
+                        </span>
+
+                        <span  *ngIf="item.type === checkType.Text" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="flex:1;">
+                                <textarea *ngIf="item.type === checkType.Text" 
                                 (input)="onPropertyChange($event)" 
                                 (ngModelChange)="onModelChanged($event)"
                                 [(ngModel)]="item.value" 
@@ -27,6 +33,7 @@
                                 [attr.disabled]="item.disabled?'':null"
                                 [class.disabled]="item.disabled"
                         ></textarea>
+                        </span>
 
 
                         <div *ngIf="item.type === checkType.Boolean" class="switch">
@@ -39,10 +46,11 @@
                                 [attr.disabled]="item.disabled" 
                                 [class.disabled]="item.disabled"
                                 >
-                                <label for="{{item.field}}"></label>
+                                <label for="{{item.field}}" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge"></label>
                         </div>
 
 
+                        <span  *ngIf="item.type === checkType.List" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="flex:1;">
                         <select *ngIf="item.type === checkType.List" 
                                 name="{{item.field}}" 
                                 (ngModelChange)="onModelChanged($event)" 
@@ -55,6 +63,7 @@
                                 >
                                 <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
                         </select>
+                        </span>
                 </div>
                 <button *ngIf="item.miniCommand" 
                 type="button" 
