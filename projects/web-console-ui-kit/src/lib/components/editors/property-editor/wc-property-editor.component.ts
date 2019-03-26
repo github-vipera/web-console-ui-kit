@@ -68,7 +68,7 @@ export interface MinitButtonClickEvent {
     const propertyChanged = event.srcElement.getAttribute('itemId');
     const originalValue = this.getOriginalValueFor(propertyChanged);
     const currentValue = this.getCurrentValueFor(propertyChanged);
-    if (originalValue && (originalValue === currentValue)) {
+    if ( (originalValue || (typeof originalValue === "boolean")) && (originalValue === currentValue)) {
       this.markPropertyChanged(propertyChanged, false);
     } else {
       this.markPropertyChanged(propertyChanged, true);
