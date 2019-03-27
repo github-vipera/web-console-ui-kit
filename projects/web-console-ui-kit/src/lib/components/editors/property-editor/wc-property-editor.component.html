@@ -1,81 +1,83 @@
 <div class="inspector wc-property-editor">      
 
         <div *ngFor="let item of model.items; let i = index" [class.property-modified]="item.valueChanged" class="wc-property-editor-item-container">
-                <div class="wc-property-editor-item wc-property-editor-item-{{item.type}}" [class.disabled]="item.disabled" >
+                <ng-container *ngIf="!item.removed">
+                        <div *ngIf="!item.removed" class="wc-property-editor-item wc-property-editor-item-{{item.type}}" [class.disabled]="item.disabled" >
 
-                        <label id="label-for-{{item.field}}" title="{{item.name}}"
-                                [class.disabled]="item.disabled"
-                                [attr.disabled]="item.disabled?'':null"
-                                class="wc-property-editor-item-label wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
-
-
-                        <span  *ngIf="item.type === checkType.String" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
-                        <input 
-                                [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
-                                *ngIf="item.type === checkType.String" 
-                                [(ngModel)]="item.value" 
-                                [attr.disabled]="item.disabled?'':null"
-                                (input)="onPropertyChange($event)" 
-                                (ngModelChange)="onModelChanged($event)"
-                                [attr.itemId]="item.field"
-                                [attr.placeholder]="item.placeholder"
-                                [class.disabled]="item.disabled"
-                                style="flex:1;"
-                        >
-                        </span>
-
-                        <span  *ngIf="item.type === checkType.Text" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
-                                <textarea *ngIf="item.type === checkType.Text" 
-                                (input)="onPropertyChange($event)" 
-                                (ngModelChange)="onModelChanged($event)"
-                                [(ngModel)]="item.value" 
-                                [attr.itemId]="item.field"
-                                [attr.placeholder]="item.placeholder"
-                                [attr.disabled]="item.disabled?'':null"
-                                [class.disabled]="item.disabled"
-                                style="flex:1;"
-                        ></textarea>
-                        </span>
+                                <label id="label-for-{{item.field}}" title="{{item.name}}"
+                                        [class.disabled]="item.disabled"
+                                        [attr.disabled]="item.disabled?'':null"
+                                        class="wc-property-editor-item-label wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
 
 
-                        <div *ngIf="item.type === checkType.Boolean" class="switch">
-                                <input type="checkbox" id="{{item.field}}" 
-                                [checked]="item.value" 
-                                [(ngModel)]="item.value"  
-                                (ngModelChange)="onModelChanged($event)"  
-                                (change)="onPropertyChange($event)"
-                                [attr.itemId]="item.field"
-                                [attr.disabled]="item.disabled" 
-                                [class.disabled]="item.disabled"
+                                <span  *ngIf="item.type === checkType.String" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
+                                <input 
+                                        [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
+                                        *ngIf="item.type === checkType.String" 
+                                        [(ngModel)]="item.value" 
+                                        [attr.disabled]="item.disabled?'':null"
+                                        (input)="onPropertyChange($event)" 
+                                        (ngModelChange)="onModelChanged($event)"
+                                        [attr.itemId]="item.field"
+                                        [attr.placeholder]="item.placeholder"
+                                        [class.disabled]="item.disabled"
+                                        style="flex:1;"
                                 >
-                                <label for="{{item.field}}" class="wc-property-editor-badge-field wc-property-editor-badge-field-switch" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge"></label>
+                                </span>
+
+                                <span  *ngIf="item.type === checkType.Text" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
+                                        <textarea *ngIf="item.type === checkType.Text" 
+                                        (input)="onPropertyChange($event)" 
+                                        (ngModelChange)="onModelChanged($event)"
+                                        [(ngModel)]="item.value" 
+                                        [attr.itemId]="item.field"
+                                        [attr.placeholder]="item.placeholder"
+                                        [attr.disabled]="item.disabled?'':null"
+                                        [class.disabled]="item.disabled"
+                                        style="flex:1;"
+                                ></textarea>
+                                </span>
+
+
+                                <div *ngIf="item.type === checkType.Boolean" class="switch">
+                                        <input type="checkbox" id="{{item.field}}" 
+                                        [checked]="item.value" 
+                                        [(ngModel)]="item.value"  
+                                        (ngModelChange)="onModelChanged($event)"  
+                                        (change)="onPropertyChange($event)"
+                                        [attr.itemId]="item.field"
+                                        [attr.disabled]="item.disabled" 
+                                        [class.disabled]="item.disabled"
+                                        >
+                                        <label for="{{item.field}}" class="wc-property-editor-badge-field wc-property-editor-badge-field-switch" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge"></label>
+                                </div>
+
+
+                                <span  *ngIf="item.type === checkType.List" class="wc-property-editor-badge-field wc-property-editor-badge-field-combo" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
+                                <select *ngIf="item.type === checkType.List" 
+                                        name="{{item.field}}" 
+                                        (ngModelChange)="onModelChanged($event)" 
+                                        class="wc-property-editor-item-combo" 
+                                        (change)="onPropertyChange($event)"
+                                        [attr.itemId]="item.field"
+                                        [attr.disabled]="item.disabled?'':null"
+                                        [(ngModel)]="item.value"  
+                                        [class.disabled]="item.disabled"
+                                        >
+                                        <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
+                                </select>
+                                </span>
+
+                                <button *ngIf="item.allowRemove"  [attr.removePropertyItemId]="item.field" class="wc-property-editor-remove-field-button" type="button" title="Remove current property" (click)="onRemovePropertyClick($event)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
                         </div>
-
-
-                        <span  *ngIf="item.type === checkType.List" class="wc-property-editor-badge-field wc-property-editor-badge-field-combo" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
-                        <select *ngIf="item.type === checkType.List" 
-                                name="{{item.field}}" 
-                                (ngModelChange)="onModelChanged($event)" 
-                                class="wc-property-editor-item-combo" 
-                                (change)="onPropertyChange($event)"
-                                [attr.itemId]="item.field"
-                                [attr.disabled]="item.disabled?'':null"
-                                [(ngModel)]="item.value"  
-                                [class.disabled]="item.disabled"
-                                >
-                                <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
-                        </select>
-                        </span>
-
-                        <button [attr.removePropertyItemId]="item.field" class="wc-property-editor-remove-field-button" type="button" title="Remove current property" (click)="onRemovePropertyClick($event)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
-                </div>
-                <button *ngIf="item.miniCommand" 
-                type="button" 
-                [attr.miniButtonItemId]="item.field" class="wc-property-editor-mini-button" 
-                (click)='onMiniButtonClick($event)'
-                [attr.disabled]="item.disabled?'':null"
-                [class.disabled]="item.disabled"
-                >{{item.miniCommandCaption}}</button>
+                        <button *ngIf="item.miniCommand" 
+                        type="button" 
+                        [attr.miniButtonItemId]="item.field" class="wc-property-editor-mini-button" 
+                        (click)='onMiniButtonClick($event)'
+                        [attr.disabled]="item.disabled?'':null"
+                        [class.disabled]="item.disabled"
+                        >{{item.miniCommandCaption}}</button>
+                </ng-container>
         </div>
 
 

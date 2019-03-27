@@ -28,6 +28,7 @@ export interface  WCPropertyEditorItem {
   badge?:string;
   badgeStyle?:string;
   allowRemove?:boolean;
+  removed?:boolean;
 }
 
 export interface WCPropertyEditorModel {
@@ -163,7 +164,7 @@ export interface MinitButtonClickEvent {
   private removePropertyByName(propertyName: string){
     let index = this.getPropertyIndexByName(propertyName);
     if (index>=0){
-      var removed = this._model.items.splice(index,1);
+      this._model.items[index].removed = true;
     }    
   }
 
@@ -176,5 +177,8 @@ export interface MinitButtonClickEvent {
     return -1;
   }
 
-
+  public addProperty(newProperty:WCPropertyEditorItem){
+    this._model.items.push(newProperty);
+  }
+  
 }

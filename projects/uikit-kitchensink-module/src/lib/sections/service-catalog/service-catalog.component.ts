@@ -29,7 +29,9 @@ export class ServiceCatalogComponent implements OnInit {
         name: "Description",
         field: "description",
         type: WCPropertyEditorItemType.String,
-        value: "Vipera platform secure"
+        value: "Vipera platform secure",
+        badge: 'C',
+        badgeStyle: 'bcblue'
       },
       {
         name: "Offline",
@@ -90,7 +92,8 @@ export class ServiceCatalogComponent implements OnInit {
         miniCommand: true,
         miniCommandCaption: 'Setup...',
         badge: 'L',
-        badgeStyle: 'bcred'
+        badgeStyle: 'bcred',
+        allowRemove: true
       },
       {
         name: "Simple On/Off",
