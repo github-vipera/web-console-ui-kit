@@ -77,11 +77,36 @@
 }
 
 .wc-property-editor-badge-field-switch[data-badge]:after {
-  top: -10px;
+  top: -8px;
   right: -5px;
 }
 
 .wc-property-editor-badge-field-combo[data-badge]:after {
+  top: -8px;
+  right: -5px;
+}
+
+.property-removable.wc-property-editor-badge-field-combo[data-badge]:after {
+  top: -8px;
+  right: 19px;
+}
+
+.wc-property-editor-badge-field-string[data-badge]:after {
+  top: -8px;
+  right: -5px;
+}
+
+.property-removable.wc-property-editor-badge-field-string[data-badge]:after {
+  top: -8px;
+  right: 19px;
+}
+
+.wc-property-editor-badge-field-text[data-badge]:after {
+  top: -8px;
+  right: -5px;
+}
+
+.property-removable.wc-property-editor-badge-field-text[data-badge]:after {
   top: -8px;
   right: 19px;
 }

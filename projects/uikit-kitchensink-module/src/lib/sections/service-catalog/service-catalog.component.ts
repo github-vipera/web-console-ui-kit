@@ -31,7 +31,8 @@ export class ServiceCatalogComponent implements OnInit {
         type: WCPropertyEditorItemType.String,
         value: "Vipera platform secure",
         badge: 'C',
-        badgeStyle: 'bcblue'
+        badgeStyle: 'bcblue',
+        allowRemove: true
       },
       {
         name: "Offline",
@@ -42,7 +43,8 @@ export class ServiceCatalogComponent implements OnInit {
         miniCommandCaption: 'Test...',
         linkTo: ['offlineMessages'],
         badge: 'I',
-        badgeStyle: 'bcblue'
+        badgeStyle: 'bcblue',
+        allowRemove: true
       },
       {
         name: "Offline Messages",
@@ -83,6 +85,16 @@ export class ServiceCatalogComponent implements OnInit {
         badgeStyle: 'bcred'
       },
       {
+        name: "Age2",
+        field: "age2",
+        type: WCPropertyEditorItemType.String,
+        value: "45",
+        htmlInputType: "number",
+        badge: 'N',
+        badgeStyle: 'bcred',
+        allowRemove:true
+      },
+      {
         name: "Car Type",
         field: "carType",
         type: WCPropertyEditorItemType.List,
@@ -111,7 +123,8 @@ export class ServiceCatalogComponent implements OnInit {
         elementRef: 'myJSONValueText',
         placeholder: "Put here yout JSON",
         badge: 'T',
-        badgeStyle: 'bcred'
+        badgeStyle: 'bcred',
+        allowRemove: true
       }
     ]
   };

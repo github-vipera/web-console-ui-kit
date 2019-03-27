@@ -10,7 +10,7 @@
                                         class="wc-property-editor-item-label wc-property-editor-item-label-{{item.type}}" >{{item.name}}</label>
 
 
-                                <span  *ngIf="item.type === checkType.String" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
+                                <span  *ngIf="item.type === checkType.String" class="wc-property-editor-badge-field wc-property-editor-badge-field-string" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;" [class.property-removable]="item.allowRemove">
                                 <input 
                                         [attr.type]="(item.htmlInputType?item.htmlInputType:'text')" 
                                         *ngIf="item.type === checkType.String" 
@@ -25,7 +25,7 @@
                                 >
                                 </span>
 
-                                <span  *ngIf="item.type === checkType.Text" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
+                                <span  *ngIf="item.type === checkType.Text" class="wc-property-editor-badge-field wc-property-editor-badge-field-text" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;" [class.property-removable]="item.allowRemove">
                                         <textarea *ngIf="item.type === checkType.Text" 
                                         (input)="onPropertyChange($event)" 
                                         (ngModelChange)="onModelChanged($event)"
@@ -53,7 +53,7 @@
                                 </div>
 
 
-                                <span  *ngIf="item.type === checkType.List" class="wc-property-editor-badge-field wc-property-editor-badge-field-combo" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
+                                <span  *ngIf="item.type === checkType.List" class="wc-property-editor-badge-field wc-property-editor-badge-field-combo" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;" [class.property-removable]="item.allowRemove">
                                 <select *ngIf="item.type === checkType.List" 
                                         name="{{item.field}}" 
                                         (ngModelChange)="onModelChanged($event)" 
