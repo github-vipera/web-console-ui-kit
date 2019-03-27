@@ -10,10 +10,11 @@ import { WCTabItemComponent } from '../components/containers/tabs/wc-tab-item.co
 import { WCTabPanelComponent } from '../components/containers/tabs/wc-tab-panel.component'
 import { WCPropertyEditorComponent } from '../components/editors/property-editor/wc-property-editor.component'
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
-    CommonModule, ToastrModule.forRoot(), FormsModule
+    CommonModule, ToastrModule.forRoot(), FormsModule, FontAwesomeModule
   ],
   declarations: [
     WCPanelComponent,

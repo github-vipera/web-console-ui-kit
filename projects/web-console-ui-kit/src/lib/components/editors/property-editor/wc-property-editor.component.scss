@@ -59,8 +59,8 @@
 .wc-property-editor-badge-field[data-badge]:after {
   content: attr(data-badge);
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -3px;
+  right: 19px;
   font-weight: bold;
   font-size: .5em;
   width: 14px;
@@ -74,6 +74,16 @@
   -webkit-box-shadow: -1px 10px 36px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 10px 36px 0px rgba(0,0,0,0.75);
   box-shadow: -1px 10px 36px 0px rgba(0,0,0,0.75);
+}
+
+.wc-property-editor-badge-field-switch[data-badge]:after {
+  top: -10px;
+  right: -5px;
+}
+
+.wc-property-editor-badge-field-combo[data-badge]:after {
+  top: -8px;
+  right: 19px;
 }
 
 .wc-property-editor-badge-field-blue[data-badge]:after {
@@ -109,4 +119,17 @@
 .wc-property-editor-badge-gray[data-badge]:after {
   background: rgb(92, 92, 92);
   color: white;
+}
+
+.wc-property-editor-remove-field-button {
+  border: none;
+  background: transparent;
+  padding: 0px;
+  padding-left: 8px;
+  color: #606060;
+}
+
+.wc-property-editor-remove-field-button:hover {
+  color: #9a9a9a;
+  transition: color 0.3s ease-out;
 }

@@ -50,7 +50,9 @@ export class ServiceCatalogComponent implements OnInit {
         listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"],
         disabled: true,
         miniCommand: true,
-        miniCommandCaption: 'Setup...'
+        miniCommandCaption: 'Setup...',
+        badge: 'L',
+        badgeStyle: 'bcblue'
       },
       {
         name: "OTP expiry",
@@ -65,14 +67,18 @@ export class ServiceCatalogComponent implements OnInit {
         field: "disabledValue",
         type: WCPropertyEditorItemType.String,
         value: "this is disabled",
-        disabled:true
+        disabled:true,
+        badge: 'S',
+        badgeStyle: 'bcred'
       },
       {
         name: "Age",
         field: "age",
         type: WCPropertyEditorItemType.String,
         value: "45",
-        htmlInputType: "number"
+        htmlInputType: "number",
+        badge: 'N',
+        badgeStyle: 'bcred'
       },
       {
         name: "Car Type",
@@ -82,13 +88,17 @@ export class ServiceCatalogComponent implements OnInit {
         listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"],
         disabled:false,
         miniCommand: true,
-        miniCommandCaption: 'Setup...'
+        miniCommandCaption: 'Setup...',
+        badge: 'L',
+        badgeStyle: 'bcred'
       },
       {
         name: "Simple On/Off",
         field: "simpleOnOff",
         type: WCPropertyEditorItemType.Boolean,
-        value: true
+        value: true,
+        badge: 'B',
+        badgeStyle: 'bcred'
       },
       {
         name: "JSON Value",
@@ -96,7 +106,9 @@ export class ServiceCatalogComponent implements OnInit {
         type: WCPropertyEditorItemType.Text,
         disabled: false,
         elementRef: 'myJSONValueText',
-        placeholder: "Put here yout JSON"
+        placeholder: "Put here yout JSON",
+        badge: 'T',
+        badgeStyle: 'bcred'
       }
     ]
   };

@@ -48,11 +48,11 @@
                                 [attr.disabled]="item.disabled" 
                                 [class.disabled]="item.disabled"
                                 >
-                                <label for="{{item.field}}" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge"></label>
+                                <label for="{{item.field}}" class="wc-property-editor-badge-field wc-property-editor-badge-field-switch" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge"></label>
                         </div>
 
 
-                        <span  *ngIf="item.type === checkType.List" class="wc-property-editor-badge-field" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
+                        <span  *ngIf="item.type === checkType.List" class="wc-property-editor-badge-field wc-property-editor-badge-field-combo" [ngClass]="item.badgeStyle" [attr.data-badge]="item.badge" style="display:flex;flex:1;">
                         <select *ngIf="item.type === checkType.List" 
                                 name="{{item.field}}" 
                                 (ngModelChange)="onModelChanged($event)" 
@@ -66,6 +66,8 @@
                                 <option *ngFor="let listValue of item.listValues; let i = index" [ngValue]="listValue" >{{listValue}}</option>
                         </select>
                         </span>
+
+                        <button [attr.removePropertyItemId]="item.field" class="wc-property-editor-remove-field-button" type="button" title="Remove current property" (click)="onRemovePropertyClick($event)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
                 </div>
                 <button *ngIf="item.miniCommand" 
                 type="button" 
