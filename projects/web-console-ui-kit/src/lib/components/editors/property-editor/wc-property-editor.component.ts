@@ -1,4 +1,6 @@
 import { Component, AfterContentInit, Input, Output, EventEmitter  } from '@angular/core';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 export enum WCPropertyEditorItemType {
@@ -25,6 +27,8 @@ export interface  WCPropertyEditorItem {
   linkTo?: string[];
   badge?:string;
   badgeStyle?:string;
+  allowRemove?:boolean;
+  removed?:boolean;
 }
 
 export interface WCPropertyEditorModel {
@@ -47,6 +51,9 @@ export interface MinitButtonClickEvent {
    styleUrls: [ './wc-property-editor.component.scss' ]
  })
  export class WCPropertyEditorComponent implements AfterContentInit {
+
+  //icons
+  faTimesCircle = faTimesCircle;
 
   private _model: WCPropertyEditorModel;
   private _originalModel: WCPropertyEditorModel;
@@ -131,7 +138,11 @@ export interface MinitButtonClickEvent {
     if ( item ) {
       this.miniButtonClick.emit({ item: item });
     }
+  }
 
+  onRemovePropertyClick(event: any) {
+    const propertyName = event.srcElement.parentElement.parentElement.getAttribute('removePropertyItemId');
+    this.removePropertyByName(propertyName);
   }
 
   public getPropertyItem(propertyName: string): WCPropertyEditorItem {
@@ -150,4 +161,24 @@ export interface MinitButtonClickEvent {
     }
   }
 
+  private removePropertyByName(propertyName: string){
+    let index = this.getPropertyIndexByName(propertyName);
+    if (index>=0){
+      this._model.items[index].removed = true;
+    }    
+  }
+
+  private getPropertyIndexByName(propertyName: string){
+    for (let i=0;i<this._model.items.length;i++){
+      if (this._model.items[i].field===propertyName){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public addProperty(newProperty:WCPropertyEditorItem){
+    this._model.items.push(newProperty);
+  }
+  
 }

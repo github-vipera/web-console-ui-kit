@@ -29,7 +29,10 @@ export class ServiceCatalogComponent implements OnInit {
         name: "Description",
         field: "description",
         type: WCPropertyEditorItemType.String,
-        value: "Vipera platform secure"
+        value: "Vipera platform secure",
+        badge: 'C',
+        badgeStyle: 'bcblue',
+        allowRemove: true
       },
       {
         name: "Offline",
@@ -40,7 +43,8 @@ export class ServiceCatalogComponent implements OnInit {
         miniCommandCaption: 'Test...',
         linkTo: ['offlineMessages'],
         badge: 'I',
-        badgeStyle: 'bcblue'
+        badgeStyle: 'bcblue',
+        allowRemove: true
       },
       {
         name: "Offline Messages",
@@ -50,7 +54,9 @@ export class ServiceCatalogComponent implements OnInit {
         listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"],
         disabled: true,
         miniCommand: true,
-        miniCommandCaption: 'Setup...'
+        miniCommandCaption: 'Setup...',
+        badge: 'L',
+        badgeStyle: 'bcblue'
       },
       {
         name: "OTP expiry",
@@ -65,14 +71,28 @@ export class ServiceCatalogComponent implements OnInit {
         field: "disabledValue",
         type: WCPropertyEditorItemType.String,
         value: "this is disabled",
-        disabled:true
+        disabled:true,
+        badge: 'S',
+        badgeStyle: 'bcred'
       },
       {
         name: "Age",
         field: "age",
         type: WCPropertyEditorItemType.String,
         value: "45",
-        htmlInputType: "number"
+        htmlInputType: "number",
+        badge: 'N',
+        badgeStyle: 'bcred'
+      },
+      {
+        name: "Age2",
+        field: "age2",
+        type: WCPropertyEditorItemType.String,
+        value: "45",
+        htmlInputType: "number",
+        badge: 'N',
+        badgeStyle: 'bcred',
+        allowRemove:true
       },
       {
         name: "Car Type",
@@ -82,13 +102,18 @@ export class ServiceCatalogComponent implements OnInit {
         listValues: ["Audi", "Mercedes", "Alfa Romeo", "BMW", "Mini Cooper"],
         disabled:false,
         miniCommand: true,
-        miniCommandCaption: 'Setup...'
+        miniCommandCaption: 'Setup...',
+        badge: 'L',
+        badgeStyle: 'bcred',
+        allowRemove: true
       },
       {
         name: "Simple On/Off",
         field: "simpleOnOff",
         type: WCPropertyEditorItemType.Boolean,
-        value: true
+        value: true,
+        badge: 'B',
+        badgeStyle: 'bcred'
       },
       {
         name: "JSON Value",
@@ -96,7 +121,10 @@ export class ServiceCatalogComponent implements OnInit {
         type: WCPropertyEditorItemType.Text,
         disabled: false,
         elementRef: 'myJSONValueText',
-        placeholder: "Put here yout JSON"
+        placeholder: "Put here yout JSON",
+        badge: 'T',
+        badgeStyle: 'bcred',
+        allowRemove: true
       }
     ]
   };
