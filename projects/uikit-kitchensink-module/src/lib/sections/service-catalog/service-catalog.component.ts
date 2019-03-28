@@ -156,6 +156,10 @@ export class ServiceCatalogComponent implements OnInit {
 
   }
 
+  onAddPropertyPressed(): void {
+    this._propertyEditor.promptForNewProperty(["uno", "due", "tre", "quattro", "cinque", "sei"]);
+  }
+
   onPropertyChange(event: any) {
     console.log('>> onPropertyChange:', event);
   }
@@ -186,6 +190,15 @@ export class ServiceCatalogComponent implements OnInit {
   disableControl(name: string) {
     const field: WCPropertyEditorItem = this._propertyEditor.getPropertyItem(name);
     field.disabled = !field.disabled;
+  }
+
+  onNewPropertyRequired(propertyName:string){
+    this._propertyEditor.addProperty({
+      field: propertyName,
+      name: propertyName,
+      type: WCPropertyEditorItemType.String,
+      allowRemove: true      
+    })
   }
 
  }

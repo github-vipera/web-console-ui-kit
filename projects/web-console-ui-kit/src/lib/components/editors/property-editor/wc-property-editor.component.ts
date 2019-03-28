@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, AfterContentInit, Input, Output, EventEmitter, ViewChild, ElementRef, ChangeDetectorRef  } from '@angular/core';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -61,8 +61,12 @@ export interface MinitButtonClickEvent {
 
   @Output() propertyChange: EventEmitter<PropertyChangeEvent> = new EventEmitter();
   @Output() miniButtonClick: EventEmitter<MinitButtonClickEvent> = new EventEmitter();
+  @Output() newPropertyRequired: EventEmitter<String> = new EventEmitter();
 
-  constructor() {}
+  @ViewChild('newPropertyPromptSelector') _newPropertyPromptSelector: ElementRef;
+  @ViewChild('baseline') _baseline: ElementRef;
+
+  constructor(private changeDetector: ChangeDetectorRef) {}
 
   ngAfterContentInit() {
     console.log('WCPropertyEditorComponent: ', this.model);
@@ -140,8 +144,8 @@ export interface MinitButtonClickEvent {
     }
   }
 
-  onRemovePropertyClick(event: any) {
-    const propertyName = event.srcElement.parentElement.parentElement.getAttribute('removePropertyItemId');
+  onRemovePropertyClick(event: any, propertyName:string) {
+    //const propertyName = event.srcElement.parentElement.parentElement.getAttribute('removePropertyItemId');
     this.removePropertyByName(propertyName);
   }
 
@@ -166,6 +170,7 @@ export interface MinitButtonClickEvent {
     if (index>=0){
       this._model.items[index].removed = true;
     }    
+    this.changeDetector.markForCheck();
   }
 
   private getPropertyIndexByName(propertyName: string){
@@ -179,6 +184,30 @@ export interface MinitButtonClickEvent {
 
   public addProperty(newProperty:WCPropertyEditorItem){
     this._model.items.push(newProperty);
+    this.changeDetector.markForCheck();
   }
+
+  private _promtpForNewProperty: boolean;
+  public promtpPropertyList:Array<String> = [];
   
+  public promptForNewProperty(propertyNames:Array<String>){
+    if (propertyNames && propertyNames.length>0){
+      this.promtpPropertyList = propertyNames;
+      this._promtpForNewProperty = true;
+      let baseline = this._baseline.nativeElement;
+      baseline.scrollIntoView();
+    }
+  }
+
+  public get isNewPropertyPrompt():boolean {
+    return this._promtpForNewProperty;
+  }
+
+  onPropertyPromptChange(){
+    let select = this._newPropertyPromptSelector.nativeElement;
+    let value = select.options[select.selectedIndex].value;
+    this.newPropertyRequired.emit(value);
+    this._promtpForNewProperty = false;
+  }
+
 }
