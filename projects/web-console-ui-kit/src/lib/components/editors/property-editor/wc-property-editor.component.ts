@@ -194,8 +194,8 @@ export interface MinitButtonClickEvent {
     if (propertyNames && propertyNames.length>0){
       this.promtpPropertyList = propertyNames;
       this._promtpForNewProperty = true;
-      let baseline = this._baseline.nativeElement;
-      baseline.scrollIntoView();
+      //let baseline = this._baseline.nativeElement;
+      //baseline.scrollIntoView();
     }
   }
 
