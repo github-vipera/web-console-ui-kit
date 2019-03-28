@@ -2,6 +2,12 @@
 
 <div class="row">
     <button (click)="onTestButtonClicked();">Test</button>
+    <div class="cmd">
+            <a class="btn" (click)="onAddPropertyPressed()">
+                <svg class="ok" data-id="ok"><use xlink:href="assets/img/icons.svg#ico-ok"></use></svg> 
+                Add property
+            </a>
+        </div>
 </div>
 
 <div class="row service-catalog-tree">
@@ -36,7 +42,11 @@
         
         <aside style="background-color: #282D31;">
             <wc-property-editor #propertyEditor
-                [model]="propertyModel" (propertyChange)="onPropertyChange($event)" (miniButtonClick)="onMinitButtonClick($event)">
+                [model]="propertyModel" 
+                (propertyChange)="onPropertyChange($event)" 
+                (miniButtonClick)="onMinitButtonClick($event)"
+                (newPropertyRequired)="onNewPropertyRequired($event)"
+                >
             </wc-property-editor>
             <div class="cmd">
                     <a class="btn" (click)="onSavePropertiesPressed()">

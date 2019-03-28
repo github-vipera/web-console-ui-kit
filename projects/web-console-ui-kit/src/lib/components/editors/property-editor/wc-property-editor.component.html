@@ -68,7 +68,7 @@
                                 </select>
                                 </span>
 
-                                <button *ngIf="item.allowRemove"  [attr.removePropertyItemId]="item.field" class="wc-property-editor-remove-field-button" type="button" title="Remove current property" (click)="onRemovePropertyClick($event)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
+                                <button *ngIf="item.allowRemove"  [attr.removePropertyItemId]="item.field" class="wc-property-editor-remove-field-button" type="button" title="Remove current property" (click)="onRemovePropertyClick($event, item.field)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
                         </div>
                         <button *ngIf="item.miniCommand" 
                         type="button" 
@@ -78,7 +78,15 @@
                         [class.disabled]="item.disabled"
                         >{{item.miniCommandCaption}}</button>
                 </ng-container>
+        
         </div>
 
+        <div class="wc-property-editor-item-container wc-property-editor-item-container-new-item" *ngIf="isNewPropertyPrompt">
+                <select #newPropertyPromptSelector class="wc-property-editor-item" (change)="onPropertyPromptChange()">
+                <option class="wc-property-editor-item-container-new-item-selector-prompt" disabled>Select a new property</option>
+                <option *ngFor="let item of promtpPropertyList; let i = index">{{item}}</option>
+                </select>
+        </div>
+        <div #baseline></div>
 
 </div>
