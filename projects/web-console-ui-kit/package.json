@@ -1,6 +1,6 @@
 {
   "name": "web-console-ui-kit",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
