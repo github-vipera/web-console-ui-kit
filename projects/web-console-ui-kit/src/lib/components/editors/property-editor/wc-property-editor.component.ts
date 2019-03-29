@@ -59,6 +59,11 @@ export interface MinitButtonClickEvent {
   private _originalModel: WCPropertyEditorModel;
   checkType: any = WCPropertyEditorItemType;
 
+  // New Property Feature
+  private _promtpForNewProperty: boolean;
+  public promtpPropertyList:Array<String> = [];
+
+  //Events
   @Output() propertyChange: EventEmitter<PropertyChangeEvent> = new EventEmitter();
   @Output() miniButtonClick: EventEmitter<MinitButtonClickEvent> = new EventEmitter();
   @Output() newPropertyRequired: EventEmitter<String> = new EventEmitter();
@@ -121,6 +126,12 @@ export interface MinitButtonClickEvent {
     }
   }
 
+  /**
+   * Find property by field
+   * 
+   * @param propertyName  
+   * @param model 
+   */
   private getModelItemFor(propertyName: string, model: WCPropertyEditorModel): WCPropertyEditorItem {
     const item =  model.items.find(x => x.field === propertyName);
     if (item) {
@@ -129,6 +140,7 @@ export interface MinitButtonClickEvent {
       return null;
     }
   }
+
   private markPropertyChanged(propertyName: string, changed: boolean) {
     const item =  this._model.items.find(x => x.field === propertyName);
     if (item) {
@@ -149,6 +161,10 @@ export interface MinitButtonClickEvent {
     this.removePropertyByName(propertyName);
   }
 
+  /**
+   * Get property item by field
+   * @param propertyName
+   */
   public getPropertyItem(propertyName: string): WCPropertyEditorItem {
     return this.getModelItemFor(propertyName, this._model);
   }
@@ -183,17 +199,23 @@ export interface MinitButtonClickEvent {
   }
 
   public addProperty(newProperty:WCPropertyEditorItem){
-    this._model.items.push(newProperty);
+    //first we need to check if a similar property is already removed
+    let item:WCPropertyEditorItem = this.getPropertyItem(newProperty.field);
+    if (item){
+      item.removed = false;
+      item.value = newProperty.value;
+      item.valueChanged = false;
+    } else {
+      this._model.items.push(newProperty);
+    }
     this.changeDetector.markForCheck();
   }
 
-  private _promtpForNewProperty: boolean;
-  public promtpPropertyList:Array<String> = [];
-  
   public promptForNewProperty(propertyNames:Array<String>){
     if (propertyNames && propertyNames.length>0){
       this.promtpPropertyList = propertyNames;
       this._promtpForNewProperty = true;
+      // scroll to position (temporarily removed due to some rendering issues)
       //let baseline = this._baseline.nativeElement;
       //baseline.scrollIntoView();
     }
