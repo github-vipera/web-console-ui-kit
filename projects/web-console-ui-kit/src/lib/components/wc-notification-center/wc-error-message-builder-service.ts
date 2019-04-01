@@ -23,6 +23,8 @@ export class WCErrorMessageBuilderService {
             return error.error.details + ' [' + error.error.code + ']';
         } else if (error.status === 401) {
             return 'Authentication is required.';
+        } else {
+            return error.message;
         }
     }
 
