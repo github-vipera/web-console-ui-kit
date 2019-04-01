@@ -225,6 +225,10 @@ export interface MinitButtonClickEvent {
     return this._promtpForNewProperty;
   }
 
+  public cancelNewPropertyPrompt(){
+    this._promtpForNewProperty = false;
+  }
+
   onPropertyPromptChange(){
     let select = this._newPropertyPromptSelector.nativeElement;
     let value = select.options[select.selectedIndex].value;
