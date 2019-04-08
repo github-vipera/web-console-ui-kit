@@ -10,6 +10,7 @@ export interface WCGridEditorCommandConfig {
     hasConfirmation?: boolean;
     confirmationTitle?: string;
     confirmationTitleProvider?:WCConfirmationTitleProvider;
+    cssClass?:string;
 }
 
 export interface WCGridEditorCommandsConfig extends Array<WCGridEditorCommandConfig>{}

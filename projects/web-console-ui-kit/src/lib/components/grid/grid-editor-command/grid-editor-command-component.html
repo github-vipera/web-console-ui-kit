@@ -4,15 +4,15 @@
         <input type="checkbox" id="{{controlUID}}" [attr.disabled]="disabled ? 'disabled' : null" (change)="onCheckChange($event)">
         <label for="{{controlUID}}" class="grid-edit-command-button" title="{{title}}">
             <ng-content></ng-content>
-            <i data-id="no1" class="icon {{commandIcon}}"></i>
+            <i data-id="no1" class="icon {{commandIcon}} {{cssClass}}"></i>
         </label>
         <div class="actions">
             <span>{{confirmationTitle}}</span>
             <label for="{{controlUID}}" (click)="onConfirm($event)" class="grid-edit-command-action-button">
-                <i data-id="ok" class="ok icon wa-ico-ok confirmation-icon"></i>
+                <i data-id="ok" class="ok icon wa-ico-ok confirmation-icon {{cssClass}}"></i>
             </label>
             <label for="{{controlUID}}" (click)="onCancel($event)" class="grid-edit-command-action-button">
-                <i data-id="ko" class="ko icon wa-ico-ko confirmation-icon"></i>
+                <i data-id="ko" class="ko icon wa-ico-ko confirmation-icon {{cssClass}}"></i>
             </label>
         </div>
     </div>
@@ -20,7 +20,7 @@
     <div *ngIf="!hasConfirmation">
         <input type="checkbox" id="{{controlUID}}-nop" disabled="true" (change)="onCheckChange($event)">
         <label for="{{controlUID}}" class="grid-edit-command-button" title="{{title}}" (click)="onCommandClick($event)" [attr.disabled]="disabled ? 'disabled' : null">
-            <i data-id="no1" class="icon {{commandIcon}}"></i>
+            <i data-id="no1" class="icon {{commandIcon}} {{cssClass}}"></i>
         </label>
     </div>
 

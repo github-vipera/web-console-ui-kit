@@ -2,6 +2,7 @@
 
         <wc-grid-editor-command *ngFor="let command of commands"
             #cmd1
+            [cssClass]="command.cssClass"
             [commandId]="command.commandId"
             [title]="command.title" 
             [hasConfirmation]="command.hasConfirmation" 
