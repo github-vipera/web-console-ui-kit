@@ -42,6 +42,9 @@ export class WCGridEditorCommandComponent {
     @Input() commandIcon: string;
     @Input() commandId: string;
     @Input() public alignMode = 'center';
+    @Input() stopPropagation: boolean;
+    @Input() cssClass:string;
+
     // row data
     @Input() dataItem:any;
     @Input() rowIndex:number;
@@ -65,6 +68,9 @@ export class WCGridEditorCommandComponent {
     }
 
     onCheckChange(event){
+        if (this.stopPropagation){
+            event.stopPropagation();
+        }
         if(this.confirmationTitleProvider){
             this.confirmationTitle = this.confirmationTitleProvider.getTitle(this.dataItem);
         }
@@ -84,6 +90,9 @@ export class WCGridEditorCommandComponent {
     }
 
     onCommandClick(event) {
+        if (this.stopPropagation){
+            event.stopPropagation();
+        }
         if (!this.disabled){
             this.commandClick.emit({
                 id: this.commandId,
@@ -100,6 +109,9 @@ export class WCGridEditorCommandComponent {
     }
 
     onConfirm(event){
+        if (this.stopPropagation){
+            event.stopPropagation();
+        }
         this.commandConfirm.emit({
             id: this.commandId,
             uid: this.controlUID,
@@ -114,6 +126,9 @@ export class WCGridEditorCommandComponent {
     }
 
     onCancel(event) {
+        if (this.stopPropagation){
+            event.stopPropagation();
+        }
         this.commandCancel.emit({
             id: this.commandId,
             uid: this.controlUID,
