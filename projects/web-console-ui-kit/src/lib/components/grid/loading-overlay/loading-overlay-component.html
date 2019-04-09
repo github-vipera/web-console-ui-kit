@@ -7,10 +7,12 @@
 
 <!-- The Progress Bar -->
 <div class="wc-loading-overlay-progress-container" *ngIf="useProgress">
-    <div style="width:100%;display:flex;flex-direction: column;">
-        <a style="flex:1;text-align: center;padding:8px;">{{progressTitle}}</a>
+    <div class="wc-loading-overlay-progress-container-inner" >
+        <a class="wc-loading-overlay-progress-title" >{{progressTitle}}</a>
         <p-progressBar [value]="progress" [styleClass]="'wc-loading-overlay-progress'"></p-progressBar>
     </div>
 </div>
 
 </div>
+
+
