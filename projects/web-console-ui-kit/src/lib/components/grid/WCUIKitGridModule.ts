@@ -6,11 +6,13 @@ import { WCGridEditorCommandComponent } from './grid-editor-command/grid-editor-
 import { WCGridButtonEditorComponent } from './grid-editor/WCGridButtonEditorComponent';
 import { CommonModule } from "@angular/common";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
     imports: [
         CommonModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        ProgressBarModule
     ],
     entryComponents: [
     ],

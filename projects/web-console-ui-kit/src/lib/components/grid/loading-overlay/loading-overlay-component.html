@@ -1,4 +1,18 @@
 <div class='wc-loading-overlay'
 [class.wc-loading-overlay-hidden]='!visible'>
-<fa-icon [icon]="faCircleNotch" [spin]="true" class="wc-loading-overlay-icon"></fa-icon>
+
+
+<!-- The Spinner -->
+<fa-icon *ngIf="!useProgress"  [icon]="faCircleNotch" [spin]="true" class="wc-loading-overlay-icon"></fa-icon>
+
+<!-- The Progress Bar -->
+<div class="wc-loading-overlay-progress-container" *ngIf="useProgress">
+    <div class="wc-loading-overlay-progress-container-inner" >
+        <a class="wc-loading-overlay-progress-title" >{{progressTitle}}</a>
+        <p-progressBar [value]="progress" [styleClass]="'wc-loading-overlay-progress'"></p-progressBar>
+    </div>
 </div>
+
+</div>
+
+

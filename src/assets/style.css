@@ -623,3 +623,6 @@ nav a:hover .main-menu-icon-container  {
 
 nav { transition:all .1s; }
 
+.ui-progressbar-determinate .ui-progressbar-value {
+	background-color: #8e62c770;
+}
