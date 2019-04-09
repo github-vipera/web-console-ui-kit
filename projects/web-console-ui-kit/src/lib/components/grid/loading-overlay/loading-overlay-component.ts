@@ -8,9 +8,14 @@ import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 })
 export class WCLoadingOverlayComponent {
 
+    @Input() useProgress:boolean;
     faCircleNotch = faCircleNotch;
 
+    @Input() progress:number;
+
     @Input() public visible: boolean;
+
+    @Input() public progressTitle: string;
 
     constructor() {}
 }

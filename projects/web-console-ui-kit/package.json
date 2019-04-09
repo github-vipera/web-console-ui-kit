@@ -1,6 +1,6 @@
 {
   "name": "web-console-ui-kit",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
@@ -28,7 +28,9 @@
     "uuid": "^3.3.2",
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.13",
-    "@fortawesome/free-solid-svg-icons": "^5.7.0"
+    "@fortawesome/free-solid-svg-icons": "^5.7.0",
+    "primeicons": "^1.0.0",
+    "primeng": "^7.1.0"
   },
   "devDependencies": {
     "@compodoc/compodoc" : "latest"

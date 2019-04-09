@@ -30,6 +30,8 @@ export class KendoControlsComponent implements OnInit {
   private path:KendoUIDrawing.Path;
   private text:KendoUIDrawing.Text;
   private group:KendoUIDrawing.Group;
+  
+  showLoadingOverlay:boolean;
 
   constructor(private toaster: WCToasterService) {
 
@@ -42,5 +44,8 @@ export class KendoControlsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onShowOverlay(){
+    this.showLoadingOverlay = !this.showLoadingOverlay;
+  }
 
 }

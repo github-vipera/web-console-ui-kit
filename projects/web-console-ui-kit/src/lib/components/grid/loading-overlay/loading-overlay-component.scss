@@ -30,3 +30,55 @@
     font-size: 4rem;
     color: #8080807d;
 }
+
+.wc-loading-overlay-progress-container {
+    width:100%;
+    height:100%;
+    padding:15rem;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+}
+
+.wc-loading-overlay-progress
+{
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+.wc-loading-overlay-progress-container-inner {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.wc-loading-overlay-progress-title {
+    flex:1;
+    text-align: center;
+    padding:8px;
+}
+
+.ui-progressbar-determinate .ui-progressbar-value {
+	background-color: #dadada;
+}

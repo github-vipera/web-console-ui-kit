@@ -1,7 +1,10 @@
+<wc-loading-overlay [visible]="showLoadingOverlay"></wc-loading-overlay>
+
 <div>   
 
-        <kendo-calendar></kendo-calendar>
+    <kendo-calendar></kendo-calendar>
         
+    <button click="onShowOverlay()">Show Overlay</button>
 
         <button kendoButton>Browse</button>
         <kendo-buttongroup>

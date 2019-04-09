@@ -39,6 +39,8 @@
     "@progress/kendo-theme-default",
     "@progress/kendo-angular-layout",
     "@progress/kendo-angular-notification",
-    "uuid"
+    "uuid",
+    "primeicons",
+    "primeng"
   ]
 }
