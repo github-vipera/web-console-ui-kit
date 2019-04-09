@@ -42,6 +42,11 @@ export class OAuth2TokensListComponent implements OnInit {
   public totalPages = 0;
   public totalRecords = 0;
   public isFieldSortable=false;
+  public isLoading:boolean;
+  public progressValue:number;
+  private progressInterval;
+  private timeLeft: number = 60;
+  public progressTitle:string;
 
   constructor(private oauth2Service: Oauth2Service,  
     private domainsService:DomainsService,
@@ -74,6 +79,7 @@ export class OAuth2TokensListComponent implements OnInit {
 
   private loadData(domain:string, pageIndex:number, pageSize:number){
     if (this._selectedDomain){
+      this.isLoading = true;
       console.log("loadData pageIndex=" + pageIndex +" pageSize="+pageSize);
 
       let sort:MotifQuerySort = this.buildQuerySort();
@@ -93,9 +99,11 @@ export class OAuth2TokensListComponent implements OnInit {
           total: results.totalRecords
         }
         this.currentPage = results.pageIndex;
+        this.isLoading = false;
 
       }, error=>{
         console.log("MotifPagedQueryInterceptor test query error: ", error);
+        this.isLoading = false;
       });
 
       /*
@@ -193,5 +201,22 @@ export class OAuth2TokensListComponent implements OnInit {
 
   onDeleteCancelPressed(dataItem:any):void {
   }
+
+  onShowOverlay(){
+    this.isLoading = true;
+    this.progressValue = 0;
+    this.progressInterval = setInterval(() => {
+      this.progressValue++;
+      this.progressTitle = "Progress of: " + this.progressValue;
+      if(this.timeLeft > 0) {
+        this.timeLeft --;
+      } else {
+        this.isLoading = false;
+        clearInterval(this.progressInterval);
+        this.timeLeft = 60;
+      }
+    },1000)
+  }
+  
 
 }

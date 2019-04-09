@@ -31,7 +31,9 @@
               "src/assets/wc-uikit-kendo.css",
               "src/assets/wc-uikit-toast.css",
               "src/assets/wc-uikit-dashboard.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },

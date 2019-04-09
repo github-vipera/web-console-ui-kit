@@ -1,11 +1,12 @@
 <wc-dashboard-header [title]="'OAuth2 Token Management'"></wc-dashboard-header>
+<wc-loading-overlay [progress]="progressValue" [progressTitle]="progressTitle" [useProgress]="false" [visible]="isLoading"></wc-loading-overlay>
 
 <div class="row spread">
     <div>
         <label>Domain</label>
         <kendo-combobox [data]="domainList" [allowCustom]="false" [valueField]="'name'" [textField]="'name'" [(ngModel)]="selectedDomain"></kendo-combobox>
     </div>
-
+    <button (click)="onShowOverlay()">Show Overlay</button>
 </div>
 
 <div class="row">

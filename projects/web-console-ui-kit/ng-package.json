@@ -39,7 +39,9 @@
     "@progress/kendo-drawing",
     "@progress/kendo-theme-default",
     "@progress/kendo-angular-layout",
-    "uuid"
+    "uuid",
+    "primeicons",
+    "primeng"
     ]
 }
 
