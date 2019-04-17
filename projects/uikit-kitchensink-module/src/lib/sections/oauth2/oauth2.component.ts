@@ -208,14 +208,11 @@ export class OAuth2TokensListComponent implements OnInit {
     this.progressInterval = setInterval(() => {
       this.progressValue++;
       this.progressTitle = "Progress of: " + this.progressValue;
-      if(this.timeLeft > 0) {
-        this.timeLeft --;
-      } else {
-        this.isLoading = false;
+      if (this.progressValue===100){
+        //this.isLoading = false;
         clearInterval(this.progressInterval);
-        this.timeLeft = 60;
       }
-    },1000)
+    },50)
   }
   
 

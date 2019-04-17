@@ -82,3 +82,18 @@
 .ui-progressbar-determinate .ui-progressbar-value {
 	background-color: #dadada;
 }
+
+.ui-progressbar-value-animate {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+.ui-progressbar-determinate .ui-progressbar-value  {
+    background-color: red !important;
+}
+
+.wc-loading-overlay-progress-title {
+    color:yellow;
+}
