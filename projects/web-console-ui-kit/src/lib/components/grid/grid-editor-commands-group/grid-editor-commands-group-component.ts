@@ -11,6 +11,7 @@ export interface WCGridEditorCommandConfig {
     confirmationTitle?: string;
     confirmationTitleProvider?:WCConfirmationTitleProvider;
     cssClass?:string;
+    disabled?:boolean;
 }
 
 export interface WCGridEditorCommandsConfig extends Array<WCGridEditorCommandConfig>{}
